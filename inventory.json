@@ -1,0 +1,63 @@
+{
+  "6539341659": [
+    {
+      "item_id": "admin",
+      "name": "Dev NFT",
+      "emoji": "👑",
+      "global_number": 1,
+      "purchased_at": "2026-02-19T20:50:31.668835",
+      "description": "НФТ который только у создателя",
+      "unique_id": "6539341659_admin_0_3823"
+    },
+    {
+      "item_id": "PlushPepe",
+      "global_number": 1,
+      "name": "Plush Pepe",
+      "emoji": "🐸",
+      "description": "Plush Pepe, самый дорогой НФТ!",
+      "purchased_at": "2026-02-20T20:14:28.849897",
+      "unique_id": "6539341659_PlushPepe_3_8508"
+    }
+  ],
+  "8346625013": [
+    
+  ],
+  "8495486236": [
+    {
+      "item_id": "PlushPepe",
+      "global_number": 2,
+      "name": "Plush Pepe",
+      "emoji": "🐸",
+      "description": "Plush Pepe, самый дорогой НФТ!",
+      "purchased_at": "2026-02-20T20:25:49.661343",
+      "unique_id": "8495486236_PlushPepe_0_4027"
+    },
+    {
+      "item_id": "PlushPepe",
+      "global_number": 3,
+      "name": "Plush Pepe",
+      "emoji": "🐸",
+      "description": "Plush Pepe, самый дорогой НФТ!",
+      "purchased_at": "2026-02-20T20:25:51.082106",
+      "unique_id": "8495486236_PlushPepe_1_1374"
+    },
+    {
+      "item_id": "PlushPepe",
+      "global_number": 4,
+      "name": "Plush Pepe",
+      "emoji": "🐸",
+      "description": "Plush Pepe, самый дорогой НФТ!",
+      "purchased_at": "2026-02-20T20:25:53.115937",
+      "unique_id": "8495486236_PlushPepe_2_9165"
+    },
+    {
+      "item_id": "PlushPepe",
+      "global_number": 5,
+      "name": "Plush Pepe",
+      "emoji": "🐸",
+      "description": "Plush Pepe, самый дорогой НФТ!",
+      "purchased_at": "2026-02-20T20:25:53.209329",
+      "unique_id": "8495486236_PlushPepe_3_3385"
+    }
+  ]
+}

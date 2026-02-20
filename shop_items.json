@@ -1,0 +1,42 @@
+{
+  "admin": {
+    "name": "Dev NFT",
+    "price": 1000000,
+    "quantity": 0,
+    "sold": 1,
+    "description": "НФТ который только у создателя",
+    "emoji": "👑"
+  },
+  "PlushPepe": {
+    "name": "Plush Pepe",
+    "price": 10000000,
+    "quantity": 0,
+    "sold": 5,
+    "description": "Plush Pepe, самый дорогой НФТ!",
+    "emoji": "🐸"
+  },
+  "tester": {
+    "name": "Первый!",
+    "price": 500000,
+    "quantity": 0,
+    "sold": 1,
+    "description": "НФТ который только у первого игрока!",
+    "emoji": "⏳"
+  },
+  "LolPop": {
+    "name": "LolPop",
+    "price": 5000000,
+    "quantity": 0,
+    "sold": 10,
+    "description": "Это леденец НФТ",
+    "emoji": "🍭"
+  },
+  "test": {
+    "name": "Тестовый",
+    "price": 1000000,
+    "quantity": 0,
+    "sold": 4,
+    "description": "Тестовый НФТ!",
+    "emoji": "💻"
+  }
+}

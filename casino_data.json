@@ -1,0 +1,69 @@
+{
+  "6539341659": {
+    "balance": 970000488990000000,
+    "level": 1,
+    "games_played": 8,
+    "wins": 5,
+    "used_promocodes": [],
+    "games": 3,
+    "promos": [
+      "FEB2026",
+      "FREE100KK",
+      "NEWPROMO"
+    ]
+  },
+  "8192237273": {
+    "balance": 10000,
+    "level": 1,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": []
+  },
+  "7712274782": {
+    "balance": 10000,
+    "level": 1,
+    "games_played": 10,
+    "wins": 10,
+    "used_promocodes": []
+  },
+  "8346625013": {
+    "balance": 10000,
+    "level": 1,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": []
+  },
+  "8495486236": {
+    "balance": 10000,
+    "level": 1,
+    "games_played": 64,
+    "wins": 27,
+    "used_promocodes": []
+  },
+  "8300296397": {
+    "balance": 10000,
+    "level": 1,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "promos": [
+      "FEB2026",
+      "FREE100KK",
+      "NEWPROMO"
+    ]
+  },
+  "6860487283": {
+    "balance": 10000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [
+      "NEWPROMO"
+    ]
+  },
+  "8526360498": {
+    "balance": 10000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": []
+  }
+}
