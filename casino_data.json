@@ -7,9 +7,6 @@
     "used_promocodes": [],
     "games": 3,
     "promos": [
-      "FEB2026",
-      "FREE100KK",
-      "NEWPROMO"
     ]
   },
   "8192237273": {
@@ -47,9 +44,6 @@
     "wins": 0,
     "used_promocodes": [],
     "promos": [
-      "FEB2026",
-      "FREE100KK",
-      "NEWPROMO"
     ]
   },
   "6860487283": {
@@ -57,7 +51,6 @@
     "games_played": 0,
     "wins": 0,
     "used_promocodes": [
-      "NEWPROMO"
     ]
   },
   "8526360498": {
@@ -66,4 +59,5 @@
     "wins": 0,
     "used_promocodes": []
   }
+
 }
