@@ -22,6 +22,8 @@ INVENTORY_FILE = "inventory.json"
 COUNTERS_FILE = "counters.json"
 MARKET_FILE = "market_listings.json"
 
+START_BALANCE = 10000  # Стартовый баланс: 10к
+
 logging.basicConfig(level=logging.INFO)
 
 # === СОСТОЯНИЯ ===
@@ -98,7 +100,7 @@ class UserDB:
         user = data.get(str(user_id), {})
         
         if 'balance' not in user:
-            user['balance'] = 10000
+            user['balance'] = START_BALANCE
         if 'games_played' not in user:
             user['games_played'] = 0
         if 'wins' not in user:
@@ -505,7 +507,7 @@ class Games:
                           games_played=user.get('games_played', 0) + 1)
             return {'ok': True, 'win': False, 'roll': roll, 'amount': bet, 'balance': new_balance}
 
-# === НОВАЯ ИГРА КРАШ ===
+# === ИГРА КРАШ ===
 class CrashGame:
     def __init__(self, db):
         self.db = db
@@ -513,8 +515,12 @@ class CrashGame:
     
     def start(self, user_id, bet, target_x):
         """Начать игру Краш"""
+        # Если есть активная игра, но она уже завершена - удаляем
         if user_id in self.active_games:
-            return {'ok': False, 'msg': '❌ У вас уже есть активная игра!'}
+            if self.active_games[user_id].get('status') in ['won', 'lost']:
+                del self.active_games[user_id]
+            else:
+                return {'ok': False, 'msg': '❌ У вас уже есть активная игра! Завершите её.'}
         
         user = self.db.get(user_id)
         if user['balance'] < bet:
@@ -538,7 +544,7 @@ class CrashGame:
             'bet': bet,
             'target_x': target_x,
             'crash_point': crash_point,
-            'status': 'active'  # active, won, lost
+            'status': 'active'
         }
         
         self.active_games[user_id] = game_data
@@ -562,6 +568,10 @@ class CrashGame:
             game_data['status'] = 'lost'
             game_data['final_balance'] = new_balance
         
+        # Удаляем игру после завершения
+        if game_data['status'] in ['won', 'lost']:
+            del self.active_games[user_id]
+        
         return {
             'ok': True,
             'game_data': game_data
@@ -570,37 +580,54 @@ class CrashGame:
     def _generate_crash_point(self):
         """Генерирует случайную точку краша"""
         r = random.random()
-        crash = 1.0 / (1.0 - r * 0.99)
+        crash = 1.0 / (1.0 - r * 0.95)  # Уменьшил множители
         return round(crash, 2)
-    
-    def get_result(self, user_id):
-        """Получить результат игры и удалить ее"""
-        if user_id not in self.active_games:
-            return None
-        
-        game_data = self.active_games[user_id]
-        del self.active_games[user_id]
-        return game_data
 
-# === МИНЫ ===
+# === МИНЫ С УРЕЗАННЫМИ МНОЖИТЕЛЯМИ ===
 class Mines:
     def __init__(self, db):
         self.db = db
         self.games = {}
     
-    def mults(self, count):
-        if count <= 3:
-            return {1:1.2,2:1.5,3:2.0,4:3.0,5:5.0,6:7.0,7:10.0,8:15.0,9:20.0,10:30.0,11:50.0,12:100.0}
-        elif count <= 6:
-            return {1:1.5,2:2.0,3:3.0,4:5.0,5:7.0,6:10.0,7:15.0,8:20.0,9:30.0,10:50.0,11:100.0,12:150.0}
-        elif count <= 10:
-            return {1:2.0,2:3.0,3:5.0,4:7.0,5:10.0,6:15.0,7:20.0,8:30.0,9:50.0,10:100.0,11:150.0,12:200.0}
-        else:
-            return {1:3.0,2:5.0,3:7.0,4:10.0,5:15.0,6:20.0,7:30.0,8:50.0,9:100.0,10:150.0,11:200.0,12:300.0}
+    def get_multipliers(self, mines_count):
+        """Возвращает урезанные множители в зависимости от количества мин"""
+        # Сильно урезанные множители
+        if mines_count <= 3:  # 1-3 мины
+            return {
+                1: 1.01, 2: 1.05, 3: 1.10, 4: 1.15, 5: 1.21,
+                6: 1.28, 7: 1.35, 8: 1.35, 9: 1.43, 10: 1.45,
+                11: 1.52, 12: 1.62, 13: 1.73, 14: 1.87, 15: 1.95,
+                16: 2, 17: 2.12, 18: 2.19, 19: 2.46, 20: 2.61,
+                21: 3.03, 22: 3.57, 23: 4.21, 24: 5
+            }
+        elif mines_count <= 6:  # 4-6 мин
+            return {
+                1: 1.21, 2: 1.53, 3: 1.96, 4: 2.53, 5: 3.32,
+                6: 4.41, 7: 6.67, 8: 8.42, 9: 10.45, 10: 15.52,
+                11: 21.55, 12: 25.60, 13: 30.65, 14: 39.70, 15: 47.75,
+                16: 67.80, 17: 71.85, 18: 79.90, 19: 84.95, 20: 87.00,
+                21: 93.05, 22: 95.10, 23: 97.15, 24: 100.00
+            }
+        elif mines_count <= 10:  # 7-10 мин
+            return {
+                1: 1.43, 2: 2.15, 3: 3.20, 4: 5.25, 5: 6.30,
+                6: 7.35, 7: 8.40, 8: 9.45, 9: 10.50, 10: 15.55,
+                11: 23.60, 12: 25.65, 13: 31.70, 14: 38.75, 15: 41.80,
+                16: 49.85, 17: 56.90, 18: 61.95, 19: 67.00, 20: 72.05,
+                21: 89.10, 22: 95.15, 23: 99.20, 24: 100.00
+            }
+        else:  # 11+ мин
+            return {
+                1: 1.80, 2: 3.18, 3: 7.24, 4: 12.30, 5: 21.36,
+                6: 26.42, 7: 32.48, 8: 37.54, 9: 45.60, 10: 49.66,
+                11: 53.72, 12: 58.78, 13: 64.84, 14: 72.90, 15: 86.96,
+                16: 93.02, 17: 97.08, 18: 100.14, 19: 112.20, 20: 126.26,
+                21: 132.32, 22: 139.38, 23: 145.44, 24: 150.50
+            }
     
     def start(self, user_id, bet, mines=3):
         if user_id in self.games:
-            return {'ok': False, 'msg': '❌ Уже есть активная игра!'}
+            return {'ok': False, 'msg': '❌ Уже есть активная игра! Завершите её.'}
         
         user = self.db.get(user_id)
         if user['balance'] < bet:
@@ -620,7 +647,7 @@ class Mines:
             'count': mines,
             'opened': [], 
             'mult': 1.0, 
-            'mults': self.mults(mines), 
+            'mults': self.get_multipliers(mines), 
             'won': 0
         }
         
@@ -648,7 +675,7 @@ class Mines:
         g['opened'].append(pos)
         g['field'][row][col] = '🟩'
         opened = len(g['opened'])
-        g['mult'] = g['mults'].get(opened, 100.0)
+        g['mult'] = g['mults'].get(opened, 2.5)  # Максимум 2.5x
         g['won'] = int(g['bet'] * g['mult'])
         
         return {
@@ -720,10 +747,23 @@ class BotCore:
         self.mines = Mines(self.db)
         self.counters = CountersDB()
     
-    def parse_bet(self, text):
+    def parse_bet(self, text, user_balance=None):
+        """
+        Парсит ставку с поддержкой:
+        - числа: 1000
+        - суффиксы: 1к, 2.5кк, 3ккк
+        - ключевое слово "все" - весь баланс
+        """
         if not text:
             return 0
-        text = str(text).lower().replace(' ', '')
+        
+        text = str(text).lower().strip()
+        
+        # Обработка "все" - весь баланс
+        if text == 'все' and user_balance is not None:
+            return user_balance
+        
+        # Обработка чисел с суффиксами
         match = re.match(r'^(\d+(?:\.\d+)?)(к+)$', text)
         if match:
             num = float(match.group(1))
@@ -734,6 +774,8 @@ class BotCore:
                 return int(num * 1_000_000)
             elif k == 3:
                 return int(num * 1_000_000_000)
+        
+        # Обычное число
         try:
             return int(text)
         except:
@@ -762,29 +804,78 @@ bot_core = BotCore()
 def is_private(message: Message):
     return message.chat.type == 'private'
 
+# === КОМАНДА ПОМОЩЬ ===
+async def cmd_help(msg: Message):
+    """Показывает список всех команд"""
+    help_text = """
+🎮 **ВСЕ ИГРЫ БОТА**
+
+**💰 ИГРЫ НА ДЕНЬГИ:**
+• `монетка [ставка] [орел/решка]` - классическая монетка (x2)
+• `слоты [ставка]` - игровые автоматы (x5 или x10)
+• `кубик [ставка] [число]` - угадай число на кубике (x6)
+• `краш [ставка] [иксы]` - ракета летит до множителя
+• `мины [ставка] [мин]` - минное поле с множителями
+
+**💰 ОСОБАЯ СТАВКА:**
+• `все` - поставить ВЕСЬ баланс (например: `мины все 5`)
+
+**📊 ПРОФИЛЬ И БАЛАНС:**
+• `баланс` или `б` - проверить баланс
+• `профиль` - полная статистика
+• `п` - быстрый профиль (работает в группах)
+• `топ` - топ игроков по балансу
+
+**🛍️ NFT МАГАЗИН (только в ЛС):**
+• `магазин` - посмотреть доступные NFT
+• `инвентарь` - мои NFT
+• `рынок` - купить NFT у других игроков
+• `мои лоты` - мои объявления о продаже
+
+**🔄 ПЕРЕВОДЫ:**
+• `дать [сумма]` - перевести деньги (в ответ на сообщение)
+• `передать [номер] [id]` - передать NFT
+
+**🎫 ПРОМОКОДЫ:**
+• `промо [код]` - активировать промокод
+
+**💰 ФОРМАТЫ СТАВОК:**
+• 1к = 1,000
+• 1кк = 1,000,000
+• 1ккк = 1,000,000,000
+• `все` = весь баланс
+
+**📝 ПРИМЕРЫ:**
+• `монетка 1к орел`
+• `краш 500 2.5`
+• `мины все 5` - поставить всё на 5 мин
+• `кубик все 6` - поставить всё на число 6
+
+✨ **Баланс при старте: 10,000 коинов**
+"""
+    await msg.answer(help_text, parse_mode="Markdown")
+
 # === ОБРАБОТЧИКИ КОМАНД ===
 async def cmd_start(msg: Message):
     bot_core.db.get(msg.from_user.id)
     await msg.answer(
         f"🎰 Добро пожаловать, {msg.from_user.first_name}!\n"
-        f"💰 Баланс: {bot_core.fmt(1000000)}\n\n"
-        f"📝 Команды:\n"
-        f"• баланс / б\n"
-        f"• профиль / п\n"
-        f"• топ\n"
-        f"• магазин (только ЛС)\n"
-        f"• инвентарь (только ЛС)\n"
-        f"• промо КОД\n"
-        f"• рынок / маркет (только ЛС)\n"
-        f"• передача NFT (только ЛС)\n"
-        f"• **дать [сумма]** - перевести деньги (в ответ на сообщение)\n\n"
+        f"💰 Баланс: {bot_core.fmt(START_BALANCE)}\n\n"
+        f"📝 Основные команды:\n"
+        f"• `помощь` или `help` - все команды\n"
+        f"• `баланс` / `б` - проверить баланс\n"
+        f"• `профиль` / `п` - статистика\n"
+        f"• `топ` - топ игроков\n"
+        f"• `магазин` - NFT магазин (только ЛС)\n"
+        f"• `инвентарь` - мои NFT (только ЛС)\n\n"
         f"🎮 Игры:\n"
-        f"• монетка СТАВКА [орел/решка]\n"
-        f"• слоты СТАВКА\n"
-        f"• кубик СТАВКА ЧИСЛО\n"
-        f"• краш СТАВКА [иксы] - новая игра!\n"
-        f"• мины СТАВКА [МИН]\n\n"
-        f"💰 1к=1,000 | 1кк=1,000,000 | 1ккк=1,000,000,000"
+        f"• `монетка 1к орел`\n"
+        f"• `слоты 500`\n"
+        f"• `кубик 1кк 5`\n"
+        f"• `краш 1000 2.5`\n"
+        f"• `мины все 5` - поставить ВСЁ!\n\n"
+        f"💰 1к=1,000 | 1кк=1,000,000 | 1ккк=1,000,000,000",
+        parse_mode="Markdown"
     )
 
 async def cmd_balance(msg: Message):
@@ -894,7 +985,6 @@ async def cmd_inventory(msg: Message):
     
     kb = []
     for item in sorted_inv:
-        item_id = item.get('item_id', 'unknown')
         global_num = item.get('global_number', 0)
         kb.append([InlineKeyboardButton(
             text=f"#{global_num} {item.get('emoji', '🎁')} {item.get('name', 'Предмет')}",
@@ -981,13 +1071,14 @@ async def cmd_give(msg: Message):
                         "Пример: дать 10к")
         return
     
-    amount = bot_core.parse_bet(parts[1])
+    # Получаем баланс отправителя для обработки "все"
+    sender = bot_core.db.get(sender_id)
+    amount = bot_core.parse_bet(parts[1], sender['balance'])
     
     if amount <= 0:
         await msg.answer("❌ Неверная сумма перевода!")
         return
     
-    sender = bot_core.db.get(sender_id)
     if sender['balance'] < amount:
         await msg.answer(f"❌ Недостаточно средств! Ваш баланс: {bot_core.fmt(sender['balance'])}")
         return
@@ -1023,7 +1114,6 @@ async def cmd_promo(msg: Message, command: CommandObject):
     res = bot_core.promo.use(code, msg.from_user.id, bot_core.db)
     await msg.answer(res['msg'])
 
-# === НОВАЯ ФУНКЦИЯ cmd_transfer ===
 async def cmd_transfer(msg: Message, command: CommandObject):
     """Передача NFT по unique_id через команду"""
     # Проверяем, что команда вызвана в личке
@@ -1103,11 +1193,19 @@ async def cmd_transfer(msg: Message, command: CommandObject):
 # === ИГРЫ ===
 async def cmd_coin(msg: Message, command: CommandObject):
     args = command.args.split() if command.args else []
+    
+    # Получаем баланс пользователя для обработки "все"
+    user = bot_core.db.get(msg.from_user.id)
+    balance = user['balance']
+    
     if len(args) == 2:
-        bet = bot_core.parse_bet(args[0])
+        bet = bot_core.parse_bet(args[0], balance)
         choice = args[1].lower().replace('ё', 'е')
-        if bet <= 0 or choice not in ['орел', 'решка']:
-            await msg.answer("❌ Неверный формат. Пример: монетка 1кк орел")
+        if bet <= 0 or bet > balance:
+            await msg.answer(f"❌ Неверная ставка! Ваш баланс: {bot_core.fmt(balance)}")
+            return
+        if choice not in ['орел', 'решка']:
+            await msg.answer("❌ Неверный выбор. Выберите 'орел' или 'решка'")
             return
         res = bot_core.games.coin(msg.from_user.id, bet, choice)
         if not res['ok']:
@@ -1118,9 +1216,9 @@ async def cmd_coin(msg: Message, command: CommandObject):
         else:
             await msg.answer(f"😞 Выпал {res['res']}! -{bot_core.fmt(res['amount'])}\n💰 Баланс: {bot_core.fmt(res['balance'])}")
     elif len(args) == 1:
-        bet = bot_core.parse_bet(args[0])
-        if bet <= 0:
-            await msg.answer("❌ Неверная ставка")
+        bet = bot_core.parse_bet(args[0], balance)
+        if bet <= 0 or bet > balance:
+            await msg.answer(f"❌ Неверная ставка! Ваш баланс: {bot_core.fmt(balance)}")
             return
         kb = InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="🦅 Орел", callback_data=f"coin_{bet}_орел")],
@@ -1132,10 +1230,15 @@ async def cmd_coin(msg: Message, command: CommandObject):
 
 async def cmd_slots(msg: Message, command: CommandObject):
     args = command.args.split() if command.args else []
+    
+    # Получаем баланс пользователя для обработки "все"
+    user = bot_core.db.get(msg.from_user.id)
+    balance = user['balance']
+    
     if len(args) >= 1:
-        bet = bot_core.parse_bet(args[0])
-        if bet <= 0:
-            await msg.answer("❌ Неверная ставка")
+        bet = bot_core.parse_bet(args[0], balance)
+        if bet <= 0 or bet > balance:
+            await msg.answer(f"❌ Неверная ставка! Ваш баланс: {bot_core.fmt(balance)}")
             return
         res = bot_core.games.slots(msg.from_user.id, bet)
         if not res['ok']:
@@ -1151,11 +1254,19 @@ async def cmd_slots(msg: Message, command: CommandObject):
 
 async def cmd_dice(msg: Message, command: CommandObject):
     args = command.args.split() if command.args else []
+    
+    # Получаем баланс пользователя для обработки "все"
+    user = bot_core.db.get(msg.from_user.id)
+    balance = user['balance']
+    
     if len(args) == 2:
-        bet = bot_core.parse_bet(args[0])
+        bet = bot_core.parse_bet(args[0], balance)
         pred = int(args[1])
-        if bet <= 0 or pred < 1 or pred > 6:
-            await msg.answer("❌ Неверный формат. Пример: кубик 1кк 5")
+        if bet <= 0 or bet > balance:
+            await msg.answer(f"❌ Неверная ставка! Ваш баланс: {bot_core.fmt(balance)}")
+            return
+        if pred < 1 or pred > 6:
+            await msg.answer("❌ Число должно быть от 1 до 6!")
             return
         res = bot_core.games.dice(msg.from_user.id, bet, pred)
         if not res['ok']:
@@ -1166,9 +1277,9 @@ async def cmd_dice(msg: Message, command: CommandObject):
         else:
             await msg.answer(f"🎲 Выпало {res['roll']}! -{bot_core.fmt(res['amount'])}\n💰 Баланс: {bot_core.fmt(res['balance'])}")
     elif len(args) == 1:
-        bet = bot_core.parse_bet(args[0])
-        if bet <= 0:
-            await msg.answer("❌ Неверная ставка")
+        bet = bot_core.parse_bet(args[0], balance)
+        if bet <= 0 or bet > balance:
+            await msg.answer(f"❌ Неверная ставка! Ваш баланс: {bot_core.fmt(balance)}")
             return
         kb = InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text=str(i), callback_data=f"dice_{bet}_{i}") for i in range(1,4)],
@@ -1182,12 +1293,16 @@ async def cmd_crash(msg: Message, command: CommandObject):
     """Новая игра КРАШ"""
     args = command.args.split() if command.args else []
     
+    # Получаем баланс пользователя для обработки "все"
+    user = bot_core.db.get(msg.from_user.id)
+    balance = user['balance']
+    
     if len(args) == 2:
-        bet = bot_core.parse_bet(args[0])
+        bet = bot_core.parse_bet(args[0], balance)
         target_x = bot_core.parse_float(args[1])
         
-        if bet <= 0:
-            await msg.answer("❌ Неверная ставка!")
+        if bet <= 0 or bet > balance:
+            await msg.answer(f"❌ Неверная ставка! Ваш баланс: {bot_core.fmt(balance)}")
             return
         
         if target_x < 1.1:
@@ -1224,9 +1339,9 @@ async def cmd_crash(msg: Message, command: CommandObject):
             )
     
     elif len(args) == 1:
-        bet = bot_core.parse_bet(args[0])
-        if bet <= 0:
-            await msg.answer("❌ Неверная ставка")
+        bet = bot_core.parse_bet(args[0], balance)
+        if bet <= 0 or bet > balance:
+            await msg.answer(f"❌ Неверная ставка! Ваш баланс: {bot_core.fmt(balance)}")
             return
         
         # Предлагаем выбрать множитель
@@ -1255,16 +1370,25 @@ async def cmd_crash(msg: Message, command: CommandObject):
             "• Если множитель < вашему - проигрыш\n\n"
             "Использование: краш СТАВКА [иксы]\n"
             "Пример: краш 1кк 2\n"
-            "Пример: краш 500к 5.5"
+            "Пример: краш 500к 5.5\n"
+            "Пример: краш все 2 - поставить всё!"
         )
 
 async def cmd_mines(msg: Message, command: CommandObject):
     args = command.args.split() if command.args else []
+    
+    # Получаем баланс пользователя для обработки "все"
+    user = bot_core.db.get(msg.from_user.id)
+    balance = user['balance']
+    
     if len(args) >= 1:
-        bet = bot_core.parse_bet(args[0])
+        bet = bot_core.parse_bet(args[0], balance)
         mines = int(args[1]) if len(args) > 1 else 3
-        if bet <= 0 or mines < 1 or mines > 24:
-            await msg.answer("❌ Неверные параметры")
+        if bet <= 0 or bet > balance:
+            await msg.answer(f"❌ Неверная ставка! Ваш баланс: {bot_core.fmt(balance)}")
+            return
+        if mines < 1 or mines > 24:
+            await msg.answer("❌ Количество мин должно быть от 1 до 24!")
             return
         res = bot_core.mines.start(msg.from_user.id, bet, mines)
         if not res['ok']:
@@ -1283,7 +1407,8 @@ async def cmd_mines(msg: Message, command: CommandObject):
             "Правила: открывайте клетки, множитель растёт\n"
             "💣 мина - проигрыш\n\n"
             "Использование: мины СТАВКА [МИН]\n"
-            "Пример: мины 1кк 5"
+            "Пример: мины 1кк 5\n"
+            "Пример: мины все 10 - поставить всё на 10 мин"
         )
 
 # === CALLBACK ===
@@ -1381,7 +1506,7 @@ async def callback_handler(cb: CallbackQuery, state: FSMContext):
                         await cb.message.edit_text(
                             f"🎮 Мины | 💣 {game['count']}\n"
                             f"💰 Ставка: {bot_core.fmt(game['bet'])}\n"
-                            f"🎯 {res['opened']}/{res['max']} | 📈 x{res['mult']}\n"
+                            f"🎯 {res['opened']}/{res['max']} | 📈 x{res['mult']:.2f}\n"
                             f"💎 {bot_core.fmt(res['won'])}",
                             reply_markup=kb
                         )
@@ -1403,7 +1528,7 @@ async def callback_handler(cb: CallbackQuery, state: FSMContext):
                 kb = bot_core.mines.kb(user_id, res['field'], False)
                 await cb.message.edit_text(
                     f"🏆 Выигрыш: +{bot_core.fmt(res['won'])}\n"
-                    f"🎯 {res['opened']} | 📈 x{res['mult']}\n"
+                    f"🎯 {res['opened']} | 📈 x{res['mult']:.2f}\n"
                     f"💰 Баланс: {bot_core.fmt(res['balance'])}",
                     reply_markup=kb
                 )
@@ -1703,7 +1828,9 @@ async def handle_russian(msg: Message, state: FSMContext):
         await cmd_short_profile(msg)
     elif text == 'топ':
         await cmd_top(msg)
-    elif text == ['магазин','нфт']:
+    elif text in ['помощь', 'help', 'команды']:
+        await cmd_help(msg)
+    elif text == 'магазин':
         await cmd_shop(msg)
     elif text in ['инвентарь', 'мои нфт']:
         await cmd_inventory(msg)
@@ -1817,12 +1944,13 @@ async def main():
     dp.message.register(cmd_full_profile, Command("profile"))
     dp.message.register(cmd_short_profile, Command("p"))
     dp.message.register(cmd_top, Command("top"))
+    dp.message.register(cmd_help, Command("help"))
     dp.message.register(cmd_shop, Command("shop"))
     dp.message.register(cmd_inventory, Command("inventory"))
     dp.message.register(cmd_market, Command("market"))
     dp.message.register(cmd_my_listings, Command("my_listings"))
     dp.message.register(cmd_promo, Command("promo"))
-    dp.message.register(cmd_transfer, Command("transfer"))  # <-- ВОТ ТУТ БЫЛА ПРОБЛЕМА
+    dp.message.register(cmd_transfer, Command("transfer"))
     dp.message.register(cmd_coin, Command("coinflip"))
     dp.message.register(cmd_slots, Command("slots"))
     dp.message.register(cmd_dice, Command("dice"))
@@ -1848,11 +1976,14 @@ async def main():
     dp.callback_query.register(callback_handler)
     
     print("✅ Бот запущен!")
+    print(f"✅ Новый токен: {BOT_TOKEN[:10]}...")
+    print(f"✅ Стартовый баланс: {START_BALANCE} коинов")
     print("✅ Новая игра: КРАШ")
+    print("✅ Урезанные множители в минах")
+    print("✅ Ставка 'все' - поставить весь баланс")
     print("✅ Глобальная нумерация NFT")
     print("✅ Рынок с лотами")
-    print("✅ Команда 'п' для быстрого профиля")
-    print("✅ Команда 'transfer' для передачи NFT")
+    print("✅ Команда 'помощь' для всех команд")
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
