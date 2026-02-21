@@ -42,11 +42,13 @@ class Database:
         self._ensure()
     
     def _ensure(self):
+        """Создает файл, если его нет"""
         if not os.path.exists(self.file):
             with open(self.file, 'w', encoding='utf-8') as f:
                 json.dump({}, f)
     
     def read(self):
+        """Читает данные из файла"""
         try:
             with open(self.file, 'r', encoding='utf-8') as f:
                 return json.load(f)
@@ -54,6 +56,7 @@ class Database:
             return {}
     
     def write(self, data):
+        """Записывает данные в файл"""
         with open(self.file, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
 
@@ -90,42 +93,69 @@ class CountersDB:
         data = self.db.read()
         return data.get('item_counters', {})
 
-# === ПОЛЬЗОВАТЕЛИ ===
+# === ПОЛЬЗОВАТЕЛИ (ИСПРАВЛЕНО) ===
 class UserDB:
     def __init__(self):
         self.db = Database(DATABASE_FILE)
     
     def get(self, user_id):
+        """Получить данные пользователя, создать если нет"""
         data = self.db.read()
-        user = data.get(str(user_id), {})
+        user_id_str = str(user_id)
+        
+        if user_id_str not in data:
+            # Создаем нового пользователя и сразу сохраняем
+            data[user_id_str] = {
+                'balance': START_BALANCE,
+                'games_played': 0,
+                'wins': 0,
+                'used_promocodes': []
+            }
+            self.db.write(data)
+            return data[user_id_str]
+        
+        # Проверяем наличие всех ключей у существующего пользователя
+        user = data[user_id_str]
+        changed = False
         
         if 'balance' not in user:
             user['balance'] = START_BALANCE
+            changed = True
         if 'games_played' not in user:
             user['games_played'] = 0
+            changed = True
         if 'wins' not in user:
             user['wins'] = 0
+            changed = True
         if 'used_promocodes' not in user:
             user['used_promocodes'] = []
+            changed = True
+        
+        if changed:
+            self.db.write(data)
         
         return user
     
     def update(self, user_id, **kwargs):
+        """Обновить данные пользователя"""
         data = self.db.read()
-        if str(user_id) not in data:
-            data[str(user_id)] = self.get(user_id)
+        user_id_str = str(user_id)
+        
+        if user_id_str not in data:
+            data[user_id_str] = self.get(user_id)
         
         for k, v in kwargs.items():
-            data[str(user_id)][k] = v
+            data[user_id_str][k] = v
         
         self.db.write(data)
     
     def top(self, limit=10):
+        """Получить топ игроков (без админа)"""
         data = self.db.read()
         users = []
         for uid, u in data.items():
             if uid == str(ADMIN_ID):
-                continue  # Исключаем админа из топа
+                continue
             if 'balance' not in u:
                 u['balance'] = 0
             users.append((uid, u))
@@ -134,17 +164,24 @@ class UserDB:
         return users[:limit]
     
     def all_users(self):
+        """Вернуть список всех ID пользователей"""
         return [int(uid) for uid in self.db.read().keys()]
+    
+    def get_all_users_data(self):
+        """Вернуть все данные пользователей (для админа)"""
+        return self.db.read()
 
-# === ПРОМОКОДЫ ===
+# === ПРОМОКОДЫ (ИСПРАВЛЕНО) ===
 class PromoDB:
     def __init__(self):
         self.db = Database(PROMO_FILE)
     
     def create(self, code, reward, limit=100, days=30):
+        """Создать новый промокод"""
         promos = self.db.read()
         if code in promos:
             return False
+        
         promos[code] = {
             'reward': reward,
             'limit': limit,
@@ -156,11 +193,22 @@ class PromoDB:
         return True
     
     def use(self, code, user_id, user_db):
+        """Использовать промокод"""
         promos = self.db.read()
         if code not in promos:
             return {'ok': False, 'msg': '❌ Промокод не найден!'}
         
         p = promos[code]
+        
+        # Проверяем наличие всех ключей
+        if 'expires' not in p:
+            return {'ok': False, 'msg': '❌ Ошибка в промокоде!'}
+        if 'limit' not in p:
+            p['limit'] = 100
+        if 'used' not in p:
+            p['used'] = 0
+        if 'users' not in p:
+            p['users'] = []
         
         if datetime.datetime.now() > datetime.datetime.fromisoformat(p['expires']):
             return {'ok': False, 'msg': '❌ Промокод просрочен!'}
@@ -181,7 +229,19 @@ class PromoDB:
         return {'ok': True, 'msg': f'🎉 Получено: {self.fmt(p["reward"])}'}
     
     def all(self):
-        return self.db.read()
+        """Получить все промокоды"""
+        promos = self.db.read()
+        # Проверяем каждый промокод
+        for code, p in promos.items():
+            if 'expires' not in p:
+                p['expires'] = (datetime.datetime.now() + datetime.timedelta(days=30)).isoformat()
+            if 'limit' not in p:
+                p['limit'] = 100
+            if 'used' not in p:
+                p['used'] = 0
+            if 'users' not in p:
+                p['users'] = []
+        return promos
     
     def fmt(self, n):
         if n >= 1_000_000_000:
@@ -192,7 +252,7 @@ class PromoDB:
             return f"{n/1000:.1f}к"
         return str(n)
 
-# === МАГАЗИН ===
+# === МАГАЗИН (ИСПРАВЛЕНО) ===
 class ShopDB:
     def __init__(self):
         self.shop = Database(SHOP_FILE)
@@ -200,9 +260,11 @@ class ShopDB:
         self.counters = CountersDB()
     
     def add(self, id, name, price, quantity, description="", emoji="🎁"):
+        """Добавить товар в магазин"""
         items = self.shop.read()
         if id in items:
             return False
+        
         items[id] = {
             'name': name, 
             'price': price, 
@@ -215,6 +277,7 @@ class ShopDB:
         return True
     
     def buy(self, id, user_id, user_db):
+        """Купить товар"""
         items = self.shop.read()
         inv = self.inv.read()
         
@@ -259,9 +322,22 @@ class ShopDB:
         }
     
     def items(self):
-        return self.shop.read()
+        """Получить все товары"""
+        items = self.shop.read()
+        # Проверяем каждый товар
+        for id, item in items.items():
+            if 'quantity' not in item:
+                item['quantity'] = 0
+            if 'sold' not in item:
+                item['sold'] = 0
+            if 'description' not in item:
+                item['description'] = ''
+            if 'emoji' not in item:
+                item['emoji'] = '🎁'
+        return items
     
     def inventory(self, user_id):
+        """Получить инвентарь пользователя"""
         inv = self.inv.read()
         return inv.get(str(user_id), [])
     
@@ -291,7 +367,7 @@ class ShopDB:
         inv[str(user_id)].append(item_data)
         self.inv.write(inv)
 
-# === РЫНОК ===
+# === РЫНОК (ИСПРАВЛЕНО) ===
 class MarketDB:
     def __init__(self):
         self.db = Database(MARKET_FILE)
@@ -583,22 +659,21 @@ class CrashGame:
         crash = 1.0 / (1.0 - r * 0.95)  # Уменьшил множители
         return round(crash, 2)
 
-# === МИНЫ С УРЕЗАННЫМИ МНОЖИТЕЛЯМИ ===
+# === МИНЫ С НОВЫМИ МНОЖИТЕЛЯМИ ===
 class Mines:
     def __init__(self, db):
         self.db = db
         self.games = {}
     
     def get_multipliers(self, mines_count):
-        """Возвращает урезанные множители в зависимости от количества мин"""
-        # Сильно урезанные множители
+        """Возвращает множители в зависимости от количества мин"""
         if mines_count <= 3:  # 1-3 мины
             return {
                 1: 1.01, 2: 1.05, 3: 1.10, 4: 1.15, 5: 1.21,
                 6: 1.28, 7: 1.35, 8: 1.35, 9: 1.43, 10: 1.45,
                 11: 1.52, 12: 1.62, 13: 1.73, 14: 1.87, 15: 1.95,
-                16: 2, 17: 2.12, 18: 2.19, 19: 2.46, 20: 2.61,
-                21: 3.03, 22: 3.57, 23: 4.21, 24: 5
+                16: 2.00, 17: 2.12, 18: 2.19, 19: 2.46, 20: 2.61,
+                21: 3.03, 22: 3.57, 23: 4.21, 24: 5.00
             }
         elif mines_count <= 6:  # 4-6 мин
             return {
@@ -1933,6 +2008,35 @@ async def admin_counters(msg: Message):
         text += f"• {item_id}: {count} экземпляров\n"
     await msg.answer(text)
 
+async def admin_users_list(msg: Message):
+    """Админ-команда для просмотра всех пользователей"""
+    if msg.from_user.id != ADMIN_ID:
+        return
+    
+    data = bot_core.db.get_all_users_data()
+    total_users = len(data)
+    
+    # Подсчет активных пользователей (с балансом > START_BALANCE или игравших)
+    active_users = 0
+    for uid, user in data.items():
+        if user.get('games_played', 0) > 0 or user.get('balance', 0) > START_BALANCE:
+            active_users += 1
+    
+    text = f"📊 СТАТИСТИКА ПОЛЬЗОВАТЕЛЕЙ:\n"
+    text += f"👥 Всего в базе: {total_users}\n"
+    text += f"🎮 Активных: {active_users}\n"
+    text += f"💤 Неактивных: {total_users - active_users}\n\n"
+    text += f"📋 Список ID (первые 20):\n"
+    
+    for i, uid in enumerate(sorted(data.keys())[:20]):
+        user = data[uid]
+        text += f"{i+1}. {uid}: {bot_core.fmt(user.get('balance', 0))} | 🎮 {user.get('games_played', 0)}\n"
+    
+    if len(data) > 20:
+        text += f"...и еще {len(data) - 20}\n"
+    
+    await msg.answer(text)
+
 # === ЗАПУСК ===
 async def main():
     bot = Bot(token=BOT_TOKEN)
@@ -1964,6 +2068,7 @@ async def main():
     dp.message.register(admin_promo_list, Command("admin_promo_list"))
     dp.message.register(admin_shop_list, Command("admin_shop_list"))
     dp.message.register(admin_counters, Command("admin_counters"))
+    dp.message.register(admin_users_list, Command("admin_users"))
     
     # FSM обработчики
     dp.message.register(handle_sell_price, SellStates.waiting_price)
@@ -1979,11 +2084,12 @@ async def main():
     print(f"✅ Новый токен: {BOT_TOKEN[:10]}...")
     print(f"✅ Стартовый баланс: {START_BALANCE} коинов")
     print("✅ Новая игра: КРАШ")
-    print("✅ Урезанные множители в минах")
+    print("✅ Новые множители в минах (сбалансированные)")
     print("✅ Ставка 'все' - поставить весь баланс")
     print("✅ Глобальная нумерация NFT")
     print("✅ Рынок с лотами")
     print("✅ Команда 'помощь' для всех команд")
+    print("✅ Админ-команда /admin_users для просмотра всех пользователей")
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
