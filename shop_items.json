@@ -15,6 +15,46 @@
     "description": "Plush Pepe, самый дорогой НФТ!",
     "emoji": "🐸"
   },
+  "order_of_victory": {
+    "name": "Орден Победы",
+    "price": 50000,
+    "quantity": 0,
+    "sold": 10,
+    "description": "Награда",
+    "emoji": "🏆"
+  },
+  "combat_helmet": {
+    "name": "Военный шлем",
+    "price": 40000,
+    "quantity": 0,
+    "sold": 10,
+    "description": "Защита головы",
+    "emoji": "🪖"
+  },
+  "AK47": {
+    "name": "AK47",
+    "price": 30000,
+    "quantity": 0,
+    "sold": 25,
+    "description": "Всеми известный автомат Калашникова",
+    "emoji": "🔫"
+  },
+  "MedalOtvaga": {
+    "name": "Медаль За отвагу",
+    "price": 50000,
+    "quantity": 0,
+    "sold": 15,
+    "description": "Солдатская доблесть",
+    "emoji": "🏅"
+  },
+  "LolPop": {
+    "name": "Lol Pop",
+    "price": 25000,
+    "quantity": 0,
+    "sold": 50,
+    "description": "NFT - Леденец",
+    "emoji": "🍭"
+  },
   "tester": {
     "name": "Первый!",
     "price": 500000,
@@ -22,14 +62,6 @@
     "sold": 1,
     "description": "НФТ который только у первого игрока!",
     "emoji": "⏳"
-  },
-  "LolPop": {
-    "name": "LolPop",
-    "price": 5000000,
-    "quantity": 0,
-    "sold": 10,
-    "description": "Это леденец НФТ",
-    "emoji": "🍭"
   },
   "test": {
     "name": "Тестовый",
