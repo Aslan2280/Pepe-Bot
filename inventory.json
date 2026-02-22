@@ -10,6 +10,919 @@
       "unique_id": "6539341659_admin_0_3823"
     },
     {
+      "item_id": "LolPop",
+      "global_number": 13,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:14:13.720831",
+      "unique_id": "6539341659_LolPop_3_1081"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 21,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:17:57.505199",
+      "unique_id": "6539341659_LolPop_5_5856"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 22,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:18:16.098783",
+      "unique_id": "6539341659_LolPop_6_6009"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 23,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:18:30.461032",
+      "unique_id": "6539341659_LolPop_7_6814"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 24,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:18:33.878207",
+      "unique_id": "6539341659_LolPop_8_4681"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 25,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:18:40.911031",
+      "unique_id": "6539341659_LolPop_9_9443"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 32,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:20:08.033608",
+      "unique_id": "6539341659_LolPop_10_6126"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 33,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:20:58.247806",
+      "unique_id": "6539341659_LolPop_11_2904"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 34,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:21:00.448305",
+      "unique_id": "6539341659_LolPop_12_9059"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 35,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:21:02.281719",
+      "unique_id": "6539341659_LolPop_13_2170"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 7,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:20:15.594501",
+      "unique_id": "6539341659_MedalOtvaga_16_9661"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 17,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:21.014109",
+      "unique_id": "6539341659_AK47_17_1559"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 8,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:20:29.604546",
+      "unique_id": "6539341659_MedalOtvaga_18_7075"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 13,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:20:50.891756",
+      "unique_id": "6539341659_MedalOtvaga_20_8262"
+    },
+    {
+      "item_id": "combat_helmet",
+      "global_number": 6,
+      "name": "Военный шлем",
+      "emoji": "🪖",
+      "description": "Защита головы",
+      "purchased_at": "2026-02-21T15:04:22.160609",
+      "unique_id": "6539341659_combat_helmet_22_7687"
+    },
+    {
+      "item_id": "combat_helmet",
+      "global_number": 7,
+      "name": "Военный шлем",
+      "emoji": "🪖",
+      "description": "Защита головы",
+      "purchased_at": "2026-02-21T15:07:28.386482",
+      "unique_id": "6539341659_combat_helmet_23_3966"
+    },
+    {
+      "item_id": "order_of_victory",
+      "global_number": 3,
+      "name": "Орден Победы",
+      "emoji": "🏆",
+      "description": "Награда",
+      "purchased_at": "2026-02-21T17:22:40.473157",
+      "unique_id": "6539341659_order_of_victory_24_9086"
+    },
+    {
+      "item_id": "order_of_victory",
+      "global_number": 4,
+      "name": "Орден Победы",
+      "emoji": "🏆",
+      "description": "Награда",
+      "purchased_at": "2026-02-21T17:23:01.473795",
+      "unique_id": "6539341659_order_of_victory_25_7178"
+    },
+    {
+      "item_id": "order_of_victory",
+      "global_number": 5,
+      "name": "Орден Победы",
+      "emoji": "🏆",
+      "description": "Награда",
+      "purchased_at": "2026-02-21T17:23:29.679385",
+      "unique_id": "6539341659_order_of_victory_26_3146"
+    }
+  ],
+  "8192237273": [
+    {
+      "item_id": "test",
+      "name": "Первый!",
+      "emoji": "⏳",
+      "global_number": 1,
+      "purchased_at": "2026-02-19T20:50:31.668835",
+      "description": "НФТ который только у первого игрока",
+      "unique_id": "6539341659_admin_0_3823"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 28,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:08:54.574428",
+      "unique_id": "8346625013_LolPop_19_3106"
+    },
+    {
+      "item_id": "combat_helmet",
+      "global_number": 1,
+      "name": "Военный шлем",
+      "emoji": "🪖",
+      "description": "Защита головы",
+      "purchased_at": "2026-02-21T15:02:44.868123",
+      "unique_id": "8192237273_combat_helmet_2_7078"
+    },
+    {
+      "item_id": "combat_helmet",
+      "global_number": 2,
+      "name": "Военный шлем",
+      "emoji": "🪖",
+      "description": "Защита головы",
+      "purchased_at": "2026-02-21T15:02:48.774089",
+      "unique_id": "8192237273_combat_helmet_3_6007"
+    },
+    {
+      "item_id": "combat_helmet",
+      "global_number": 3,
+      "name": "Военный шлем",
+      "emoji": "🪖",
+      "description": "Защита головы",
+      "purchased_at": "2026-02-21T15:02:51.734960",
+      "unique_id": "8192237273_combat_helmet_4_3733"
+    },
+    {
+      "item_id": "combat_helmet",
+      "global_number": 4,
+      "name": "Военный шлем",
+      "emoji": "🪖",
+      "description": "Защита головы",
+      "purchased_at": "2026-02-21T15:02:54.110470",
+      "unique_id": "8192237273_combat_helmet_5_9867"
+    },
+    {
+      "item_id": "order_of_victory",
+      "global_number": 1,
+      "name": "Орден Победы",
+      "emoji": "🏆",
+      "description": "Награда",
+      "purchased_at": "2026-02-21T17:18:00.849933",
+      "unique_id": "8192237273_order_of_victory_6_4637"
+    },
+    {
+      "item_id": "order_of_victory",
+      "global_number": 2,
+      "name": "Орден Победы",
+      "emoji": "🏆",
+      "description": "Награда",
+      "purchased_at": "2026-02-21T17:18:03.314754",
+      "unique_id": "8192237273_order_of_victory_7_1565"
+    },
+    {
+      "item_id": "order_of_victory",
+      "global_number": 7,
+      "name": "Орден Победы",
+      "emoji": "🏆",
+      "description": "Награда",
+      "purchased_at": "2026-02-21T17:27:35.232692",
+      "unique_id": "8192237273_order_of_victory_8_7378"
+    },
+    {
+      "item_id": "order_of_victory",
+      "global_number": 8,
+      "name": "Орден Победы",
+      "emoji": "🏆",
+      "description": "Награда",
+      "purchased_at": "2026-02-21T17:27:41.206231",
+      "unique_id": "8192237273_order_of_victory_9_7185"
+    },
+    {
+      "item_id": "order_of_victory",
+      "global_number": 9,
+      "name": "Орден Победы",
+      "emoji": "🏆",
+      "description": "Награда",
+      "purchased_at": "2026-02-21T17:27:43.182957",
+      "unique_id": "8192237273_order_of_victory_10_8535"
+    },
+    {
+      "item_id": "order_of_victory",
+      "global_number": 10,
+      "name": "Орден Победы",
+      "emoji": "🏆",
+      "description": "Награда",
+      "purchased_at": "2026-02-21T17:27:46.032460",
+      "unique_id": "8192237273_order_of_victory_11_6190"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 2,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:09:44.375123",
+      "unique_id": "6539341659_LolPop_2_5847"
+    },
+    {
+      "item_id": "combat_helmet",
+      "global_number": 5,
+      "name": "Военный шлем",
+      "emoji": "🪖",
+      "description": "Защита головы",
+      "purchased_at": "2026-02-21T15:03:24.196484",
+      "unique_id": "6539341659_combat_helmet_21_5816"
+    }
+  ],
+  "8346625013": [
+    {
+      "item_id": "LolPop",
+      "global_number": 1,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:08:54.574428",
+      "unique_id": "8346625013_LolPop_0_3340"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 3,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:13:43.491997",
+      "unique_id": "8346625013_LolPop_1_3150"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 4,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:13:47.425362",
+      "unique_id": "8346625013_LolPop_2_1996"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 5,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:13:49.979600",
+      "unique_id": "8346625013_LolPop_3_3275"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 6,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:13:52.478598",
+      "unique_id": "8346625013_LolPop_4_5919"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 7,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:13:55.224296",
+      "unique_id": "8346625013_LolPop_5_8711"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 8,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:13:57.705888",
+      "unique_id": "8346625013_LolPop_6_1597"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 9,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:14:04.442103",
+      "unique_id": "8346625013_LolPop_7_4173"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 10,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:14:07.114261",
+      "unique_id": "8346625013_LolPop_8_7040"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 11,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:14:09.799689",
+      "unique_id": "8346625013_LolPop_9_4850"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 12,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:14:12.313000",
+      "unique_id": "8346625013_LolPop_10_9663"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 14,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:14:14.889628",
+      "unique_id": "8346625013_LolPop_11_1487"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 15,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:14:17.207334",
+      "unique_id": "8346625013_LolPop_12_6880"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 16,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:14:19.425328",
+      "unique_id": "8346625013_LolPop_13_9282"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 17,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:14:21.617414",
+      "unique_id": "8346625013_LolPop_14_7106"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 19,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:14:46.323092",
+      "unique_id": "8346625013_LolPop_15_8651"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 20,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:14:48.968678",
+      "unique_id": "8346625013_LolPop_16_8354"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 26,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:18:58.287405",
+      "unique_id": "8346625013_LolPop_17_5143"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 27,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:19:01.406314",
+      "unique_id": "8346625013_LolPop_18_3678"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 29,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:19:07.185334",
+      "unique_id": "8346625013_LolPop_20_7840"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 30,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:19:12.635522",
+      "unique_id": "8346625013_LolPop_21_8869"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 31,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:19:16.442133",
+      "unique_id": "8346625013_LolPop_22_4437"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 41,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:33:50.973872",
+      "unique_id": "8346625013_LolPop_23_2477"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 42,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:33:53.787680",
+      "unique_id": "8346625013_LolPop_24_8462"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 43,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:33:56.578741",
+      "unique_id": "8346625013_LolPop_25_8149"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 44,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:33:58.787521",
+      "unique_id": "8346625013_LolPop_26_6085"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 45,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:34:00.886411",
+      "unique_id": "8346625013_LolPop_27_9719"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 46,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:34:03.716908",
+      "unique_id": "8346625013_LolPop_28_6808"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 49,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:34:11.329935",
+      "unique_id": "8346625013_LolPop_31_6315"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 50,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:34:14.181157",
+      "unique_id": "8346625013_LolPop_32_7300"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 40,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:31:08.625263",
+      "unique_id": "6539341659_LolPop_18_1616"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 47,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:08:54.574428",
+      "unique_id": "8346625013_LolPop_29_5749"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 48,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:08:54.574428",
+      "unique_id": "8346625013_LolPop_30_9716"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 1,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:19:16.875939",
+      "unique_id": "8346625013_MedalOtvaga_33_5643"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 1,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:19:20.685613",
+      "unique_id": "8346625013_AK47_34_8594"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 2,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:19:23.677946",
+      "unique_id": "8346625013_AK47_35_1479"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 2,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:19:26.747923",
+      "unique_id": "8346625013_MedalOtvaga_36_9048"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 3,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:19:29.941116",
+      "unique_id": "8346625013_MedalOtvaga_37_9587"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 3,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:19:33.037370",
+      "unique_id": "8346625013_AK47_38_4006"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 4,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:19:35.683352",
+      "unique_id": "8346625013_MedalOtvaga_39_9414"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 4,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:19:38.781233",
+      "unique_id": "8346625013_AK47_40_7200"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 5,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:19:43.557171",
+      "unique_id": "8346625013_AK47_41_5838"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 5,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:19:46.399541",
+      "unique_id": "8346625013_MedalOtvaga_42_3229"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 6,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:19:48.902240",
+      "unique_id": "8346625013_MedalOtvaga_43_2059"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 6,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:19:51.784521",
+      "unique_id": "8346625013_AK47_44_5366"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 7,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:19:54.514150",
+      "unique_id": "8346625013_AK47_45_4535"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 8,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:19:59.302264",
+      "unique_id": "8346625013_AK47_46_4558"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 9,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:01.604826",
+      "unique_id": "8346625013_AK47_47_4004"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 10,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:03.855363",
+      "unique_id": "8346625013_AK47_48_7744"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 11,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:06.012290",
+      "unique_id": "8346625013_AK47_49_9384"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 12,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:08.182103",
+      "unique_id": "8346625013_AK47_50_9684"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 13,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:10.391608",
+      "unique_id": "8346625013_AK47_51_4378"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 14,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:12.506820",
+      "unique_id": "8346625013_AK47_52_9834"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 15,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:15.307633",
+      "unique_id": "8346625013_AK47_53_3293"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 16,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:20.633759",
+      "unique_id": "8346625013_AK47_54_9834"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 18,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:23.506352",
+      "unique_id": "8346625013_AK47_55_5720"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 19,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:27.108512",
+      "unique_id": "8346625013_AK47_56_8279"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 20,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:29.719712",
+      "unique_id": "8346625013_AK47_57_1649"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 21,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:32.891859",
+      "unique_id": "8346625013_AK47_58_6318"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 23,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:35.437039",
+      "unique_id": "8346625013_AK47_59_2422"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 24,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:37.605886",
+      "unique_id": "8346625013_AK47_60_6390"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 25,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:40.014085",
+      "unique_id": "8346625013_AK47_61_4487"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 9,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:20:43.928198",
+      "unique_id": "8346625013_MedalOtvaga_62_6905"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 10,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:20:46.273811",
+      "unique_id": "8346625013_MedalOtvaga_63_4384"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 11,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:20:48.437864",
+      "unique_id": "8346625013_MedalOtvaga_64_2309"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 12,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:20:50.093074",
+      "unique_id": "8346625013_MedalOtvaga_65_9817"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 14,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:20:53.888741",
+      "unique_id": "8346625013_MedalOtvaga_66_2615"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 15,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:20:56.301017",
+      "unique_id": "8346625013_MedalOtvaga_67_3622"
+    },
+    {
       "item_id": "PlushPepe",
       "global_number": 1,
       "name": "Plush Pepe",
@@ -17,10 +930,25 @@
       "description": "Plush Pepe, самый дорогой НФТ!",
       "purchased_at": "2026-02-20T20:14:28.849897",
       "unique_id": "6539341659_PlushPepe_3_8508"
+    },
+    {
+      "item_id": "order_of_victory",
+      "global_number": 6,
+      "name": "Орден Победы",
+      "emoji": "🏆",
+      "description": "Награда",
+      "purchased_at": "2026-02-21T17:26:13.008108",
+      "unique_id": "6539341659_order_of_victory_27_8347"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 18,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:14:23.717317",
+      "unique_id": "6539341659_LolPop_4_9381"
     }
-  ],
-  "8346625013": [
-    
   ],
   "8495486236": [
     {
@@ -58,6 +986,77 @@
       "description": "Plush Pepe, самый дорогой НФТ!",
       "purchased_at": "2026-02-20T20:25:53.209329",
       "unique_id": "8495486236_PlushPepe_3_3385"
+    },
+    {
+      "item_id": "combat_helmet",
+      "global_number": 9,
+      "name": "Военный шлем",
+      "emoji": "🪖",
+      "description": "Защита головы",
+      "purchased_at": "2026-02-21T15:18:50.226912",
+      "unique_id": "8495486236_combat_helmet_4_9987"
+    },
+    {
+      "item_id": "combat_helmet",
+      "global_number": 10,
+      "name": "Военный шлем",
+      "emoji": "🪖",
+      "description": "Защита головы",
+      "purchased_at": "2026-02-21T15:18:50.334128",
+      "unique_id": "8495486236_combat_helmet_5_9049"
+    }
+  ],
+  "8441805767": [
+    {
+      "item_id": "LolPop",
+      "global_number": 38,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:31:04.178867",
+      "unique_id": "6539341659_LolPop_16_3944"
+    },
+    {
+      "item_id": "combat_helmet",
+      "global_number": 8,
+      "name": "Военный шлем",
+      "emoji": "🪖",
+      "description": "Защита головы",
+      "purchased_at": "2026-02-21T15:17:55.927667",
+      "unique_id": "8441805767_combat_helmet_1_5752"
+    }
+  ],
+  "7712274782": [
+    {
+      "item_id": "AK47",
+      "global_number": 22,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:33.978078",
+      "unique_id": "6539341659_AK47_19_1235"
+    }
+  ],
+  "7659176829": [
+    {
+      "item_id": "LolPop",
+      "global_number": 37,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:31:02.110821",
+      "unique_id": "6539341659_LolPop_15_9184"
+    }
+  ],
+  "8300296397": [
+    {
+      "item_id": "LolPop",
+      "global_number": 36,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:22:34.845299",
+      "unique_id": "6539341659_LolPop_14_6115"
     }
   ]
 }
