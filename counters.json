@@ -1,6 +1,11 @@
 {
-  "market_counter": 1,
+  "market_counter": 5,
   "item_counters": {
-    "PlushPepe": 5
+    "PlushPepe": 5,
+    "LolPop": 50,
+    "MedalOtvaga": 15,
+    "AK47": 25,
+    "combat_helmet": 10,
+    "order_of_victory": 10
   }
 }
