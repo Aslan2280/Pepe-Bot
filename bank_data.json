@@ -1,0 +1,67 @@
+{
+  "6539341659": {
+    "card_balance": 10000000000000,
+    "deposits": [],
+    "loans": [
+      {
+        "id": "loan_6539341659_0_877",
+        "amount": 100000,
+        "days": 7,
+        "rate": 5.0,
+        "total_to_return": 105000,
+        "remaining": 0,
+        "daily_payment": 15000,
+        "start_date": "2026-02-21T22:21:18.510511",
+        "end_date": "2026-02-28T22:21:18.510500",
+        "status": "paid"
+      }
+    ],
+    "credit_history": 550
+  },
+  "7712274782": {
+    "card_balance": 0,
+    "deposits": [],
+    "loans": [],
+    "credit_history": 500
+  },
+  "8474641060": {
+    "card_balance": 0,
+    "deposits": [],
+    "loans": [],
+    "credit_history": 500
+  },
+  "8441805767": {
+    "card_balance": 0,
+    "deposits": [],
+    "loans": [],
+    "credit_history": 500
+  },
+  "8192237273": {
+    "card_balance": 0,
+    "deposits": [],
+    "loans": [],
+    "credit_history": 500
+  },
+  "8495486236": {
+    "card_balance": 50000000000000,
+    "deposits": [
+      {
+        "id": "dep_8495486236_0_424",
+        "amount": 50000000000000,
+        "days": 7,
+        "rate": 3.0,
+        "start_date": "2026-02-22T10:44:55.043349",
+        "end_date": "2026-03-01T10:44:55.043338",
+        "status": "active"
+      }
+    ],
+    "loans": [],
+    "credit_history": 500
+  },
+  "8346625013": {
+    "card_balance": 1000000,
+    "deposits": [],
+    "loans": [],
+    "credit_history": 500
+  }
+}
