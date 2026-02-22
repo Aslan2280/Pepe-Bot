@@ -1,63 +1,172 @@
 {
   "6539341659": {
-    "balance": 970000488990000000,
-    "level": 1,
-    "games_played": 8,
-    "wins": 5,
+    "balance": 9797004938697999645256731581526885556269244902529931253475270740548,
+    "games_played": 29,
+    "wins": 11,
     "used_promocodes": [],
-    "games": 3,
-    "promos": [
-    ]
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
   },
   "8192237273": {
-    "balance": 10000,
-    "level": 1,
-    "games_played": 0,
-    "wins": 0,
-    "used_promocodes": []
+    "balance": 95789449,
+    "games_played": 139,
+    "wins": 50,
+    "used_promocodes": [
+      "НАС_10",
+      "PROMO21"
+    ],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
   },
   "7712274782": {
-    "balance": 10000,
-    "level": 1,
-    "games_played": 10,
-    "wins": 10,
-    "used_promocodes": []
+    "balance": 0,
+    "games_played": 55,
+    "wins": 39,
+    "used_promocodes": [
+      "21FEB"
+    ],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
   },
   "8346625013": {
-    "balance": 10000,
-    "level": 1,
-    "games_played": 0,
-    "wins": 0,
-    "used_promocodes": []
+    "balance": 100000,
+    "games_played": 300,
+    "wins": 98,
+    "used_promocodes": [
+      "21FEB",
+      "PROMO21"
+    ],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
   },
   "8495486236": {
-    "balance": 10000,
-    "level": 1,
-    "games_played": 64,
-    "wins": 27,
-    "used_promocodes": []
+    "balance": 8975498899,
+    "games_played": 674,
+    "wins": 305,
+    "used_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
   },
   "8300296397": {
-    "balance": 10000,
-    "level": 1,
-    "games_played": 0,
+    "balance": 100000,
+    "games_played": 1,
     "wins": 0,
     "used_promocodes": [],
-    "promos": [
-    ]
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
   },
   "6860487283": {
     "balance": 10000,
     "games_played": 0,
     "wins": 0,
-    "used_promocodes": [
-    ]
+    "used_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
   },
   "8526360498": {
     "balance": 10000,
     "games_played": 0,
     "wins": 0,
-    "used_promocodes": []
+    "used_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "7952458334": {
+    "balance": 0,
+    "games_played": 69,
+    "wins": 26,
+    "used_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "8067050887": {
+    "balance": 100000,
+    "games_played": 10,
+    "wins": 2,
+    "used_promocodes": [
+      "PROMO21"
+    ],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "8441805767": {
+    "balance": 100000,
+    "games_played": 57,
+    "wins": 33,
+    "used_promocodes": [
+      "21FEB",
+      "НАС_10",
+      "PROMO21"
+    ],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "7120011711": {
+    "balance": 0,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "7491413964": {
+    "balance": 60000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "777000": {
+    "balance": 45000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [
+      "21FEB",
+      "НАС_10"
+    ],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "7659176829": {
+    "balance": 0,
+    "games_played": 94,
+    "wins": 14,
+    "used_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "7579890064": {
+    "balance": 10000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "8366495451": {
+    "balance": 10000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
   }
-
 }
