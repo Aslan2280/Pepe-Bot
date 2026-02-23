@@ -15,6 +15,30 @@
     "description": "Plush Pepe, самый дорогой НФТ!",
     "emoji": "🐸"
   },
+  "Kepka": {
+    "name": "Кепка",
+    "price": 100000,
+    "quantity": 0,
+    "sold": 20,
+    "description": "Кепочка!",
+    "emoji": "🧢"
+  },
+  "DeskCalendar": {
+    "name": "Desk Calendar",
+    "price": 75000,
+    "quantity": 0,
+    "sold": 50,
+    "description": "Календари, праздничный НФТ",
+    "emoji": "🗓"
+  },
+  "fighter ": {
+    "name": "Истребитель",
+    "price": 25000,
+    "quantity": 0,
+    "sold": 30,
+    "description": "С 23 февраля!",
+    "emoji": "✈️"
+  },
   "order_of_victory": {
     "name": "Орден Победы",
     "price": 50000,
