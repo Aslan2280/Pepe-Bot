@@ -91,15 +91,6 @@
       "unique_id": "6539341659_LolPop_12_9059"
     },
     {
-      "item_id": "LolPop",
-      "global_number": 35,
-      "name": "Lol Pop",
-      "emoji": "🍭",
-      "description": "NFT - Леденец",
-      "purchased_at": "2026-02-21T09:21:02.281719",
-      "unique_id": "6539341659_LolPop_13_2170"
-    },
-    {
       "item_id": "MedalOtvaga",
       "global_number": 7,
       "name": "Медаль За отвагу",
@@ -155,15 +146,6 @@
     },
     {
       "item_id": "order_of_victory",
-      "global_number": 3,
-      "name": "Орден Победы",
-      "emoji": "🏆",
-      "description": "Награда",
-      "purchased_at": "2026-02-21T17:22:40.473157",
-      "unique_id": "6539341659_order_of_victory_24_9086"
-    },
-    {
-      "item_id": "order_of_victory",
       "global_number": 4,
       "name": "Орден Победы",
       "emoji": "🏆",
@@ -179,6 +161,51 @@
       "description": "Награда",
       "purchased_at": "2026-02-21T17:23:29.679385",
       "unique_id": "6539341659_order_of_victory_26_3146"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 5,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:00:05.043416",
+      "unique_id": "6539341659_fighter _5_9177"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 7,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:01:08.062584",
+      "unique_id": "6539341659_fighter _7_7646"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 8,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:02:40.957342",
+      "unique_id": "6539341659_fighter _8_3797"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 18,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:11:30.769436",
+      "unique_id": "6539341659_fighter _18_2868"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 12,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:36:19.222808",
+      "unique_id": "6539341659_Kepka_12_3809"
     }
   ],
   "8192237273": [
@@ -456,15 +483,6 @@
     },
     {
       "item_id": "LolPop",
-      "global_number": 20,
-      "name": "Lol Pop",
-      "emoji": "🍭",
-      "description": "NFT - Леденец",
-      "purchased_at": "2026-02-21T09:14:48.968678",
-      "unique_id": "8346625013_LolPop_16_8354"
-    },
-    {
-      "item_id": "LolPop",
       "global_number": 26,
       "name": "Lol Pop",
       "emoji": "🍭",
@@ -618,30 +636,12 @@
     },
     {
       "item_id": "AK47",
-      "global_number": 1,
-      "name": "AK47",
-      "emoji": "🔫",
-      "description": "Всеми известный автомат Калашникова",
-      "purchased_at": "2026-02-21T14:19:20.685613",
-      "unique_id": "8346625013_AK47_34_8594"
-    },
-    {
-      "item_id": "AK47",
       "global_number": 2,
       "name": "AK47",
       "emoji": "🔫",
       "description": "Всеми известный автомат Калашникова",
       "purchased_at": "2026-02-21T14:19:23.677946",
       "unique_id": "8346625013_AK47_35_1479"
-    },
-    {
-      "item_id": "MedalOtvaga",
-      "global_number": 2,
-      "name": "Медаль За отвагу",
-      "emoji": "🏅",
-      "description": "Солдатская доблесть",
-      "purchased_at": "2026-02-21T14:19:26.747923",
-      "unique_id": "8346625013_MedalOtvaga_36_9048"
     },
     {
       "item_id": "MedalOtvaga",
@@ -834,15 +834,6 @@
     },
     {
       "item_id": "AK47",
-      "global_number": 21,
-      "name": "AK47",
-      "emoji": "🔫",
-      "description": "Всеми известный автомат Калашникова",
-      "purchased_at": "2026-02-21T14:20:32.891859",
-      "unique_id": "8346625013_AK47_58_6318"
-    },
-    {
-      "item_id": "AK47",
       "global_number": 23,
       "name": "AK47",
       "emoji": "🔫",
@@ -923,15 +914,6 @@
       "unique_id": "8346625013_MedalOtvaga_67_3622"
     },
     {
-      "item_id": "PlushPepe",
-      "global_number": 1,
-      "name": "Plush Pepe",
-      "emoji": "🐸",
-      "description": "Plush Pepe, самый дорогой НФТ!",
-      "purchased_at": "2026-02-20T20:14:28.849897",
-      "unique_id": "6539341659_PlushPepe_3_8508"
-    },
-    {
       "item_id": "order_of_victory",
       "global_number": 6,
       "name": "Орден Победы",
@@ -948,6 +930,51 @@
       "description": "NFT - Леденец",
       "purchased_at": "2026-02-21T09:14:23.717317",
       "unique_id": "6539341659_LolPop_4_9381"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 11,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:36:17.191529",
+      "unique_id": "8346625013_Kepka_11_6293"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 13,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:36:19.833872",
+      "unique_id": "8346625013_Kepka_13_1371"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 16,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:36:22.014708",
+      "unique_id": "8346625013_Kepka_16_5293"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 17,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:36:24.385169",
+      "unique_id": "8346625013_Kepka_17_8631"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 4,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:34:19.220758",
+      "unique_id": "6539341659_Kepka_4_9795"
     }
   ],
   "8495486236": [
@@ -1004,6 +1031,807 @@
       "description": "Защита головы",
       "purchased_at": "2026-02-21T15:18:50.334128",
       "unique_id": "8495486236_combat_helmet_5_9049"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 1,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:23.539443",
+      "unique_id": "8495486236_DeskCalendar_1_3677"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 2,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:25.163752",
+      "unique_id": "8495486236_DeskCalendar_2_7533"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 3,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:26.611637",
+      "unique_id": "8495486236_DeskCalendar_3_3980"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 4,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:26.718479",
+      "unique_id": "8495486236_DeskCalendar_4_3486"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 5,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:27.606675",
+      "unique_id": "8495486236_DeskCalendar_5_4776"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 6,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:27.610934",
+      "unique_id": "8495486236_DeskCalendar_6_4761"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 7,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:27.747742",
+      "unique_id": "8495486236_DeskCalendar_7_3551"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 8,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:28.029155",
+      "unique_id": "8495486236_DeskCalendar_8_6210"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 9,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:28.437257",
+      "unique_id": "8495486236_DeskCalendar_9_4682"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 10,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:32.648565",
+      "unique_id": "8495486236_DeskCalendar_10_4887"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 11,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:32.790959",
+      "unique_id": "8495486236_DeskCalendar_11_2956"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 12,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:33.497817",
+      "unique_id": "8495486236_DeskCalendar_12_1469"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 13,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:33.675759",
+      "unique_id": "8495486236_DeskCalendar_13_1484"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 14,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:34.364313",
+      "unique_id": "8495486236_DeskCalendar_14_1571"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 15,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:37.691914",
+      "unique_id": "8495486236_DeskCalendar_15_4040"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 16,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:38.418719",
+      "unique_id": "8495486236_DeskCalendar_16_4074"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 17,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:38.544678",
+      "unique_id": "8495486236_DeskCalendar_17_6359"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 18,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:39.277337",
+      "unique_id": "8495486236_DeskCalendar_18_9710"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 19,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:39.555976",
+      "unique_id": "8495486236_DeskCalendar_19_7899"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 20,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:43.019873",
+      "unique_id": "8495486236_DeskCalendar_20_9121"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 21,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:43.220170",
+      "unique_id": "8495486236_DeskCalendar_21_9885"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 22,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:44.058387",
+      "unique_id": "8495486236_DeskCalendar_22_5944"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 23,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:44.229281",
+      "unique_id": "8495486236_DeskCalendar_23_1965"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 24,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:44.849439",
+      "unique_id": "8495486236_DeskCalendar_24_6301"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 25,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:48.171469",
+      "unique_id": "8495486236_DeskCalendar_25_1144"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 26,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:48.873540",
+      "unique_id": "8495486236_DeskCalendar_26_8898"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 27,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:49.194302",
+      "unique_id": "8495486236_DeskCalendar_27_3864"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 28,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:50.084012",
+      "unique_id": "8495486236_DeskCalendar_28_7022"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 29,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:50.201226",
+      "unique_id": "8495486236_DeskCalendar_29_2194"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 30,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:53.358249",
+      "unique_id": "8495486236_DeskCalendar_30_3014"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 31,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:53.546475",
+      "unique_id": "8495486236_DeskCalendar_31_9073"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 32,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:54.985584",
+      "unique_id": "8495486236_DeskCalendar_32_1465"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 33,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:55.169278",
+      "unique_id": "8495486236_DeskCalendar_33_7790"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 34,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:55.708598",
+      "unique_id": "8495486236_DeskCalendar_34_6251"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 35,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:59.415286",
+      "unique_id": "8495486236_DeskCalendar_35_1656"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 36,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:17:59.617464",
+      "unique_id": "8495486236_DeskCalendar_36_5691"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 37,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:18:00.499490",
+      "unique_id": "8495486236_DeskCalendar_37_4485"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 38,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:18:00.600886",
+      "unique_id": "8495486236_DeskCalendar_38_1708"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 39,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:18:01.383385",
+      "unique_id": "8495486236_DeskCalendar_39_6788"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 40,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:18:05.085999",
+      "unique_id": "8495486236_DeskCalendar_40_2537"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 41,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:18:05.302644",
+      "unique_id": "8495486236_DeskCalendar_41_5772"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 42,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:18:06.209163",
+      "unique_id": "8495486236_DeskCalendar_42_5252"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 43,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:18:06.361980",
+      "unique_id": "8495486236_DeskCalendar_43_9147"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 44,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:18:07.079942",
+      "unique_id": "8495486236_DeskCalendar_44_3757"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 45,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:18:13.803839",
+      "unique_id": "8495486236_DeskCalendar_45_7064"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 46,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:18:13.966925",
+      "unique_id": "8495486236_DeskCalendar_46_6777"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 47,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:18:14.094569",
+      "unique_id": "8495486236_DeskCalendar_47_3475"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 48,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:18:14.763802",
+      "unique_id": "8495486236_DeskCalendar_48_4691"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 49,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:18:14.920383",
+      "unique_id": "8495486236_DeskCalendar_49_2033"
+    },
+    {
+      "item_id": "DeskCalendar",
+      "global_number": 50,
+      "name": "Desk Calendar",
+      "emoji": "🗓",
+      "description": "Календари, праздничный НФТ",
+      "purchased_at": "2026-02-22T11:18:20.792917",
+      "unique_id": "8495486236_DeskCalendar_50_8010"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 1,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:19:20.685613",
+      "unique_id": "8346625013_AK47_34_8594"
+    },
+    {
+      "item_id": "PlushPepe",
+      "global_number": 1,
+      "name": "Plush Pepe",
+      "emoji": "🐸",
+      "description": "Plush Pepe, самый дорогой НФТ!",
+      "purchased_at": "2026-02-20T20:14:28.849897",
+      "unique_id": "6539341659_PlushPepe_3_8508"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 1,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:34:17.669622",
+      "unique_id": "8495486236_Kepka_1_1401"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 2,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:34:17.927967",
+      "unique_id": "8495486236_Kepka_2_1101"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 3,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:34:18.168929",
+      "unique_id": "8495486236_Kepka_3_9812"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 6,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:34:21.775928",
+      "unique_id": "8495486236_Kepka_6_2238"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 7,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:34:22.145141",
+      "unique_id": "8495486236_Kepka_7_4554"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 8,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:34:22.243012",
+      "unique_id": "8495486236_Kepka_8_9827"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 9,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:34:23.807695",
+      "unique_id": "8495486236_Kepka_9_7641"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 10,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:34:23.901602",
+      "unique_id": "8495486236_Kepka_10_6934"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 14,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:36:20.315705",
+      "unique_id": "8495486236_Kepka_14_1173"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 15,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:36:20.487273",
+      "unique_id": "8495486236_Kepka_15_4926"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 18,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:36:24.523699",
+      "unique_id": "8495486236_Kepka_18_7581"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 19,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:36:24.528676",
+      "unique_id": "8495486236_Kepka_19_8311"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 20,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:36:25.276506",
+      "unique_id": "8495486236_Kepka_20_8060"
+    },
+    {
+      "item_id": "Kepka",
+      "global_number": 5,
+      "name": "Кепка",
+      "emoji": "🧢",
+      "description": "Кепочка!",
+      "purchased_at": "2026-02-22T19:34:21.674592",
+      "unique_id": "6539341659_Kepka_5_5485"
+    },
+    {
+      "item_id": "order_of_victory",
+      "global_number": 3,
+      "name": "Орден Победы",
+      "emoji": "🏆",
+      "description": "Награда",
+      "purchased_at": "2026-02-21T17:22:40.473157",
+      "unique_id": "6539341659_order_of_victory_24_9086"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 28,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:12:10.419873",
+      "unique_id": "7712274782_fighter _28_2346"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 11,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:11:01.866844",
+      "unique_id": "7712274782_fighter _11_3469"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 12,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:11:06.446643",
+      "unique_id": "7712274782_fighter _12_6769"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 35,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:21:02.281719",
+      "unique_id": "6539341659_LolPop_13_2170"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 22,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:33.978078",
+      "unique_id": "6539341659_AK47_19_1235"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 13,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:11:09.107827",
+      "unique_id": "7712274782_fighter _13_4786"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 29,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:12:51.806228",
+      "unique_id": "7712274782_fighter _29_5233"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 30,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:12:51.959955",
+      "unique_id": "7712274782_fighter _30_6679"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 27,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:12:07.356144",
+      "unique_id": "7712274782_fighter _27_1319"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 26,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:12:03.715572",
+      "unique_id": "7712274782_fighter _26_9193"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 25,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:12:00.664193",
+      "unique_id": "7712274782_fighter _25_3787"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 24,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:11:57.314192",
+      "unique_id": "7712274782_fighter _24_7642"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 23,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:11:52.307415",
+      "unique_id": "7712274782_fighter _23_3252"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 22,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:11:42.856476",
+      "unique_id": "7712274782_fighter _22_3197"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 21,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:11:41.709545",
+      "unique_id": "6539341659_fighter _21_5185"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 20,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:11:37.996067",
+      "unique_id": "7712274782_fighter _20_7559"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 19,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:11:33.128470",
+      "unique_id": "7712274782_fighter _19_8235"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 17,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:11:25.684343",
+      "unique_id": "7712274782_fighter _17_5208"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 16,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:11:20.811496",
+      "unique_id": "7712274782_fighter _16_6412"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 15,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:11:17.132684",
+      "unique_id": "7712274782_fighter _15_3763"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 14,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:11:11.619285",
+      "unique_id": "7712274782_fighter _14_8559"
+    },
+    {
+      "item_id": "MedalOtvaga",
+      "global_number": 2,
+      "name": "Медаль За отвагу",
+      "emoji": "🏅",
+      "description": "Солдатская доблесть",
+      "purchased_at": "2026-02-21T14:19:26.747923",
+      "unique_id": "8346625013_MedalOtvaga_36_9048"
     }
   ],
   "8441805767": [
@@ -1024,19 +1852,18 @@
       "description": "Защита головы",
       "purchased_at": "2026-02-21T15:17:55.927667",
       "unique_id": "8441805767_combat_helmet_1_5752"
-    }
-  ],
-  "7712274782": [
+    },
     {
-      "item_id": "AK47",
-      "global_number": 22,
-      "name": "AK47",
-      "emoji": "🔫",
-      "description": "Всеми известный автомат Калашникова",
-      "purchased_at": "2026-02-21T14:20:33.978078",
-      "unique_id": "6539341659_AK47_19_1235"
+      "item_id": "fighter ",
+      "global_number": 1,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T08:59:48.886519",
+      "unique_id": "6539341659_fighter _1_1084"
     }
   ],
+  "7712274782": [],
   "7659176829": [
     {
       "item_id": "LolPop",
@@ -1057,6 +1884,82 @@
       "description": "NFT - Леденец",
       "purchased_at": "2026-02-21T09:22:34.845299",
       "unique_id": "6539341659_LolPop_14_6115"
+    }
+  ],
+  "8067050887": [
+    {
+      "item_id": "fighter ",
+      "global_number": 2,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T08:59:55.314018",
+      "unique_id": "8067050887_fighter _2_8268"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 3,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:00:01.684154",
+      "unique_id": "8067050887_fighter _3_2614"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 4,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:00:04.468900",
+      "unique_id": "8067050887_fighter _4_7400"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 6,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:00:06.908343",
+      "unique_id": "8067050887_fighter _6_9062"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 9,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:05:12.714886",
+      "unique_id": "8067050887_fighter _9_6783"
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 10,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-02-22T09:05:15.983127",
+      "unique_id": "8067050887_fighter _10_3504"
+    }
+  ],
+  "7344145466": [
+    {
+      "item_id": "LolPop",
+      "global_number": 20,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-21T09:14:48.968678",
+      "unique_id": "8346625013_LolPop_16_8354"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 21,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-02-21T14:20:32.891859",
+      "unique_id": "8346625013_AK47_58_6318"
     }
   ]
 }
