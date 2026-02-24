@@ -1,6 +1,6 @@
 {
   "8495486236": {
-    "card_balance": 22000000000,
+    "card_balance": 30000000000,
     "deposits": [
       {
         "id": "dep_8495486236_0_121",
@@ -980,7 +980,7 @@
     "credit_history": 500
   },
   "8346625013": {
-    "card_balance": 751098,
+    "card_balance": 1800751098,
     "deposits": [],
     "loans": [],
     "credit_history": 500
