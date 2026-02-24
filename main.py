@@ -17,6 +17,8 @@ COUNTERS_FILE = "counters.json"
 STATUS_SHOP_FILE = "status_shop.json"
 BANK_DATA_FILE = "bank_data.json"
 BANK_SETTINGS_FILE = "bank_settings.json"
+MARKET_FILE = "market.json"
+BANNED_USERS_FILE = "banned_users.json"
 START_BALANCE = 10000
 
 # Настройки промокодов
@@ -34,6 +36,11 @@ class TransferStates(StatesGroup):
     enter_username = State()
     confirm = State()
 
+class TransferNFTStates(StatesGroup):
+    waiting_user = State()
+    waiting_nft = State()
+    waiting_confirm = State()
+
 class BankStates(StatesGroup):
     waiting_deposit_amount = State()
     waiting_deposit_days = State()
@@ -46,6 +53,9 @@ class PromoStates(StatesGroup):
     waiting_reward = State()
     waiting_limit = State()
 
+class MarketStates(StatesGroup):
+    waiting_price = State()
+
 class AdminStates(StatesGroup):
     waiting_nft_id = State()
     waiting_nft_name = State()
@@ -54,23 +64,31 @@ class AdminStates(StatesGroup):
     waiting_nft_description = State()
     waiting_nft_emoji = State()
     waiting_status_name = State()
+    waiting_ban_reason = State()
 
 # === УПРОЩЕННАЯ БД ===
 class DB:
-    def __init__(self, file): self.file = file; self._ensure()
+    def __init__(self, file): 
+        self.file = file
+        self._ensure()
     def _ensure(self):
         if not os.path.exists(self.file):
-            with open(self.file, 'w', encoding='utf-8') as f: json.dump({}, f)
+            with open(self.file, 'w', encoding='utf-8') as f: 
+                json.dump({}, f, ensure_ascii=False, indent=2)
     def read(self):
         try:
-            with open(self.file, 'r', encoding='utf-8') as f: return json.load(f)
-        except: return {}
+            with open(self.file, 'r', encoding='utf-8') as f: 
+                return json.load(f)
+        except:
+            return {}
     def write(self, data):
-        with open(self.file, 'w', encoding='utf-8') as f: json.dump(data, f, indent=2, ensure_ascii=False)
+        with open(self.file, 'w', encoding='utf-8') as f: 
+            json.dump(data, f, indent=2, ensure_ascii=False)
 
 # === СЧЕТЧИКИ ===
 class CountersDB:
-    def __init__(self): self.db = DB(COUNTERS_FILE)
+    def __init__(self): 
+        self.db = DB(COUNTERS_FILE)
     def get_next(self, item_id):
         data = self.db.read()
         data.setdefault('item_counters', {})
@@ -78,9 +96,43 @@ class CountersDB:
         self.db.write(data)
         return data['item_counters'][item_id]
 
+# === БАН ПОЛЬЗОВАТЕЛЕЙ ===
+class BanDB:
+    def __init__(self):
+        self.db = DB(BANNED_USERS_FILE)
+    
+    def is_banned(self, uid):
+        data = self.db.read()
+        return str(uid) in data
+    
+    def ban(self, uid, admin_id, reason=""):
+        data = self.db.read()
+        uid = str(uid)
+        data[uid] = {
+            'banned_at': datetime.datetime.now().isoformat(),
+            'banned_by': admin_id,
+            'reason': reason if reason else "Не указана"
+        }
+        self.db.write(data)
+        return True
+    
+    def unban(self, uid):
+        data = self.db.read()
+        uid = str(uid)
+        if uid in data:
+            del data[uid]
+            self.db.write(data)
+            return True
+        return False
+    
+    def get_ban_info(self, uid):
+        data = self.db.read()
+        return data.get(str(uid))
+
 # === ПОЛЬЗОВАТЕЛИ ===
 class UserDB:
-    def __init__(self): self.db = DB(DATABASE_FILE)
+    def __init__(self): 
+        self.db = DB(DATABASE_FILE)
     def get(self, uid):
         data = self.db.read()
         uid = str(uid)
@@ -94,7 +146,8 @@ class UserDB:
     def update(self, uid, **kwargs):
         data = self.db.read()
         uid = str(uid)
-        if uid not in data: data[uid] = self.get(uid)
+        if uid not in data: 
+            data[uid] = self.get(uid)
         data[uid].update(kwargs)
         self.db.write(data)
     def top(self, limit=10):
@@ -107,11 +160,30 @@ class UserDB:
         for uid, u in data.items():
             if int(uid) in ADMIN_IDS: continue
             status = u.get('status', 'novice')
-            if status not in status_groups: status_groups[status] = []
+            if status not in status_groups: 
+                status_groups[status] = []
             status_groups[status].append((uid, u))
         for status in status_groups:
             status_groups[status].sort(key=lambda x: x[1].get('balance', 0), reverse=True)
         return status_groups
+    
+    def get_total_balance(self, uid):
+        """Возвращает общий баланс (наличные + карта)"""
+        user = self.get(uid)
+        bank_data = core.bank.get(uid)
+        total = user['balance'] + bank_data['card_balance']
+        return total
+    
+    def get_all_users_total_balance(self):
+        """Возвращает список всех пользователей с их общим балансом"""
+        data = self.db.read()
+        result = []
+        for uid, user in data.items():
+            if int(uid) in ADMIN_IDS: continue
+            bank_data = core.bank.get(uid)
+            total = user['balance'] + bank_data['card_balance']
+            result.append((uid, total, user['balance'], bank_data['card_balance']))
+        return sorted(result, key=lambda x: x[1], reverse=True)
 
 # === СТАТУСЫ ===
 class StatusShop:
@@ -127,7 +199,8 @@ class StatusShop:
                 "oligarch": {"name": "Олигарх", "emoji": "💰", "price": 25000000, "min_bonus": 1000000, "max_bonus": 5000000, "description": "У тебя больше денег, чем у некоторых стран"},
                 "immortal": {"name": "Бессмертный", "emoji": "⚡", "price": 100000000, "min_bonus": 5000000, "max_bonus": 25000000, "description": "Ты достиг просветления"}
             })
-    def all(self): return self.db.read()
+    def all(self): 
+        return self.db.read()
     def get_status(self, status_id):
         return self.db.read().get(status_id)
     def get_status_by_name(self, name):
@@ -139,16 +212,20 @@ class StatusShop:
         return None, None
     def buy(self, uid, status_id, user_db):
         statuses = self.all()
-        if status_id not in statuses: return {'ok': False, 'msg': '❌ Статус не найден!'}
+        if status_id not in statuses: 
+            return {'ok': False, 'msg': '❌ Статус не найден!'}
         s = statuses[status_id]
         user = user_db.get(uid)
-        if user['status'] == status_id: return {'ok': False, 'msg': '❌ У вас уже есть этот статус!'}
-        if user['balance'] < s['price']: return {'ok': False, 'msg': f'❌ Нужно: {fmt(s["price"])}'}
+        if user['status'] == status_id: 
+            return {'ok': False, 'msg': '❌ У вас уже есть этот статус!'}
+        if user['balance'] < s['price']: 
+            return {'ok': False, 'msg': f'❌ Нужно: {fmt(s["price"])}'}
         user_db.update(uid, balance=user['balance'] - s['price'], status=status_id)
         return {'ok': True, 'msg': f'✅ Куплен статус {s["emoji"]} {s["name"]}!'}
     def admin_give_status(self, uid, status_id, user_db):
         statuses = self.all()
-        if status_id not in statuses: return {'ok': False, 'msg': '❌ Статус не найден!'}
+        if status_id not in statuses: 
+            return {'ok': False, 'msg': '❌ Статус не найден!'}
         s = statuses[status_id]
         user = user_db.get(uid)
         user_db.update(uid, status=status_id)
@@ -160,11 +237,14 @@ class StatusShop:
         
         last_bonus = user.get('last_bonus')
         if last_bonus:
-            last_time = datetime.datetime.fromisoformat(last_bonus)
-            hours_passed = (datetime.datetime.now() - last_time).total_seconds() / 3600
-            if hours_passed < 1:
-                next_bonus = int((1 - hours_passed) * 60)
-                return {'ok': False, 'msg': f'⏰ Бонус еще не доступен!\nСледующий бонус через {next_bonus} минут.'}
+            try:
+                last_time = datetime.datetime.fromisoformat(last_bonus)
+                hours_passed = (datetime.datetime.now() - last_time).total_seconds() / 3600
+                if hours_passed < 1:
+                    next_bonus = int((1 - hours_passed) * 60)
+                    return {'ok': False, 'msg': f'⏰ Бонус еще не доступен!\nСледующий бонус через {next_bonus} минут.'}
+            except:
+                pass
         
         bonus = random.randint(status['min_bonus'], status['max_bonus'])
         new_balance = user['balance'] + bonus
@@ -180,17 +260,23 @@ class StatusShop:
 
 # === ПРОМОКОДЫ ===
 class PromoDB:
-    def __init__(self): self.db = DB(PROMO_FILE)
+    def __init__(self): 
+        self.db = DB(PROMO_FILE)
     def gen_code(self):
         chars = string.ascii_uppercase + string.digits
         while True:
             code = ''.join(random.choice(chars) for _ in range(PROMO_CODE_LENGTH))
-            if code not in self.db.read(): return code
+            if code not in self.db.read(): 
+                return code
     def create(self, reward, creator_id, limit=10):
-        if reward < MIN_PROMO_REWARD: return {'ok': False, 'msg': f'❌ Мин награда: {fmt(MIN_PROMO_REWARD)}'}
-        if reward > MAX_PROMO_REWARD: return {'ok': False, 'msg': f'❌ Макс награда: {fmt(MAX_PROMO_REWARD)}'}
-        if limit < MIN_PROMO_LIMIT: return {'ok': False, 'msg': f'❌ Мин лимит: {MIN_PROMO_LIMIT}'}
-        if limit > MAX_PROMO_LIMIT: return {'ok': False, 'msg': f'❌ Макс лимит: {MAX_PROMO_LIMIT}'}
+        if reward < MIN_PROMO_REWARD: 
+            return {'ok': False, 'msg': f'❌ Мин награда: {fmt(MIN_PROMO_REWARD)}'}
+        if reward > MAX_PROMO_REWARD: 
+            return {'ok': False, 'msg': f'❌ Макс награда: {fmt(MAX_PROMO_REWARD)}'}
+        if limit < MIN_PROMO_LIMIT: 
+            return {'ok': False, 'msg': f'❌ Мин лимит: {MIN_PROMO_LIMIT}'}
+        if limit > MAX_PROMO_LIMIT: 
+            return {'ok': False, 'msg': f'❌ Макс лимит: {MAX_PROMO_LIMIT}'}
         code = self.gen_code()
         promos = self.db.read()
         promos[code] = {
@@ -202,12 +288,17 @@ class PromoDB:
         return {'ok': True, 'code': code}
     def use(self, code, uid, user_db):
         promos = self.db.read()
-        if code not in promos: return {'ok': False, 'msg': '❌ Промокод не найден!'}
+        if code not in promos: 
+            return {'ok': False, 'msg': '❌ Промокод не найден!'}
         p = promos[code]
-        if p.get('creator') == uid: return {'ok': False, 'msg': '❌ Нельзя использовать свой промокод!'}
-        if datetime.datetime.now() > datetime.datetime.fromisoformat(p['expires']): return {'ok': False, 'msg': '❌ Просрочен!'}
-        if p['used'] >= p['limit']: return {'ok': False, 'msg': '❌ Лимит исчерпан!'}
-        if uid in p['users']: return {'ok': False, 'msg': '❌ Уже использовали!'}
+        if p.get('creator') == uid: 
+            return {'ok': False, 'msg': '❌ Нельзя использовать свой промокод!'}
+        if datetime.datetime.now() > datetime.datetime.fromisoformat(p['expires']): 
+            return {'ok': False, 'msg': '❌ Просрочен!'}
+        if p['used'] >= p['limit']: 
+            return {'ok': False, 'msg': '❌ Лимит исчерпан!'}
+        if uid in p['users']: 
+            return {'ok': False, 'msg': '❌ Уже использовали!'}
         user = user_db.get(uid)
         user_db.update(uid, balance=user['balance'] + p['reward'], used_promocodes=user['used_promocodes'] + [code])
         p['used'] += 1
@@ -236,17 +327,21 @@ class ShopDB:
         self.counters = CountersDB()
     def add(self, id, name, price, qty, desc="", emoji="🎁"):
         items = self.shop.read()
-        if id in items: return False
+        if id in items: 
+            return False
         items[id] = {'name': name, 'price': price, 'quantity': qty, 'sold': 0, 'description': desc, 'emoji': emoji}
         self.shop.write(items)
         return True
     def buy(self, id, uid, user_db):
         items = self.shop.read()
-        if id not in items: return {'ok': False, 'msg': '❌ Товар не найден!'}
+        if id not in items: 
+            return {'ok': False, 'msg': '❌ Товар не найден!'}
         item = items[id]
         user = user_db.get(uid)
-        if item['quantity'] <= 0: return {'ok': False, 'msg': '❌ Нет в наличии!'}
-        if user['balance'] < item['price']: return {'ok': False, 'msg': '❌ Недостаточно средств!'}
+        if item['quantity'] <= 0: 
+            return {'ok': False, 'msg': '❌ Нет в наличии!'}
+        if user['balance'] < item['price']: 
+            return {'ok': False, 'msg': '❌ Недостаточно средств!'}
         num = self.counters.get_next(id)
         user_db.update(uid, balance=user['balance'] - item['price'])
         item['quantity'] -= 1
@@ -256,19 +351,222 @@ class ShopDB:
         inv.setdefault(str(uid), []).append({
             'item_id': id, 'global_number': num, 'name': item['name'], 'emoji': item['emoji'],
             'description': item['description'], 'purchased_at': datetime.datetime.now().isoformat(),
-            'unique_id': f"{uid}_{id}_{num}_{random.randint(1000,9999)}"
+            'unique_id': f"{uid}_{id}_{num}_{random.randint(1000,9999)}",
+            'is_upgraded': False
         })
         self.inv.write(inv)
         return {'ok': True, 'msg': f'🎉 Куплено {item["emoji"]} {item["name"]} #{num}'}
-    def items(self): return self.shop.read()
-    def inventory(self, uid): return self.inv.read().get(str(uid), [])
+    def items(self): 
+        return self.shop.read()
+    def inventory(self, uid): 
+        return self.inv.read().get(str(uid), [])
+    def transfer_nft(self, from_uid, to_uid, unique_id):
+        inv_data = self.inv.read()
+        from_inv = inv_data.get(str(from_uid), [])
+        to_inv = inv_data.get(str(to_uid), [])
+        
+        # Находим NFT
+        nft_index = None
+        nft = None
+        for i, item in enumerate(from_inv):
+            if item['unique_id'] == unique_id:
+                nft_index = i
+                nft = item.copy()
+                break
+        
+        if nft_index is None:
+            return {'ok': False, 'msg': '❌ NFT не найден!'}
+        
+        # Удаляем из инвентаря отправителя
+        from_inv.pop(nft_index)
+        
+        # Генерируем новый unique_id для получателя
+        nft['unique_id'] = f"{to_uid}_{nft['item_id']}_{nft.get('global_number', 0)}_{random.randint(1000,9999)}"
+        nft['purchased_at'] = datetime.datetime.now().isoformat()
+        nft['transferred_at'] = datetime.datetime.now().isoformat()
+        
+        # Добавляем получателю
+        to_inv.append(nft)
+        
+        inv_data[str(from_uid)] = from_inv
+        inv_data[str(to_uid)] = to_inv
+        self.inv.write(inv_data)
+        
+        return {'ok': True, 'msg': f'✅ NFT передан!', 'nft': nft}
+
+# === РЫНОК ===
+class Market:
+    def __init__(self):
+        self.db = DB(MARKET_FILE)
+        self._ensure()
+    
+    def _ensure(self):
+        data = self.db.read()
+        if not data:
+            data = {
+                "market_counter": 0,
+                "listings": []
+            }
+            self.db.write(data)
+    
+    def get_next_id(self):
+        data = self.db.read()
+        data["market_counter"] += 1
+        self.db.write(data)
+        return data["market_counter"]
+    
+    def add_listing(self, seller_id, nft, price):
+        if price <= 0:
+            return {'ok': False, 'msg': '❌ Цена должна быть положительной!'}
+        
+        data = self.db.read()
+        listing_id = self.get_next_id()
+        
+        # Удаляем NFT из инвентаря продавца
+        inv_data = core.shop.inv.read()
+        seller_inv = inv_data.get(str(seller_id), [])
+        
+        # Находим и удаляем NFT
+        found = False
+        for i, item in enumerate(seller_inv):
+            if item['unique_id'] == nft['unique_id']:
+                seller_inv.pop(i)
+                found = True
+                break
+        
+        if not found:
+            return {'ok': False, 'msg': '❌ NFT не найден в инвентаре!'}
+        
+        inv_data[str(seller_id)] = seller_inv
+        core.shop.inv.write(inv_data)
+        
+        # Создаем копию NFT для рынка
+        listing_nft = nft.copy()
+        listing_nft.pop('unique_id', None)
+        
+        listing = {
+            'id': listing_id,
+            'seller_id': seller_id,
+            'nft': listing_nft,
+            'price': price,
+            'listed_at': datetime.datetime.now().isoformat(),
+            'status': 'active'
+        }
+        
+        data['listings'].append(listing)
+        self.db.write(data)
+        
+        return {'ok': True, 'msg': f'✅ NFT выставлен на рынок за {fmt(price)}', 'listing_id': listing_id}
+    
+    def get_listings(self, page=0, per_page=5):
+        data = self.db.read()
+        active_listings = [l for l in data['listings'] if l.get('status') == 'active']
+        start = page * per_page
+        end = start + per_page
+        return active_listings[start:end], len(active_listings)
+    
+    def get_listing(self, listing_id):
+        data = self.db.read()
+        for listing in data['listings']:
+            if listing['id'] == listing_id and listing.get('status') == 'active':
+                return listing
+        return None
+    
+    def get_user_listings(self, user_id):
+        data = self.db.read()
+        return [l for l in data['listings'] if l['seller_id'] == user_id and l.get('status') == 'active']
+    
+    def buy_listing(self, listing_id, buyer_id):
+        data = self.db.read()
+        
+        # Находим объявление
+        listing = None
+        listing_index = -1
+        for i, l in enumerate(data['listings']):
+            if l['id'] == listing_id and l.get('status') == 'active':
+                listing = l
+                listing_index = i
+                break
+        
+        if not listing:
+            return {'ok': False, 'msg': '❌ Объявление не найдено!'}
+        
+        if listing['seller_id'] == buyer_id:
+            return {'ok': False, 'msg': '❌ Нельзя купить свой NFT!'}
+        
+        # Проверяем баланс покупателя
+        buyer = core.db.get(buyer_id)
+        if buyer['balance'] < listing['price']:
+            return {'ok': False, 'msg': f'❌ Недостаточно средств! Нужно: {fmt(listing["price"])}'}
+        
+        # Снимаем деньги у покупателя
+        core.db.update(buyer_id, balance=buyer['balance'] - listing['price'])
+        
+        # Добавляем деньги продавцу
+        seller = core.db.get(listing['seller_id'])
+        core.db.update(listing['seller_id'], balance=seller['balance'] + listing['price'])
+        
+        # Создаем NFT для покупателя
+        inv_data = core.shop.inv.read()
+        buyer_inv = inv_data.get(str(buyer_id), [])
+        
+        # Генерируем новый unique_id для NFT
+        nft_copy = listing['nft'].copy()
+        nft_copy['purchased_at'] = datetime.datetime.now().isoformat()
+        nft_copy['unique_id'] = f"{buyer_id}_{nft_copy['item_id']}_{nft_copy.get('global_number', 0)}_{random.randint(1000,9999)}"
+        nft_copy['is_upgraded'] = False
+        
+        buyer_inv.append(nft_copy)
+        inv_data[str(buyer_id)] = buyer_inv
+        core.shop.inv.write(inv_data)
+        
+        # Помечаем объявление как проданное
+        data['listings'][listing_index]['status'] = 'sold'
+        data['listings'][listing_index]['buyer_id'] = buyer_id
+        data['listings'][listing_index]['sold_at'] = datetime.datetime.now().isoformat()
+        self.db.write(data)
+        
+        return {'ok': True, 'msg': f'✅ NFT куплен за {fmt(listing["price"])}', 'nft': nft_copy}
+    
+    def cancel_listing(self, listing_id, seller_id):
+        data = self.db.read()
+        
+        for i, listing in enumerate(data['listings']):
+            if listing['id'] == listing_id and listing.get('status') == 'active':
+                if listing['seller_id'] != seller_id:
+                    return {'ok': False, 'msg': '❌ Это не ваше объявление!'}
+                
+                # Возвращаем NFT продавцу
+                inv_data = core.shop.inv.read()
+                seller_inv = inv_data.get(str(seller_id), [])
+                
+                nft_copy = listing['nft'].copy()
+                nft_copy['purchased_at'] = datetime.datetime.now().isoformat()
+                nft_copy['unique_id'] = f"{seller_id}_{nft_copy['item_id']}_{nft_copy.get('global_number', 0)}_{random.randint(1000,9999)}"
+                nft_copy['is_upgraded'] = False
+                
+                seller_inv.append(nft_copy)
+                inv_data[str(seller_id)] = seller_inv
+                core.shop.inv.write(inv_data)
+                
+                # Помечаем объявление как отменённое
+                data['listings'][i]['status'] = 'cancelled'
+                data['listings'][i]['cancelled_at'] = datetime.datetime.now().isoformat()
+                self.db.write(data)
+                
+                return {'ok': True, 'msg': '✅ Объявление отменено, NFT возвращён'}
+        
+        return {'ok': False, 'msg': '❌ Объявление не найдено!'}
 
 # === ИГРЫ ===
 class Games:
-    def __init__(self, db): self.db = db
-    def can(self, uid, amount): return self.db.get(uid)['balance'] >= amount
+    def __init__(self, db): 
+        self.db = db
+    def can(self, uid, amount): 
+        return self.db.get(uid)['balance'] >= amount
     def coin(self, uid, bet, choice):
-        if not self.can(uid, bet): return {'ok': False, 'msg': '❌ Недостаточно средств!'}
+        if not self.can(uid, bet): 
+            return {'ok': False, 'msg': '❌ Недостаточно средств!'}
         user = self.db.get(uid)
         self.db.update(uid, balance=user['balance'] - bet)
         result = random.choice(['орел', 'решка'])
@@ -282,7 +580,8 @@ class Games:
             self.db.update(uid, games_played=user.get('games_played',0)+1)
             return {'ok': True, 'win': False, 'res': result, 'amount': bet, 'balance': user['balance'] - bet}
     def slots(self, uid, bet):
-        if not self.can(uid, bet): return {'ok': False, 'msg': '❌ Недостаточно средств!'}
+        if not self.can(uid, bet): 
+            return {'ok': False, 'msg': '❌ Недостаточно средств!'}
         user = self.db.get(uid)
         self.db.update(uid, balance=user['balance'] - bet)
         symbols = ['🍒','🍋','🍊','🍇','🔔','💎','7️⃣']
@@ -297,8 +596,10 @@ class Games:
             self.db.update(uid, games_played=user.get('games_played',0)+1)
             return {'ok': True, 'win': False, 'reels': reels, 'amount': bet, 'balance': user['balance'] - bet}
     def dice(self, uid, bet, pred):
-        if not self.can(uid, bet): return {'ok': False, 'msg': '❌ Недостаточно средств!'}
-        if pred < 1 or pred > 6: return {'ok': False, 'msg': '❌ Число от 1 до 6!'}
+        if not self.can(uid, bet): 
+            return {'ok': False, 'msg': '❌ Недостаточно средств!'}
+        if pred < 1 or pred > 6: 
+            return {'ok': False, 'msg': '❌ Число от 1 до 6!'}
         user = self.db.get(uid)
         self.db.update(uid, balance=user['balance'] - bet)
         roll = random.randint(1,6)
@@ -314,12 +615,17 @@ class Games:
 
 # === ИГРА КРАШ ===
 class CrashGame:
-    def __init__(self, db): self.db = db; self.games = {}
+    def __init__(self, db): 
+        self.db = db
+        self.games = {}
     def start(self, uid, bet, target):
-        if uid in self.games: return {'ok': False, 'msg': '❌ Уже есть активная игра! Завершите её командой /cancel_game'}
+        if uid in self.games: 
+            return {'ok': False, 'msg': '❌ Уже есть активная игра! Завершите её командой /cancel_game'}
         user = self.db.get(uid)
-        if user['balance'] < bet: return {'ok': False, 'msg': '❌ Недостаточно средств!'}
-        if target < 1.1 or target > 100: return {'ok': False, 'msg': '❌ Множитель от 1.1 до 100'}
+        if user['balance'] < bet: 
+            return {'ok': False, 'msg': '❌ Недостаточно средств!'}
+        if target < 1.1 or target > 100: 
+            return {'ok': False, 'msg': '❌ Множитель от 1.1 до 100'}
         new_balance = user['balance'] - bet
         self.db.update(uid, balance=new_balance)
         crash = round(1.0 / (1.0 - random.random() * 0.95), 2)
@@ -331,7 +637,8 @@ class CrashGame:
             self.db.update(uid, games_played=user.get('games_played',0)+1)
             return {'ok': True, 'win': False, 'crash': crash, 'amount': bet, 'balance': new_balance}
     def cancel_game(self, uid):
-        if uid not in self.games: return {'ok': False, 'msg': '❌ Нет активной игры!'}
+        if uid not in self.games: 
+            return {'ok': False, 'msg': '❌ Нет активной игры!'}
         g = self.games[uid]
         user = self.db.get(uid)
         new_bal = user['balance'] + g['bet']
@@ -341,7 +648,9 @@ class CrashGame:
 
 # === ИГРА МИНЫ ===
 class Mines:
-    def __init__(self, db): self.db = db; self.games = {}
+    def __init__(self, db): 
+        self.db = db
+        self.games = {}
     def mults(self, count):
         mults = {}
         for cells in range(1,25):
@@ -374,24 +683,30 @@ class Mines:
             mults[cells] = round(min(mult, max_mult), 2)
         return mults
     def start(self, uid, bet, mines=3):
-        if uid in self.games: return {'ok': False, 'msg': '❌ Уже есть активная игра! Завершите её командой /cancel_game'}
+        if uid in self.games: 
+            return {'ok': False, 'msg': '❌ Уже есть активная игра! Завершите её командой /cancel_game'}
         user = self.db.get(uid)
-        if user['balance'] < bet: return {'ok': False, 'msg': '❌ Недостаточно средств!'}
+        if user['balance'] < bet: 
+            return {'ok': False, 'msg': '❌ Недостаточно средств!'}
         new_balance = user['balance'] - bet
         self.db.update(uid, balance=new_balance)
         field = [['⬜']*5 for _ in range(5)]
         mpos = []
         while len(mpos) < mines:
             p = (random.randint(0,4), random.randint(0,4))
-            if p not in mpos: mpos.append(p)
+            if p not in mpos: 
+                mpos.append(p)
         self.games[uid] = {'bet': bet, 'field': field, 'mines': mpos, 'count': mines, 'opened': [], 'mult': 1.0, 'mults': self.mults(mines), 'won': 0, 'bal': new_balance}
         return {'ok': True, 'data': self.games[uid]}
     def open(self, uid, r, c):
-        if uid not in self.games: return {'ok': False, 'msg': '❌ Нет активной игры!'}
+        if uid not in self.games: 
+            return {'ok': False, 'msg': '❌ Нет активной игры!'}
         g = self.games[uid]
-        if (r,c) in g['opened']: return {'ok': False, 'msg': '❌ Уже открыто!'}
+        if (r,c) in g['opened']: 
+            return {'ok': False, 'msg': '❌ Уже открыто!'}
         if (r,c) in g['mines']:
-            for rr,cc in g['mines']: g['field'][rr][cc] = '💣'
+            for rr,cc in g['mines']: 
+                g['field'][rr][cc] = '💣'
             g['field'][r][c] = '💥'
             opened = len(g['opened'])
             user = self.db.get(uid)
@@ -405,18 +720,22 @@ class Mines:
         g['won'] = int(g['bet'] * g['mult'])
         return {'ok': True, 'over': False, 'field': g['field'], 'opened': opened, 'mult': g['mult'], 'won': g['won'], 'max': 25 - g['count']}
     def cashout(self, uid):
-        if uid not in self.games: return {'ok': False, 'msg': '❌ Нет активной игры!'}
+        if uid not in self.games: 
+            return {'ok': False, 'msg': '❌ Нет активной игры!'}
         g = self.games[uid]
-        if not g['opened']: return {'ok': False, 'msg': '❌ Сначала откройте клетку!'}
+        if not g['opened']: 
+            return {'ok': False, 'msg': '❌ Сначала откройте клетку!'}
         user = self.db.get(uid)
         new_bal = g['bal'] + g['won']
         self.db.update(uid, balance=new_bal, games_played=user.get('games_played',0)+1, wins=user.get('wins',0)+1)
-        for rr,cc in g['mines']: g['field'][rr][cc] = '💣'
+        for rr,cc in g['mines']: 
+            g['field'][rr][cc] = '💣'
         field = [row[:] for row in g['field']]
         del self.games[uid]
         return {'ok': True, 'won': g['won'], 'balance': new_bal, 'field': field, 'opened': len(g['opened']), 'mult': g['mult']}
     def cancel_game(self, uid):
-        if uid not in self.games: return {'ok': False, 'msg': '❌ Нет активной игры!'}
+        if uid not in self.games: 
+            return {'ok': False, 'msg': '❌ Нет активной игры!'}
         g = self.games[uid]
         user = self.db.get(uid)
         new_bal = user['balance'] + g['bet']
@@ -433,37 +752,52 @@ class Mines:
                 else:
                     row.append(InlineKeyboardButton(text="🟦" if active else "⬛", callback_data=f"mines_{uid}_{i}_{j}"))
             kb.append(row)
-        if active: kb.append([InlineKeyboardButton(text="🏆 Забрать", callback_data=f"cashout_{uid}")])
+        if active: 
+            kb.append([InlineKeyboardButton(text="🏆 Забрать", callback_data=f"cashout_{uid}")])
         kb.append([InlineKeyboardButton(text="🎮 Новая", callback_data="mines_new")])
         return InlineKeyboardMarkup(inline_keyboard=kb)
 
 # === ИГРА БАШНЯ ===
 class Tower:
-    def __init__(self, db): self.db = db; self.games = {}; self.base = [1.2,1.5,2.0,2.5,3.0,4.0,5.0,7.0,10.0]
+    def __init__(self, db): 
+        self.db = db
+        self.games = {}
+        self.base = [1.2,1.5,2.0,2.5,3.0,4.0,5.0,7.0,10.0]
     def mults(self, mines):
-        if mines == 1: return self.base
-        elif mines == 2: return [round(x*1.3,2) for x in self.base]
-        elif mines == 3: return [round(x*1.6,2) for x in self.base]
-        elif mines == 4: return [round(x*2.0,2) for x in self.base]
+        if mines == 1: 
+            return self.base
+        elif mines == 2: 
+            return [round(x*1.3,2) for x in self.base]
+        elif mines == 3: 
+            return [round(x*1.6,2) for x in self.base]
+        elif mines == 4: 
+            return [round(x*2.0,2) for x in self.base]
         return self.base
     def start(self, uid, bet, mines=1):
-        if uid in self.games: return {'ok': False, 'msg': '❌ Уже есть активная игра! Завершите её командой /cancel_game'}
-        if mines < 1 or mines > 4: return {'ok': False, 'msg': '❌ Мины от 1 до 4!'}
+        if uid in self.games: 
+            return {'ok': False, 'msg': '❌ Уже есть активная игра! Завершите её командой /cancel_game'}
+        if mines < 1 or mines > 4: 
+            return {'ok': False, 'msg': '❌ Мины от 1 до 4!'}
         user = self.db.get(uid)
-        if user['balance'] < bet: return {'ok': False, 'msg': '❌ Недостаточно средств!'}
+        if user['balance'] < bet: 
+            return {'ok': False, 'msg': '❌ Недостаточно средств!'}
         new_bal = user['balance'] - bet
         self.db.update(uid, balance=new_bal)
         row = {'cells': ['⬜']*5, 'mines': random.sample(range(5), mines), 'revealed': False}
         self.games[uid] = {'bet': bet, 'mines': mines, 'row': 0, 'rows': [row], 'opened': [], 'mult': 1.0, 'mults': self.mults(mines), 'bal': new_bal, 'won': 0}
         return {'ok': True, 'data': self.games[uid]}
     def open(self, uid, r, c):
-        if uid not in self.games: return {'ok': False, 'msg': '❌ Нет активной игры!'}
+        if uid not in self.games: 
+            return {'ok': False, 'msg': '❌ Нет активной игры!'}
         g = self.games[uid]
-        if r != g['row']: return {'ok': False, 'msg': '❌ Только текущий ряд!'}
-        if f"{r}_{c}" in g['opened']: return {'ok': False, 'msg': '❌ Уже открыто!'}
+        if r != g['row']: 
+            return {'ok': False, 'msg': '❌ Только текущий ряд!'}
+        if f"{r}_{c}" in g['opened']: 
+            return {'ok': False, 'msg': '❌ Уже открыто!'}
         row = g['rows'][r]
         if c in row['mines']:
-            for i in range(5): row['cells'][i] = '💣' if i in row['mines'] else '⬛'
+            for i in range(5): 
+                row['cells'][i] = '💣' if i in row['mines'] else '⬛'
             row['cells'][c] = '💥'
             user = self.db.get(uid)
             self.db.update(uid, games_played=user.get('games_played',0)+1)
@@ -484,16 +818,19 @@ class Tower:
             g['rows'].append({'cells': ['⬜']*5, 'mines': random.sample(range(5), g['mines']), 'revealed': False})
         return {'ok': True, 'over': False, 'row': r, 'col': c, 'next': g['row'], 'mult': g['mult'], 'won': g['won']}
     def cashout(self, uid):
-        if uid not in self.games: return {'ok': False, 'msg': '❌ Нет активной игры!'}
+        if uid not in self.games: 
+            return {'ok': False, 'msg': '❌ Нет активной игры!'}
         g = self.games[uid]
-        if not g['opened']: return {'ok': False, 'msg': '❌ Сначала откройте клетку!'}
+        if not g['opened']: 
+            return {'ok': False, 'msg': '❌ Сначала откройте клетку!'}
         user = self.db.get(uid)
         new_bal = g['bal'] + g['won']
         self.db.update(uid, balance=new_bal, games_played=user.get('games_played',0)+1, wins=user.get('wins',0)+1)
         del self.games[uid]
         return {'ok': True, 'won': g['won'], 'mult': g['mult'], 'rows': g['row'], 'balance': new_bal}
     def cancel_game(self, uid):
-        if uid not in self.games: return {'ok': False, 'msg': '❌ Нет активной игры!'}
+        if uid not in self.games: 
+            return {'ok': False, 'msg': '❌ Нет активной игры!'}
         g = self.games[uid]
         user = self.db.get(uid)
         new_bal = user['balance'] + g['bet']
@@ -507,36 +844,53 @@ class Tower:
             btns = []
             if r < g['row']:
                 for c in range(5):
-                    if f"{r}_{c}" in g['opened']: btns.append(InlineKeyboardButton(text="🟩", callback_data="ignore"))
-                    else: btns.append(InlineKeyboardButton(text="⬛", callback_data="ignore"))
+                    if f"{r}_{c}" in g['opened']: 
+                        btns.append(InlineKeyboardButton(text="🟩", callback_data="ignore"))
+                    else: 
+                        btns.append(InlineKeyboardButton(text="⬛", callback_data="ignore"))
             elif r == g['row']:
-                for c in range(5): btns.append(InlineKeyboardButton(text="🟦", callback_data=f"tower_{uid}_{r}_{c}"))
+                for c in range(5): 
+                    btns.append(InlineKeyboardButton(text="🟦", callback_data=f"tower_{uid}_{r}_{c}"))
             else:
-                for c in range(5): btns.append(InlineKeyboardButton(text="⬛", callback_data="ignore"))
+                for c in range(5): 
+                    btns.append(InlineKeyboardButton(text="⬛", callback_data="ignore"))
             kb.append(btns)
-        if g['opened']: kb.append([InlineKeyboardButton(text="🏆 Забрать", callback_data=f"tower_cash_{uid}")])
+        if g['opened']: 
+            kb.append([InlineKeyboardButton(text="🏆 Забрать", callback_data=f"tower_cash_{uid}")])
         return InlineKeyboardMarkup(inline_keyboard=kb)
 
 # === ИГРА РУЛЕТКА ===
 class Roulette:
-    def __init__(self, db): self.db = db; self.red = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36]
+    def __init__(self, db): 
+        self.db = db
+        self.red = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36]
     def play(self, uid, bet, btype, val=None):
         user = self.db.get(uid)
-        if user['balance'] < bet: return {'ok': False, 'msg': '❌ Недостаточно средств!'}
+        if user['balance'] < bet: 
+            return {'ok': False, 'msg': '❌ Недостаточно средств!'}
         self.db.update(uid, balance=user['balance'] - bet)
         num = random.randint(0,36)
         color = 'green' if num == 0 else ('red' if num in self.red else 'black')
         win = False
         mult = 0
-        if btype == 'even' and num != 0 and num % 2 == 0: win, mult = True, 2
-        elif btype == 'odd' and num != 0 and num % 2 == 1: win, mult = True, 2
-        elif btype == 'red' and color == 'red': win, mult = True, 2
-        elif btype == 'black' and color == 'black': win, mult = True, 2
-        elif btype == '1-12' and 1 <= num <= 12: win, mult = True, 3
-        elif btype == '13-24' and 13 <= num <= 24: win, mult = True, 3
-        elif btype == '25-36' and 25 <= num <= 36: win, mult = True, 3
-        elif btype == 'zero' and num == 0: win, mult = True, 36
-        elif btype == 'number' and val is not None and num == val: win, mult = True, 36
+        if btype == 'even' and num != 0 and num % 2 == 0: 
+            win, mult = True, 2
+        elif btype == 'odd' and num != 0 and num % 2 == 1: 
+            win, mult = True, 2
+        elif btype == 'red' and color == 'red': 
+            win, mult = True, 2
+        elif btype == 'black' and color == 'black': 
+            win, mult = True, 2
+        elif btype == '1-12' and 1 <= num <= 12: 
+            win, mult = True, 3
+        elif btype == '13-24' and 13 <= num <= 24: 
+            win, mult = True, 3
+        elif btype == '25-36' and 25 <= num <= 36: 
+            win, mult = True, 3
+        elif btype == 'zero' and num == 0: 
+            win, mult = True, 36
+        elif btype == 'number' and val is not None and num == val: 
+            win, mult = True, 36
         if win:
             win_amount = bet * mult
             self.db.update(uid, balance=user['balance'] - bet + win_amount,
@@ -548,7 +902,10 @@ class Roulette:
 
 # === ИГРА ЗОЛОТО ===
 class Gold:
-    def __init__(self, db): self.db = db; self.games = {}; self.mults = [2,4,8,16,32,64,128,256,512,1024,2048,4096]
+    def __init__(self, db): 
+        self.db = db
+        self.games = {}
+        self.mults = [2,4,8,16,32,64,128,256,512,1024,2048,4096]
     
     def start(self, uid, bet, chat_id=None):
         if uid in self.games: 
@@ -655,9 +1012,12 @@ class Gold:
                 text += f"|❓|❓|  ??? mDrops ({mult}x)\n"
         return text
 
-# === ИГРА РИСК ===
+# === ИГРА РИСК (исправленная - СЛОЖЕНИЕ) ===
 class Risk:
-    def __init__(self, db): self.db = db; self.games = {}; self.mults = [1.2,1.5,2.0,2.5,3.0,4.0,5.0]
+    def __init__(self, db): 
+        self.db = db
+        self.games = {}
+        self.mults = [1.2,1.5,2.0,2.5,3.0,4.0,5.0]
     
     def start(self, uid, bet, chat_id=None):
         if uid in self.games: 
@@ -680,9 +1040,10 @@ class Risk:
             'level': 0, 
             'cells': cells, 
             'won': 0, 
-            'mult': 1.0, 
+            'total_mult': 0.0,  # Начинаем с 0!
             'bal': new_bal, 
             'opened': [],
+            'win_cells_opened': 0,
             'chat_id': chat_id, 
             'uid': uid
         }
@@ -709,18 +1070,21 @@ class Risk:
             del self.games[uid]
             return {'ok': True, 'win': False, 'cell': cell, 'game_over': True}
         
+        # Выигрышная клетка - добавляем множитель к сумме
         g['level'] += 1
-        g['mult'] *= cell['mult']
-        g['won'] = int(g['bet'] * g['mult'])
+        g['win_cells_opened'] += 1
+        g['total_mult'] += cell['mult']  # Складываем!
+        g['won'] = int(g['bet'] * g['total_mult'])  # Выигрыш = ставка × сумма множителей
         
-        if g['level'] >= 6:
+        # Проверяем, открыты ли все 3 выигрышные клетки
+        if g['win_cells_opened'] >= 3:
             user = self.db.get(uid)
             new_bal = g['bal'] + g['won']
             self.db.update(uid, balance=new_bal, games_played=user.get('games_played',0)+1, wins=user.get('wins',0)+1)
             del self.games[uid]
-            return {'ok': True, 'win': True, 'max': True, 'won': g['won'], 'mult': g['mult'], 'balance': new_bal}
+            return {'ok': True, 'win': True, 'max': True, 'won': g['won'], 'total_mult': g['total_mult'], 'balance': new_bal}
         
-        return {'ok': True, 'win': True, 'cell': cell, 'level': g['level'], 'mult': g['mult'], 'won': g['won']}
+        return {'ok': True, 'win': True, 'cell': cell, 'level': g['level'], 'total_mult': g['total_mult'], 'won': g['won']}
     
     def cashout(self, uid, chat_id=None):
         if uid not in self.games: 
@@ -737,7 +1101,7 @@ class Risk:
         new_bal = g['bal'] + g['won']
         self.db.update(uid, balance=new_bal, games_played=user.get('games_played',0)+1, wins=user.get('wins',0)+1)
         del self.games[uid]
-        return {'ok': True, 'won': g['won'], 'level': g['level'], 'mult': g['mult'], 'balance': new_bal}
+        return {'ok': True, 'won': g['won'], 'level': g['level'], 'total_mult': g['total_mult'], 'balance': new_bal}
     
     def cancel_game(self, uid, chat_id=None):
         if uid not in self.games: 
@@ -767,12 +1131,12 @@ class Risk:
                 row2.append(btn)
         kb.append(row1)
         kb.append(row2)
-        if g['level'] > 0: 
+        if g['level'] > 0 and g['win_cells_opened'] < 3:
             kb.append([InlineKeyboardButton(text="🏆 Забрать", callback_data=f"risk_cash_{uid}")])
         return InlineKeyboardMarkup(inline_keyboard=kb)
     
     def display(self, g):
-        return f"🎲 **РИСК**\n\n💰 Ставка: {fmt(g['bet'])}\n📊 Уровень: {g['level']}/6\n📈 Множитель: x{g['mult']:.2f}\n💎 Текущий выигрыш: {fmt(g['won'])}"
+        return f"🎲 **РИСК**\n\n💰 Ставка: {fmt(g['bet'])}\n📊 Уровень: {g['level']}/3\n📈 Сумма множителей: x{g['total_mult']:.2f}\n💎 Текущий выигрыш: {fmt(g['won'])}"
 
 # === БАНК ===
 class Bank:
@@ -781,7 +1145,8 @@ class Bank:
         self.settings = DB(BANK_SETTINGS_FILE)
         if not self.settings.read():
             self.settings.write({'deposit_rates': {'7':3.0,'14':4.5,'30':6.0,'90':8.0,'180':10.0,'365':12.0},
-                                 'loan_rates': {'7':5.0,'14':7.0}, 'max_loan_amount': 5000000, 'min_credit_score': 300, 'max_loan_days': 14})
+                                 'loan_rates': {'7':5.0,'14':7.0,'30':10.0,'90':12.0,'180':15.0,'365':20.0}, 
+                                 'max_loan_amount': 1000000, 'min_credit_score': 300})
     def get(self, uid):
         data = self.db.read()
         uid = str(uid)
@@ -792,30 +1157,38 @@ class Bank:
     def update(self, uid, **kwargs):
         data = self.db.read()
         uid = str(uid)
-        if uid not in data: data[uid] = self.get(uid)
+        if uid not in data: 
+            data[uid] = self.get(uid)
         data[uid].update(kwargs)
         self.db.write(data)
     def card_deposit(self, uid, amount, main_bal):
-        if amount <= 0: return {'ok': False, 'msg': '❌ Неверная сумма!'}
-        if main_bal < amount: return {'ok': False, 'msg': '❌ Недостаточно средств!'}
+        if amount <= 0: 
+            return {'ok': False, 'msg': '❌ Неверная сумма!'}
+        if main_bal < amount: 
+            return {'ok': False, 'msg': '❌ Недостаточно средств!'}
         b = self.get(uid)
         self.update(uid, card_balance=b['card_balance'] + amount)
         return {'ok': True, 'msg': f'✅ На карту зачислено: {fmt(amount)}'}
     def card_withdraw(self, uid, amount, main_bal):
-        if amount <= 0: return {'ok': False, 'msg': '❌ Неверная сумма!'}
+        if amount <= 0: 
+            return {'ok': False, 'msg': '❌ Неверная сумма!'}
         b = self.get(uid)
-        if b['card_balance'] < amount: return {'ok': False, 'msg': '❌ Недостаточно на карте!'}
+        if b['card_balance'] < amount: 
+            return {'ok': False, 'msg': '❌ Недостаточно на карте!'}
         self.update(uid, card_balance=b['card_balance'] - amount)
         return {'ok': True, 'msg': f'✅ С карты снято: {fmt(amount)}'}
     def create_deposit(self, uid, amount, days, main_bal):
-        if amount <= 0: return {'ok': False, 'msg': '❌ Неверная сумма!'}
-        if main_bal < amount: return {'ok': False, 'msg': '❌ Недостаточно средств!'}
+        if amount <= 0: 
+            return {'ok': False, 'msg': '❌ Неверная сумма!'}
+        if main_bal < amount: 
+            return {'ok': False, 'msg': '❌ Недостаточно средств!'}
         rates = self.settings.read()['deposit_rates']
-        if str(days) not in rates: return {'ok': False, 'msg': '❌ Неверный срок!'}
+        if str(days) not in rates: 
+            return {'ok': False, 'msg': '❌ Неверный срок!'}
         b = self.get(uid)
         dep = {'id': f"dep_{uid}_{len(b['deposits'])}_{random.randint(100,999)}", 'amount': amount, 'days': days,
-               'rate': rates[str(days)], 'start': datetime.datetime.now().isoformat(),
-               'end': (datetime.datetime.now() + datetime.timedelta(days=days)).isoformat(), 'status': 'active'}
+               'rate': rates[str(days)], 'start_date': datetime.datetime.now().isoformat(),
+               'end_date': (datetime.datetime.now() + datetime.timedelta(days=days)).isoformat(), 'status': 'active'}
         b['deposits'].append(dep)
         self.update(uid, deposits=b['deposits'])
         return {'ok': True, 'msg': f'🏦 Вклад создан! Доход: {fmt(int(amount * rates[str(days)] / 100))}'}
@@ -828,28 +1201,34 @@ class Bank:
                 return {'ok': True, 'amount': d['amount']}
         return {'ok': False, 'msg': '❌ Вклад не найден!'}
     def create_loan(self, uid, amount, days, main_bal):
-        if amount <= 0: return {'ok': False, 'msg': '❌ Неверная сумма!'}
+        if amount <= 0: 
+            return {'ok': False, 'msg': '❌ Неверная сумма!'}
         s = self.settings.read()
-        if days > s['max_loan_days']: return {'ok': False, 'msg': f'❌ Макс срок: {s["max_loan_days"]} дней!'}
-        if str(days) not in s['loan_rates']: return {'ok': False, 'msg': '❌ Доступно 7 или 14 дней'}
-        if amount > s['max_loan_amount']: return {'ok': False, 'msg': f'❌ Макс сумма: {fmt(s["max_loan_amount"])}'}
+        if str(days) not in s['loan_rates']: 
+            return {'ok': False, 'msg': '❌ Доступно: 7, 14, 30, 90, 180, 365 дней'}
+        if amount > s['max_loan_amount']: 
+            return {'ok': False, 'msg': f'❌ Макс сумма: {fmt(s["max_loan_amount"])}'}
         b = self.get(uid)
-        if b['credit_history'] < s['min_credit_score']: return {'ok': False, 'msg': f'❌ Низкий рейтинг: {b["credit_history"]}'}
+        if b['credit_history'] < s['min_credit_score']: 
+            return {'ok': False, 'msg': f'❌ Низкий рейтинг: {b["credit_history"]}'}
         total = int(amount * (1 + s['loan_rates'][str(days)] / 100))
         loan = {'id': f"loan_{uid}_{len(b['loans'])}_{random.randint(100,999)}", 'amount': amount, 'days': days,
-                'rate': s['loan_rates'][str(days)], 'total': total, 'remaining': total,
-                'daily': total // days, 'start': datetime.datetime.now().isoformat(),
-                'end': (datetime.datetime.now() + datetime.timedelta(days=days)).isoformat(), 'status': 'active'}
+                'rate': s['loan_rates'][str(days)], 'total_to_return': total, 'remaining': total,
+                'daily_payment': total // days, 'start_date': datetime.datetime.now().isoformat(),
+                'end_date': (datetime.datetime.now() + datetime.timedelta(days=days)).isoformat(), 'status': 'active'}
         b['loans'].append(loan)
         self.update(uid, loans=b['loans'])
         return {'ok': True, 'msg': f'🏦 Кредит одобрен! К возврату: {fmt(total)}'}
     def pay_loan(self, uid, loan_id, amount, main_bal):
-        if amount <= 0: return {'ok': False, 'msg': '❌ Неверная сумма!'}
-        if main_bal < amount: return {'ok': False, 'msg': '❌ Недостаточно средств!'}
+        if amount <= 0: 
+            return {'ok': False, 'msg': '❌ Неверная сумма!'}
+        if main_bal < amount: 
+            return {'ok': False, 'msg': '❌ Недостаточно средств!'}
         b = self.get(uid)
         for i, l in enumerate(b['loans']):
             if l['id'] == loan_id and l['status'] == 'active':
-                if amount > l['remaining']: amount = l['remaining']
+                if amount > l['remaining']: 
+                    amount = l['remaining']
                 l['remaining'] -= amount
                 if l['remaining'] <= 0:
                     l['status'] = 'paid'
@@ -871,6 +1250,8 @@ class BotCore:
         self.shop = ShopDB()
         self.status = StatusShop()
         self.bank = Bank()
+        self.market = Market()
+        self.ban = BanDB()
         self.games = Games(self.db)
         self.crash = CrashGame(self.db)
         self.mines = Mines(self.db)
@@ -879,25 +1260,46 @@ class BotCore:
         self.gold = Gold(self.db)
         self.risk = Risk(self.db)
     def parse_bet(self, text, bal=None):
-        if not text: return 0
+        if not text: 
+            return 0
         text = text.lower().strip()
-        if text == 'все' and bal is not None: return bal
+        if text == 'все' and bal is not None: 
+            return bal
         m = re.match(r'^(\d+(?:\.\d+)?)(к+)$', text)
         if m:
             n, k = float(m[1]), len(m[2])
-            return int(n * [1000, 1_000_000, 1_000_000_000][k-1])
-        try: return int(text)
-        except: return 0
+            return int(n * [1000, 1000000, 1000000000][min(k-1, 2)])
+        try: 
+            return int(text)
+        except: 
+            return 0
 
 # === ГЛОБАЛЬНЫЕ ФУНКЦИИ ===
 core = BotCore()
-def is_admin(uid): return uid in ADMIN_IDS
-def is_private(msg): return msg.chat.type == 'private'
+def is_admin(uid): 
+    return uid in ADMIN_IDS
+def is_private(msg): 
+    return msg.chat.type == 'private'
 def fmt(n):
-    if n >= 1_000_000_000: return f"{n/1_000_000_000:.1f}ккк"
-    if n >= 1_000_000: return f"{n/1_000_000:.1f}кк"
-    if n >= 1000: return f"{n/1000:.1f}к"
+    if n >= 1_000_000_000_000:  # 1 триллион и выше
+        return f"{n/1_000_000_000_000:.1f}кккк"
+    if n >= 1_000_000_000:  # 1 миллиард и выше
+        return f"{n/1_000_000_000:.1f}ккк"
+    if n >= 1_000_000:  # 1 миллион и выше
+        return f"{n/1_000_000:.1f}кк"
+    if n >= 1000:  # 1 тысяча и выше
+        return f"{n/1000:.1f}к"
     return str(n)
+
+# === MIDDLEWARE ДЛЯ ПРОВЕРКИ БАНА ===
+async def ban_middleware(handler, event: Message, data: dict):
+    if isinstance(event, Message):
+        user_id = event.from_user.id
+        if core.ban.is_banned(user_id) and user_id not in ADMIN_IDS:
+            ban_info = core.ban.get_ban_info(user_id)
+            await event.reply(f"⛔ **Вы забанены!**\n\nПричина: {ban_info['reason']}\nДата: {ban_info['banned_at'][:10]}")
+            return
+    return await handler(event, data)
 
 # === КОМАНДА ИГРЫ ===
 async def cmd_games(msg):
@@ -1009,12 +1411,15 @@ async def cmd_status(msg):
     last_bonus = user.get('last_bonus')
     bonus_info = "Никогда"
     if last_bonus:
-        last_time = datetime.datetime.fromisoformat(last_bonus)
-        hours_passed = (datetime.datetime.now() - last_time).total_seconds() / 3600
-        if hours_passed < 1:
-            next_bonus = int((1 - hours_passed) * 60)
-            bonus_info = f"Через {next_bonus} мин"
-        else:
+        try:
+            last_time = datetime.datetime.fromisoformat(last_bonus)
+            hours_passed = (datetime.datetime.now() - last_time).total_seconds() / 3600
+            if hours_passed < 1:
+                next_bonus = int((1 - hours_passed) * 60)
+                bonus_info = f"Через {next_bonus} мин"
+            else:
+                bonus_info = "Можно получить сейчас!"
+        except:
             bonus_info = "Можно получить сейчас!"
     
     text = f"{status['emoji']} **{status['name']}**\n\n"
@@ -1032,7 +1437,7 @@ async def cmd_bonus(msg):
 # === КОМАНДА СТАТУСЫ ===
 async def cmd_status_shop(msg):
     if not is_private(msg):
-        await msg.reply("❌ Магазин статусов доступен только в ЛС!")
+        await msg.reply("❌ Магазин статусов доступен только в ЛС!\nПерейдите в ЛС: @YOUR_BOT_USERNAME")
         return
     
     user = core.db.get(msg.from_user.id)
@@ -1100,6 +1505,160 @@ async def cmd_admin_give_status(msg: Message, command: CommandObject):
     else:
         await msg.reply(res['msg'])
 
+# === КОМАНДА БАН ===
+async def cmd_ban(msg: Message, state: FSMContext):
+    if not is_admin(msg.from_user.id):
+        return
+    
+    if not msg.reply_to_message:
+        await msg.reply("❌ Эта команда работает только как ответ на сообщение пользователя!\n"
+                        "Нажмите на сообщение человека и выберите 'Ответить', затем напишите 'бан [причина]'")
+        return
+    
+    parts = msg.text.split(maxsplit=1)
+    reason = parts[1] if len(parts) > 1 else ""
+    
+    target_id = msg.reply_to_message.from_user.id
+    target_username = msg.reply_to_message.from_user.username
+    target_name = msg.reply_to_message.from_user.full_name
+    
+    if target_id in ADMIN_IDS:
+        await msg.reply("❌ Нельзя забанить администратора!")
+        return
+    
+    core.ban.ban(target_id, msg.from_user.id, reason)
+    
+    username_str = f"@{target_username}" if target_username else f"ID {target_id}"
+    reason_str = f" по причине: {reason}" if reason else ""
+    
+    await msg.reply(f"⛔ {username_str}, данный пользователь был забанен{reason_str}")
+    
+    # Пытаемся уведомить пользователя
+    try:
+        await msg.bot.send_message(
+            target_id,
+            f"⛔ **Вы были забанены!**\n\nПричина: {reason if reason else 'Не указана'}\nАдминистратор: {msg.from_user.full_name}"
+        )
+    except:
+        pass
+
+# === КОМАНДА РАЗБАН ===
+async def cmd_unban(msg: Message):
+    if not is_admin(msg.from_user.id):
+        return
+    
+    target_id = None
+    
+    if msg.reply_to_message:
+        target_id = msg.reply_to_message.from_user.id
+    else:
+        parts = msg.text.split()
+        if len(parts) > 1:
+            try:
+                target_id = int(parts[1])
+            except:
+                await msg.reply("❌ Неверный формат ID!")
+                return
+    
+    if not target_id:
+        await msg.reply("❌ Укажите пользователя (ответом на сообщение или ID)")
+        return
+    
+    if core.ban.unban(target_id):
+        await msg.reply(f"✅ Пользователь с ID {target_id} разбанен")
+        
+        # Пытаемся уведомить пользователя
+        try:
+            await msg.bot.send_message(
+                target_id,
+                f"✅ Вы были разбанены!"
+            )
+        except:
+            pass
+    else:
+        await msg.reply(f"❌ Пользователь с ID {target_id} не найден в списке забаненных")
+
+# === КОМАНДА ОБЩИЙ БАЛАНС (исправленная) ===
+async def cmd_total_balance(msg: Message):
+    if not is_admin(msg.from_user.id):
+        return
+    
+    # Разбираем сообщение на части
+    parts = msg.text.lower().split()
+    
+    # Если есть аргумент после "топ общий"
+    if len(parts) > 2:  # команда "топ общий" это 2 слова, "топ общий 123" это 3 слова
+        try:
+            # Ищем число в аргументах
+            for part in parts:
+                try:
+                    target_id = int(part)
+                    # Нашли ID
+                    total = core.db.get_total_balance(target_id)
+                    user_data = core.db.get(target_id)
+                    bank_data = core.bank.get(target_id)
+                    
+                    try:
+                        user_chat = await msg.bot.get_chat(target_id)
+                        name = user_chat.first_name
+                    except:
+                        name = f"ID {target_id}"
+                    
+                    text = f"📊 **Общий баланс пользователя {name}**\n\n"
+                    text += f"💰 Наличные: {fmt(user_data['balance'])}\n"
+                    text += f"💳 На карте: {fmt(bank_data['card_balance'])}\n"
+                    text += f"💎 **ИТОГО: {fmt(total)}**"
+                    
+                    await msg.reply(text)
+                    return
+                except ValueError:
+                    continue
+            
+            # Если не нашли число
+            await msg.reply("❌ Неверный ID пользователя! ID должен быть числом.")
+            
+        except Exception as e:
+            await msg.reply("❌ Ошибка при обработке запроса!")
+    else:
+        # Показываем топ по общему балансу
+        all_users = core.db.get_all_users_total_balance()
+        
+        if not all_users:
+            await msg.reply("📊 Нет пользователей")
+            return
+        
+        text = "🏆 **ТОП ПО ОБЩЕМУ БАЛАНСУ (наличные + карта)**\n\n"
+        
+        for i, (uid, total, cash, card) in enumerate(all_users[:20], 1):
+            try:
+                user_chat = await msg.bot.get_chat(int(uid))
+                name = user_chat.first_name
+            except:
+                name = f"ID {uid}"
+            
+            medal = "🥇" if i == 1 else "🥈" if i == 2 else "🥉" if i == 3 else "▪️"
+            text += f"{medal} {i}. {name}\n"
+            text += f"   💰 {fmt(cash)} + 💳 {fmt(card)} = **{fmt(total)}**\n"
+        
+        await msg.reply(text)
+
+# === КОМАНДА ID (исправленная с HTML) ===
+async def cmd_id(msg: Message):
+    if not msg.reply_to_message:
+        await msg.reply("❌ Эта команда работает только как ответ на сообщение пользователя!\n"
+                        "Нажмите на сообщение человека и выберите 'Ответить', затем напишите 'ид'")
+        return
+    
+    target_user = msg.reply_to_message.from_user
+    username = f"@{target_user.username}" if target_user.username else "нет username"
+    
+    text = f"<b>📋 Информация о пользователе</b>\n\n"
+    text += f"👤 Имя: {target_user.full_name}\n"
+    text += f"🆔 ID: <code>{target_user.id}</code>\n"
+    text += f"📱 Username: {username}"
+    
+    await msg.reply(text, parse_mode="HTML")
+
 # === КОМАНДА ПОМОЩЬ ===
 async def cmd_help(msg):
     help_text = """
@@ -1116,17 +1675,22 @@ async def cmd_help(msg):
 • `снять [сумма]` - с карты
 • `вклад [сумма] [дни]` - открыть вклад
 • `вклады` - мои вклады
-• `кредит [сумма] [7/14]` - взять кредит
+• `кредит [сумма] [дни]` - взять кредит
 • `кредиты` - мои кредиты
 
 **📊 ПРОФИЛЬ**
 • `баланс` или `б` - проверить баланс
-• `профиль` или `проф` - статистика
+• `профиль`, `проф` или `п` - профиль с NFT (работает везде)
 • `статус` - мой статус
-• `статусы` - магазин статусов
+• `статусы` - магазин статусов (только ЛС)
 • `бонус` - получить бонус (раз в час)
 • `топ` - топ игроков по балансу
 • `топ статусы` - топ по статусам
+
+**🖼️ NFT (только в ЛС)**
+• `мои нфт` или `инвентарь` - мои NFT
+• `нфт` или `магазин` - магазин NFT
+• `рынок` - рынок NFT (покупка/продажа между игроками)
 
 **🎫 ПРОМОКОДЫ**
 • `промо [код]` - активировать
@@ -1135,16 +1699,13 @@ async def cmd_help(msg):
 
 **🔄 ПЕРЕВОДЫ**
 • `дать [сумма]` - перевести деньги (в ответ)
-
-**👑 АДМИН КОМАНДЫ**
-• `выдать [сумма]` - выдать деньги (в ответ)
-• `забрать [сумма]` - забрать деньги (в ответ)
-• `выдать статус [название]` - выдать статус (в ответ)
+• `ид` - узнать ID пользователя (в ответ на сообщение)
 
 💰 **ФОРМАТЫ СТАВОК**
 • 1к = 1,000
 • 1кк = 1,000,000
 • 1ккк = 1,000,000,000
+• 1кккк = 1,000,000,000,000
 • `все` = весь баланс
 """
     await msg.reply(help_text, parse_mode="Markdown")
@@ -1154,17 +1715,460 @@ async def cmd_start(msg):
     core.db.get(msg.from_user.id)
     await msg.reply(f"🎰 Добро пожаловать, {msg.from_user.first_name}!\n💰 Баланс: {fmt(core.db.get(msg.from_user.id)['balance'])}\n\n📝 help - все команды\n🎮 игры - список игр")
 
-# === ОСТАЛЬНЫЕ КОМАНДЫ ===
+# === КОМАНДА БАЛАНС ===
 async def cmd_balance(msg): 
     user = core.db.get(msg.from_user.id)
     await msg.reply(f"💰 Баланс: {fmt(user['balance'])}")
 
+# === КОМАНДА ПРОФИЛЬ (работает везде) ===
 async def cmd_profile(msg):
-    u = core.db.get(msg.from_user.id)
-    s = core.status.all().get(u['status'], {'emoji':'🌱','name':'Новичок'})
-    wr = (u['wins']/u['games_played']*100) if u['games_played'] > 0 else 0
-    await msg.reply(f"📊 **{s['emoji']} {msg.from_user.first_name}**\n💰 {fmt(u['balance'])}\n🎮 {u['games_played']} игр | 🏆 {u['wins']} побед | {wr:.1f}%")
+    uid = str(msg.from_user.id)
+    user = core.db.get(uid)
+    statuses = core.status.all()
+    status = statuses.get(user['status'], statuses['novice'])
+    
+    name = msg.from_user.first_name
+    
+    games = user.get('games_played', 0)
+    wins = user.get('wins', 0)
+    win_percent = (wins / games * 100) if games > 0 else 0
+    
+    inventory = core.shop.inventory(uid)
+    sorted_nft = sorted(inventory, key=lambda x: x.get('global_number', 0))
+    total_nft = len(inventory)
+    
+    text = f"📊 **{status['emoji']} {name}**\n"
+    text += f"💰 {fmt(user['balance'])}\n"
+    text += f"🎮 {games} игр | 🏆 {wins} побед | {win_percent:.1f}%\n\n"
+    
+    text += f"🎒 NFT ({total_nft}):\n"
+    
+    if sorted_nft:
+        for i, nft in enumerate(sorted_nft[:5], 1):
+            emoji = nft.get('emoji', '🎁')
+            name_nft = nft.get('name', 'NFT')
+            num = nft.get('global_number', '?')
+            upgraded = " ✨" if nft.get('is_upgraded') else ""
+            text += f"{i}. {emoji} **{name_nft}** #{num}{upgraded}\n"
+        
+        if total_nft > 5:
+            text += f"...и еще {total_nft - 5} NFT"
+    else:
+        text += "У вас пока нет NFT"
+    
+    await msg.reply(text, parse_mode="Markdown")
 
+# === КОМАНДА МОИ НФТ (только ЛС) ===
+async def cmd_my_nft(msg: Message):
+    if not is_private(msg):
+        await msg.reply("❌ Команда 'мои нфт' доступна только в личных сообщениях с ботом!\nПерейдите в ЛС: @YOUR_BOT_USERNAME")
+        return
+    
+    uid = str(msg.from_user.id)
+    inventory = core.shop.inventory(uid)
+    
+    if not inventory:
+        await msg.reply("📭 У вас нет NFT")
+        return
+    
+    await show_nft_list(msg, uid, 0)
+
+async def show_nft_list(message: Message or CallbackQuery, uid: str, page: int = 0):
+    inventory = core.shop.inventory(uid)
+    sorted_nft = sorted(inventory, key=lambda x: x.get('global_number', 0))
+    items_per_page = 5
+    total_pages = (len(sorted_nft) + items_per_page - 1) // items_per_page
+    start = page * items_per_page
+    end = start + items_per_page
+    current_items = sorted_nft[start:end]
+    
+    text = f"🖼 **ВАШИ NFT**\n\nСтраница {page + 1}/{total_pages}\n\n"
+    
+    kb = []
+    for nft in current_items:
+        emoji = nft.get('emoji', '🎁')
+        name = nft.get('name', 'NFT')
+        num = nft.get('global_number', '?')
+        upgraded = "✨" if nft.get('is_upgraded') else ""
+        button_text = f"{emoji} {name} #{num} {upgraded}"
+        kb.append([InlineKeyboardButton(text=button_text[:50], callback_data=f"nft_view_{uid}_{nft['unique_id']}")])
+    
+    nav_buttons = []
+    if page > 0:
+        nav_buttons.append(InlineKeyboardButton(text="◀️", callback_data=f"nft_page_{uid}_{page-1}"))
+    if page + 1 < total_pages:
+        nav_buttons.append(InlineKeyboardButton(text="▶️", callback_data=f"nft_page_{uid}_{page+1}"))
+    if nav_buttons:
+        kb.append(nav_buttons)
+    
+    if isinstance(message, Message):
+        await message.reply(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=kb))
+    else:
+        await message.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=kb))
+
+async def show_nft_detail(callback: CallbackQuery, uid: str, unique_id: str):
+    inventory = core.shop.inventory(uid)
+    nft = next((item for item in inventory if item['unique_id'] == unique_id), None)
+    
+    if not nft:
+        await callback.answer("❌ NFT не найден!", show_alert=True)
+        return
+    
+    emoji = nft.get('emoji', '🎁')
+    name = nft.get('name', 'NFT')
+    num = nft.get('global_number', '?')
+    desc = nft.get('description', 'Нет описания')
+    upgraded = nft.get('is_upgraded', False)
+    upgrade_info = f"\n✨ Улучшен: {nft.get('upgraded_at', 'неизвестно')[:10]}" if upgraded else ""
+    purchase_date = nft.get('purchased_at', 'неизвестно')[:10]
+    
+    text = f"{emoji} **{name}** #{num}\n\n"
+    text += f"📝 {desc}\n"
+    text += f"📅 Куплен: {purchase_date}{upgrade_info}\n"
+    text += f"🆔 `{unique_id[:16]}...`"
+    
+    kb = [
+        [InlineKeyboardButton(text="💰 Продать на рынке", callback_data=f"nft_sell_{uid}_{unique_id}")],
+        [InlineKeyboardButton(text="🔄 Передать", callback_data=f"nft_transfer_{uid}_{unique_id}")],
+        [InlineKeyboardButton(text="◀️ Назад", callback_data=f"nft_back_{uid}")]
+    ]
+    
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=kb))
+
+# === КОМАНДА МАГАЗИН НФТ (только ЛС) ===
+async def cmd_nft_shop(msg: Message):
+    if not is_private(msg):
+        await msg.reply("❌ Команда 'нфт' доступна только в личных сообщениях с ботом!\nПерейдите в ЛС: @YOUR_BOT_USERNAME")
+        return
+    
+    await show_shop_list(msg.from_user.id, msg, 0)
+
+async def show_shop_list(user_id, message: Message or CallbackQuery, page: int = 0):
+    items = core.shop.items()
+    items_list = list(items.items())
+    items_per_page = 5
+    total_pages = (len(items_list) + items_per_page - 1) // items_per_page
+    start = page * items_per_page
+    end = start + items_per_page
+    current_items = items_list[start:end]
+    
+    text = f"🏪 **МАГАЗИН NFT**\n\nСтраница {page + 1}/{total_pages}\n\n"
+    
+    kb = []
+    for item_id, item in current_items:
+        emoji = item.get('emoji', '🎁')
+        name = item.get('name', 'NFT')
+        price = fmt(item.get('price', 0))
+        quantity = item.get('quantity', 0)
+        button_text = f"{emoji} {name} - {price} (ост. {quantity})"
+        kb.append([InlineKeyboardButton(text=button_text[:50], callback_data=f"shop_view_{item_id}")])
+    
+    nav_buttons = []
+    if page > 0:
+        nav_buttons.append(InlineKeyboardButton(text="◀️", callback_data=f"shop_page_{page-1}"))
+    if page + 1 < total_pages:
+        nav_buttons.append(InlineKeyboardButton(text="▶️", callback_data=f"shop_page_{page+1}"))
+    if nav_buttons:
+        kb.append(nav_buttons)
+    
+    if isinstance(message, Message):
+        await message.reply(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=kb))
+    else:
+        await message.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=kb))
+
+async def show_shop_item(callback: CallbackQuery, item_id: str):
+    items = core.shop.items()
+    item = items.get(item_id)
+    
+    if not item:
+        await callback.answer("❌ Товар не найден!", show_alert=True)
+        await show_shop_list(callback.from_user.id, callback, 0)
+        return
+    
+    emoji = item.get('emoji', '🎁')
+    name = item.get('name', 'NFT')
+    price = item.get('price', 0)
+    quantity = item.get('quantity', 0)
+    sold = item.get('sold', 0)
+    desc = item.get('description', 'Нет описания')
+    
+    user_balance = core.db.get(callback.from_user.id)['balance']
+    
+    text = f"{emoji} **{name}**\n\n"
+    text += f"📝 {desc}\n"
+    text += f"💰 Цена: {fmt(price)}\n"
+    text += f"📦 Осталось: {quantity} шт | 📊 Продано: {sold}\n\n"
+    text += f"💳 Ваш баланс: {fmt(user_balance)}"
+    
+    kb = []
+    if quantity > 0 and user_balance >= price:
+        kb.append([InlineKeyboardButton(text="💳 Купить", callback_data=f"shop_buy_{item_id}")])
+    kb.append([InlineKeyboardButton(text="◀️ Назад", callback_data="shop_back")])
+    
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=kb))
+
+# === КОМАНДА РЫНОК (только ЛС) ===
+async def cmd_market(msg: Message):
+    if not is_private(msg):
+        await msg.reply("❌ Команда 'рынок' доступна только в личных сообщениях с ботом!\nПерейдите в ЛС: @YOUR_BOT_USERNAME")
+        return
+    
+    await show_market_list(msg.from_user.id, msg, 0)
+
+async def show_market_list(user_id, message: Message or CallbackQuery, page: int = 0):
+    listings, total = core.market.get_listings(page, 5)
+    
+    if not listings:
+        text = "🏪 **РЫНОК NFT**\n\n📭 На рынке пока нет NFT"
+        kb = [[InlineKeyboardButton(text="🔄 Обновить", callback_data="market_refresh")]]
+    else:
+        text = f"🏪 **РЫНОК NFT**\n\nСтраница {page + 1}/{(total + 4) // 5}\n\n"
+        kb = []
+        
+        for listing in listings:
+            nft = listing['nft']
+            try:
+                seller_chat = await message.bot.get_chat(listing['seller_id'])
+                seller_name = seller_chat.first_name
+            except:
+                seller_name = f"ID {listing['seller_id']}"
+            
+            emoji = nft.get('emoji', '🎁')
+            name = nft.get('name', 'NFT')
+            num = nft.get('global_number', '?')
+            button_text = f"{emoji} {name} #{num} - {fmt(listing['price'])} (от {seller_name})"
+            if len(button_text) > 50:
+                button_text = button_text[:47] + "..."
+            kb.append([InlineKeyboardButton(text=button_text, callback_data=f"market_view_{listing['id']}")])
+    
+    nav_buttons = []
+    if page > 0:
+        nav_buttons.append(InlineKeyboardButton(text="◀️", callback_data=f"market_page_{page-1}"))
+    if (page + 1) * 5 < total:
+        nav_buttons.append(InlineKeyboardButton(text="▶️", callback_data=f"market_page_{page+1}"))
+    if nav_buttons:
+        kb.append(nav_buttons)
+    
+    kb.append([InlineKeyboardButton(text="🔄 Обновить", callback_data="market_refresh")])
+    
+    if isinstance(message, Message):
+        await message.reply(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=kb))
+    else:
+        await message.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=kb))
+
+async def show_market_listing(callback: CallbackQuery, listing_id: int):
+    listing = core.market.get_listing(listing_id)
+    if not listing:
+        await callback.answer("❌ Объявление не найдено!", show_alert=True)
+        await show_market_list(callback.from_user.id, callback, 0)
+        return
+    
+    nft = listing['nft']
+    
+    try:
+        seller_chat = await callback.bot.get_chat(listing['seller_id'])
+        seller_name = seller_chat.first_name
+    except:
+        seller_name = f"ID {listing['seller_id']}"
+    
+    emoji = nft.get('emoji', '🎁')
+    name = nft.get('name', 'NFT')
+    num = nft.get('global_number', '?')
+    desc = nft.get('description', 'Нет описания')
+    
+    text = f"{emoji} **{name}** #{num}\n\n"
+    text += f"📝 {desc}\n"
+    text += f"👤 Продавец: {seller_name}\n"
+    text += f"💰 Цена: {fmt(listing['price'])}\n"
+    text += f"📅 Выставлен: {listing['listed_at'][:10]}\n\n"
+    text += f"💳 Ваш баланс: {fmt(core.db.get(callback.from_user.id)['balance'])}"
+    
+    kb = [
+        [InlineKeyboardButton(text="💳 Купить", callback_data=f"market_buy_{listing_id}")],
+        [InlineKeyboardButton(text="◀️ Назад к списку", callback_data="market_back")]
+    ]
+    
+    if listing['seller_id'] == callback.from_user.id:
+        kb.insert(0, [InlineKeyboardButton(text="❌ Снять с продажи", callback_data=f"market_cancel_{listing_id}")])
+    
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=kb))
+
+# === ПЕРЕДАЧА NFT (только по ID) ===
+async def cmd_transfer_nft_start(msg: Message, state: FSMContext):
+    if not is_private(msg):
+        await msg.reply("❌ Передача NFT доступна только в личных сообщениях с ботом!\nПерейдите в ЛС: @YOUR_BOT_USERNAME")
+        return
+    
+    args = msg.text.split()
+    if len(args) > 1:
+        target = args[1].strip()
+        
+        try:
+            user_id = int(target)
+            try:
+                chat = await msg.bot.get_chat(user_id)
+                await state.update_data(
+                    target_id=user_id, 
+                    target_name=chat.first_name,
+                    target_uid=str(user_id)
+                )
+            except:
+                await msg.reply("❌ Пользователь с таким ID не найден! Убедитесь, что пользователь уже писал боту.")
+                return
+        except ValueError:
+            await msg.reply("❌ Неверный формат! Используйте: передать нфт ID (только цифры)")
+            return
+        
+        uid = str(msg.from_user.id)
+        inventory = core.shop.inventory(uid)
+        
+        if not inventory:
+            await msg.reply("📭 У вас нет NFT для передачи")
+            await state.clear()
+            return
+        
+        await state.set_state(TransferNFTStates.waiting_nft)
+        await show_nft_for_transfer(msg, state, uid, 0)
+    else:
+        await state.set_state(TransferNFTStates.waiting_user)
+        await msg.reply("👤 Введите ID пользователя, которому хотите передать NFT (только цифры):")
+
+async def handle_transfer_user_input(msg: Message, state: FSMContext):
+    """Обработчик ввода ID пользователя"""
+    target = msg.text.strip()
+    
+    try:
+        user_id = int(target)
+        try:
+            chat = await msg.bot.get_chat(user_id)
+            await state.update_data(
+                target_id=user_id, 
+                target_name=chat.first_name,
+                target_uid=str(user_id)
+            )
+            
+            uid = str(msg.from_user.id)
+            inventory = core.shop.inventory(uid)
+            
+            if not inventory:
+                await msg.reply("📭 У вас нет NFT для передачи")
+                await state.clear()
+                return
+            
+            await state.set_state(TransferNFTStates.waiting_nft)
+            await show_nft_for_transfer(msg, state, uid, 0)
+            
+        except:
+            await msg.reply("❌ Пользователь с таким ID не найден! Убедитесь, что пользователь уже писал боту.")
+            return
+    except ValueError:
+        await msg.reply("❌ Неверный формат! Введите ID пользователя (только цифры)")
+        return
+
+async def show_nft_for_transfer(message: Message or CallbackQuery, state: FSMContext, uid: str, page: int = 0):
+    inventory = core.shop.inventory(uid)
+    sorted_nft = sorted(inventory, key=lambda x: x.get('global_number', 0))
+    items_per_page = 5
+    total_pages = (len(sorted_nft) + items_per_page - 1) // items_per_page
+    start = page * items_per_page
+    end = start + items_per_page
+    current_items = sorted_nft[start:end]
+    
+    text = f"🔄 **ВЫБЕРИТЕ NFT ДЛЯ ПЕРЕДАЧИ**\n\nСтраница {page + 1}/{total_pages}\n\n"
+    
+    kb = []
+    for nft in current_items:
+        emoji = nft.get('emoji', '🎁')
+        name = nft.get('name', 'NFT')
+        num = nft.get('global_number', '?')
+        upgraded = "✨" if nft.get('is_upgraded') else ""
+        button_text = f"{emoji} {name} #{num} {upgraded}"
+        kb.append([InlineKeyboardButton(text=button_text[:50], callback_data=f"transfer_select_{uid}_{nft['unique_id']}")])
+    
+    nav_buttons = []
+    if page > 0:
+        nav_buttons.append(InlineKeyboardButton(text="◀️", callback_data=f"transfer_page_{uid}_{page-1}"))
+    if page + 1 < total_pages:
+        nav_buttons.append(InlineKeyboardButton(text="▶️", callback_data=f"transfer_page_{uid}_{page+1}"))
+    if nav_buttons:
+        kb.append(nav_buttons)
+    
+    kb.append([InlineKeyboardButton(text="❌ Отмена", callback_data="transfer_cancel")])
+    
+    if isinstance(message, Message):
+        await message.reply(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=kb))
+    else:
+        await message.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=kb))
+
+async def process_transfer_nft(callback: CallbackQuery, state: FSMContext, uid: str, unique_id: str):
+    data = await state.get_data()
+    target_id = data.get('target_id')
+    target_name = data.get('target_name', f"ID {target_id}")
+    
+    if not target_id:
+        await callback.answer("❌ Данные получателя не найдены!", show_alert=True)
+        await state.clear()
+        return
+    
+    if uid == str(target_id):
+        await callback.answer("❌ Нельзя передать NFT самому себе!", show_alert=True)
+        await state.clear()
+        return
+    
+    # Получаем NFT
+    inventory = core.shop.inventory(uid)
+    nft = next((item for item in inventory if item['unique_id'] == unique_id), None)
+    
+    if not nft:
+        await callback.answer("❌ NFT не найден!", show_alert=True)
+        await state.clear()
+        return
+    
+    # Подтверждение
+    emoji = nft.get('emoji', '🎁')
+    name = nft.get('name', 'NFT')
+    num = nft.get('global_number', '?')
+    
+    text = f"❓ **ПОДТВЕРДИТЕ ПЕРЕДАЧУ**\n\n"
+    text += f"Вы передаете:\n{emoji} **{name}** #{num}\n\n"
+    text += f"Пользователю: **{target_name}** (ID: {target_id})\n\n"
+    text += "Все верно?"
+    
+    kb = [
+        [InlineKeyboardButton(text="✅ Да, передать", callback_data=f"transfer_confirm_{target_id}_{unique_id}")],
+        [InlineKeyboardButton(text="❌ Отмена", callback_data="transfer_cancel")]
+    ]
+    
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=kb))
+
+async def confirm_transfer_nft(callback: CallbackQuery, state: FSMContext, to_uid: str, unique_id: str):
+    from_uid = str(callback.from_user.id)
+    
+    res = core.shop.transfer_nft(from_uid, to_uid, unique_id)
+    
+    if res['ok']:
+        await callback.answer("✅ NFT успешно передан!", show_alert=True)
+        await callback.message.edit_text(f"✅ NFT успешно передан пользователю ID: {to_uid}")
+        
+        # Уведомляем получателя
+        try:
+            nft = res['nft']
+            emoji = nft.get('emoji', '🎁')
+            name = nft.get('name', 'NFT')
+            num = nft.get('global_number', '?')
+            
+            await callback.bot.send_message(
+                int(to_uid),
+                f"🎁 Вам передан NFT!\n\n{emoji} **{name}** #{num}"
+            )
+        except:
+            pass
+    else:
+        await callback.answer(res['msg'], show_alert=True)
+    
+    await state.clear()
+
+# === ТОП ===
 async def cmd_top(msg):
     top = core.db.top()
     if not top: 
@@ -1172,8 +2176,10 @@ async def cmd_top(msg):
         return
     text = "🏆 **ТОП**\n\n"
     for i, (uid, u) in enumerate(top, 1):
-        try: name = (await msg.bot.get_chat(int(uid))).first_name
-        except: name = f"ID {uid}"
+        try: 
+            name = (await msg.bot.get_chat(int(uid))).first_name
+        except: 
+            name = f"ID {uid}"
         text += f"{'🥇' if i==1 else '🥈' if i==2 else '🥉' if i==3 else '▪️'} {i}. {name} - {fmt(u['balance'])}\n"
     await msg.reply(text)
 
@@ -1218,7 +2224,7 @@ async def cmd_top_status(msg):
 # === БАНК ===
 async def cmd_bank(msg):
     if not is_private(msg): 
-        await msg.reply("❌ Банк только в ЛС!")
+        await msg.reply("❌ Банк только в ЛС!\nПерейдите в ЛС: @YOUR_BOT_USERNAME")
         return
     kb = [[InlineKeyboardButton(text="💳 Карта", callback_data="bank_card"), InlineKeyboardButton(text="📈 Вклады", callback_data="bank_deposits")],
           [InlineKeyboardButton(text="📉 Кредиты", callback_data="bank_loans"), InlineKeyboardButton(text="❓ Помощь", callback_data="bank_help")]]
@@ -1226,12 +2232,13 @@ async def cmd_bank(msg):
 
 async def cmd_card(msg):
     if not is_private(msg): 
-        await msg.reply("❌ Банк только в ЛС!")
+        await msg.reply("❌ Банк только в ЛС!\nПерейдите в ЛС: @YOUR_BOT_USERNAME")
         return
     await msg.reply(f"💳 Баланс карты: {fmt(core.bank.get(msg.from_user.id)['card_balance'])}")
 
 async def cmd_deposit(msg, command):
-    if not is_private(msg): return
+    if not is_private(msg): 
+        return
     args = command.args.split() if command.args else []
     if len(args) != 1: 
         await msg.reply("Исп: положить [сумма]")
@@ -1242,11 +2249,13 @@ async def cmd_deposit(msg, command):
         await msg.reply("❌ Неверная сумма!")
         return
     res = core.bank.card_deposit(msg.from_user.id, a, u['balance'])
-    if res['ok']: core.db.update(msg.from_user.id, balance=u['balance'] - a)
+    if res['ok']: 
+        core.db.update(msg.from_user.id, balance=u['balance'] - a)
     await msg.reply(res['msg'])
 
 async def cmd_withdraw(msg, command):
-    if not is_private(msg): return
+    if not is_private(msg): 
+        return
     args = command.args.split() if command.args else []
     if len(args) != 1: 
         await msg.reply("Исп: снять [сумма]")
@@ -1257,18 +2266,21 @@ async def cmd_withdraw(msg, command):
         await msg.reply("❌ Неверная сумма!")
         return
     res = core.bank.card_withdraw(msg.from_user.id, a, u['balance'])
-    if res['ok']: core.db.update(msg.from_user.id, balance=u['balance'] + a)
+    if res['ok']: 
+        core.db.update(msg.from_user.id, balance=u['balance'] + a)
     await msg.reply(res['msg'])
 
 async def cmd_create_deposit(msg, command):
-    if not is_private(msg): return
+    if not is_private(msg): 
+        return
     args = command.args.split() if command.args else []
     if len(args) != 2: 
         await msg.reply("Исп: вклад [сумма] [дни]\n7,14,30,90,180,365")
         return
     u = core.db.get(msg.from_user.id)
     a = core.parse_bet(args[0], u['balance'])
-    try: d = int(args[1])
+    try: 
+        d = int(args[1])
     except: 
         await msg.reply("❌ Неверный срок!")
         return
@@ -1276,11 +2288,13 @@ async def cmd_create_deposit(msg, command):
         await msg.reply("❌ Неверная сумма!")
         return
     res = core.bank.create_deposit(msg.from_user.id, a, d, u['balance'])
-    if res['ok']: core.db.update(msg.from_user.id, balance=u['balance'] - a)
+    if res['ok']: 
+        core.db.update(msg.from_user.id, balance=u['balance'] - a)
     await msg.reply(res['msg'])
 
 async def cmd_deposits(msg):
-    if not is_private(msg): return
+    if not is_private(msg): 
+        return
     b = core.bank.get(msg.from_user.id)
     active = [d for d in b['deposits'] if d['status'] == 'active']
     if not active: 
@@ -1289,7 +2303,7 @@ async def cmd_deposits(msg):
     text = "📈 **ВКЛАДЫ**\n\n"
     kb = []
     for d in active:
-        end = datetime.datetime.fromisoformat(d['end'])
+        end = datetime.datetime.fromisoformat(d['end_date'])
         left = (end - datetime.datetime.now()).days
         text += f"ID: `{d['id']}`\n💰 {fmt(d['amount'])} | 📈 {d['rate']}%\n⏰ {left} дн.\n\n"
         kb.append([InlineKeyboardButton(text=f"❌ Закрыть {d['id']}", callback_data=f"close_deposit_{d['id']}")])
@@ -1297,32 +2311,30 @@ async def cmd_deposits(msg):
     await msg.reply(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=kb))
 
 async def cmd_create_loan(msg, command):
-    if not is_private(msg): return
+    if not is_private(msg): 
+        return
     args = command.args.split() if command.args else []
     if len(args) != 2: 
-        await msg.reply("Исп: кредит [сумма] [7/14]")
+        await msg.reply("Исп: кредит [сумма] [дни]\n7,14,30,90,180,365")
         return
     u = core.db.get(msg.from_user.id)
     a = core.parse_bet(args[0])
-    try: d = int(args[1])
+    try: 
+        d = int(args[1])
     except: 
         await msg.reply("❌ Неверный срок!")
         return
     if a <= 0: 
         await msg.reply("❌ Неверная сумма!")
         return
-    if d not in [7,14]: 
-        await msg.reply("❌ Только 7 или 14 дней")
-        return
-    if a > 5000000: 
-        await msg.reply("❌ Макс 5кк")
-        return
     res = core.bank.create_loan(msg.from_user.id, a, d, u['balance'])
-    if res['ok']: core.db.update(msg.from_user.id, balance=u['balance'] + a)
+    if res['ok']: 
+        core.db.update(msg.from_user.id, balance=u['balance'] + a)
     await msg.reply(res['msg'])
 
 async def cmd_loans(msg):
-    if not is_private(msg): return
+    if not is_private(msg): 
+        return
     b = core.bank.get(msg.from_user.id)
     active = [l for l in b['loans'] if l['status'] == 'active']
     if not active: 
@@ -1331,7 +2343,7 @@ async def cmd_loans(msg):
     text = "📉 **КРЕДИТЫ**\n\n"
     kb = []
     for l in active:
-        end = datetime.datetime.fromisoformat(l['end'])
+        end = datetime.datetime.fromisoformat(l['end_date'])
         left = (end - datetime.datetime.now()).days
         text += f"ID: `{l['id']}`\n💰 {fmt(l['amount'])} | 📈 {l['rate']}%\n💵 Осталось: {fmt(l['remaining'])}\n⏰ {left} дн.\n\n"
         kb.append([InlineKeyboardButton(text=f"💸 Оплатить {l['id']}", callback_data=f"pay_loan_{l['id']}")])
@@ -1360,22 +2372,28 @@ async def process_promo(msg: Message, state: FSMContext):
         await state.update_data(reward=a, step='limit')
         await msg.reply("Введите лимит использований:")
     elif step == 'limit':
-        try: limit = int(msg.text)
-        except: 
-            await msg.reply("❌ Введите число")
+        limit = core.parse_bet(msg.text)
+        
+        if limit <= 0:
+            await msg.reply("❌ Введите положительное число!")
             return
+            
         if limit < MIN_PROMO_LIMIT or limit > MAX_PROMO_LIMIT:
             await msg.reply(f"❌ Лимит от {MIN_PROMO_LIMIT} до {MAX_PROMO_LIMIT}")
             return
+            
         d = await state.get_data()
         total = d['reward'] * limit
         u = core.db.get(msg.from_user.id)
+        
         if u['balance'] < total:
             await msg.reply(f"❌ Нужно {fmt(total)}, у вас {fmt(u['balance'])}")
             await state.clear()
             return
+            
         core.db.update(msg.from_user.id, balance=u['balance'] - total)
         res = core.promo.create(d['reward'], msg.from_user.id, limit)
+        
         if res['ok']:
             u['created_promocodes'].append(res['code'])
             core.db.update(msg.from_user.id, created_promocodes=u['created_promocodes'])
@@ -1383,6 +2401,7 @@ async def process_promo(msg: Message, state: FSMContext):
         else:
             core.db.update(msg.from_user.id, balance=u['balance'])
             await msg.reply(res['msg'])
+            
         await state.clear()
 
 async def cmd_my_promos(msg):
@@ -1407,7 +2426,8 @@ async def cmd_promo(msg, command):
 
 # === АДМИН ===
 async def cmd_admin_give(msg):
-    if not is_admin(msg.from_user.id) or not msg.reply_to_message: return
+    if not is_admin(msg.from_user.id) or not msg.reply_to_message: 
+        return
     parts = msg.text.lower().split()
     if len(parts) != 2: 
         await msg.reply("Исп: выдать [сумма]")
@@ -1422,7 +2442,8 @@ async def cmd_admin_give(msg):
     await msg.reply(f"✅ Выдано {fmt(a)} пользователю {msg.reply_to_message.from_user.full_name}")
 
 async def cmd_admin_take(msg):
-    if not is_admin(msg.from_user.id) or not msg.reply_to_message: return
+    if not is_admin(msg.from_user.id) or not msg.reply_to_message: 
+        return
     parts = msg.text.lower().split()
     if len(parts) != 2: 
         await msg.reply("Исп: забрать [сумма]")
@@ -1488,7 +2509,8 @@ async def cmd_dice(msg, command):
     u = core.db.get(msg.from_user.id)
     if len(args) == 2:
         bet = core.parse_bet(args[0], u['balance'])
-        try: pred = int(args[1])
+        try: 
+            pred = int(args[1])
         except: 
             await msg.reply("❌ Введите число от 1 до 6")
             return
@@ -1519,7 +2541,8 @@ async def cmd_crash(msg, command):
     u = core.db.get(msg.from_user.id)
     if len(args) == 2:
         bet = core.parse_bet(args[0], u['balance'])
-        try: target = float(args[1].replace(',','.'))
+        try: 
+            target = float(args[1].replace(',','.'))
         except: 
             await msg.reply("❌ Неверный множитель!")
             return
@@ -1599,11 +2622,13 @@ async def cmd_roulette(msg, command):
         type_map = {'чет':'even','нечет':'odd','even':'even','odd':'odd','красное':'red','red':'red','чёрное':'black','black':'black',
                    '1-12':'1-12','13-24':'13-24','25-36':'25-36','зеро':'zero','zero':'zero'}
         val = None
-        if btype in type_map: btype = type_map[btype]
+        if btype in type_map: 
+            btype = type_map[btype]
         else:
             try:
                 val = int(btype)
-                if 0 <= val <= 36: btype = 'number'
+                if 0 <= val <= 36: 
+                    btype = 'number'
                 else: 
                     await msg.reply("❌ Неверный тип ставки!")
                     return
@@ -1665,7 +2690,7 @@ async def cmd_risk(msg, command):
     else:
         await msg.reply("🎲 **РИСК**\n\nПравила: 6 клеток, 3 выигрышных, 3 проигрышных\nИсп: риск СТАВКА")
 
-# === ПЕРЕВОДЫ ===
+# === ПЕРЕВОДЫ ДЕНЕГ ===
 async def cmd_give(msg):
     if not msg.reply_to_message: 
         await msg.reply("❌ Ответьте на сообщение получателя!")
@@ -1698,7 +2723,11 @@ async def callback_handler(cb: CallbackQuery, state: FSMContext):
     chat_id = cb.message.chat.id
     
     try:
-        # Статусы
+        if data == "ignore":
+            await cb.answer()
+            return
+        
+        # === СТАТУСЫ ===
         if data.startswith('status_view_'):
             status_id = data[12:]
             statuses = core.status.all()
@@ -1735,17 +2764,41 @@ async def callback_handler(cb: CallbackQuery, state: FSMContext):
         elif data == "status_back":
             await cmd_status_shop(cb.message)
         
-        # Краш
-        elif data.startswith('crash_'):
-            _, bet, target = data.split('_')
-            res = core.crash.start(uid, int(bet), float(target))
-            if res['ok']:
+        # === МОНЕТКА ===
+        elif data.startswith('coin_'):
+            parts = data.split('_')
+            if len(parts) == 3:
+                bet, choice = int(parts[1]), parts[2]
+                res = core.games.coin(uid, bet, choice)
                 if res['win']:
-                    await cb.message.edit_text(f"🚀 {cb.from_user.first_name}, КРАШ! Ракета улетела на x{res['crash']}!\n✅ Выигрыш: +{fmt(res['amount'])}\n💰 Баланс: {fmt(res['balance'])}")
+                    await cb.message.edit_text(f"🎉 {cb.from_user.first_name}, выпал {res['res']}! +{fmt(res['amount'])}\n💰 {fmt(res['balance'])}")
                 else:
-                    await cb.message.edit_text(f"💥 {cb.from_user.first_name}, КРАШ! Ракета улетела на x{res['crash']}...\n❌ Проигрыш: -{fmt(res['amount'])}\n💰 Баланс: {fmt(res['balance'])}")
+                    await cb.message.edit_text(f"😞 {cb.from_user.first_name}, выпал {res['res']}! -{fmt(res['amount'])}\n💰 {fmt(res['balance'])}")
         
-        # Мины
+        # === КУБИК ===
+        elif data.startswith('dice_'):
+            parts = data.split('_')
+            if len(parts) == 3:
+                bet, num = int(parts[1]), int(parts[2])
+                res = core.games.dice(uid, bet, num)
+                if res['win']:
+                    await cb.message.edit_text(f"🎲 {cb.from_user.first_name}, выпало {res['roll']}! +{fmt(res['amount'])}\n💰 {fmt(res['balance'])}")
+                else:
+                    await cb.message.edit_text(f"🎲 {cb.from_user.first_name}, выпало {res['roll']}! -{fmt(res['amount'])}\n💰 {fmt(res['balance'])}")
+        
+        # === КРАШ ===
+        elif data.startswith('crash_'):
+            parts = data.split('_')
+            if len(parts) == 3:
+                bet, target = int(parts[1]), float(parts[2])
+                res = core.crash.start(uid, bet, target)
+                if res['ok']:
+                    if res['win']:
+                        await cb.message.edit_text(f"🚀 {cb.from_user.first_name}, КРАШ! Ракета улетела на x{res['crash']}!\n✅ Выигрыш: +{fmt(res['amount'])}\n💰 Баланс: {fmt(res['balance'])}")
+                    else:
+                        await cb.message.edit_text(f"💥 {cb.from_user.first_name}, КРАШ! Ракета улетела на x{res['crash']}...\n❌ Проигрыш: -{fmt(res['amount'])}\n💰 Баланс: {fmt(res['balance'])}")
+        
+        # === МИНЫ ===
         elif data.startswith('mines_'):
             parts = data.split('_')
             if len(parts) >= 4:
@@ -1778,7 +2831,7 @@ async def callback_handler(cb: CallbackQuery, state: FSMContext):
         elif data == "mines_new":
             await cb.message.edit_text("🎮 Используй: мины СТАВКА [МИН]")
         
-        # Башня
+        # === БАШНЯ ===
         elif data.startswith('tower_'):
             if data.startswith('tower_cash_'):
                 user_id = int(data.split('_')[2])
@@ -1812,7 +2865,7 @@ async def callback_handler(cb: CallbackQuery, state: FSMContext):
                         if game:
                             await cb.message.edit_text(f"🏗️ Башня | Этаж {game['row']+1}/9 | 💣 {game['mines']}\n💰 {fmt(game['bet'])}\n📈 x{res['mult']:.1f} | 💎 {fmt(res['won'])}", reply_markup=core.tower.kb(user_id, game))
         
-        # Золото
+        # === ЗОЛОТО ===
         elif data.startswith('gold_'):
             if data.startswith('gold_cash_'):
                 user_id = int(data.split('_')[2])
@@ -1844,7 +2897,7 @@ async def callback_handler(cb: CallbackQuery, state: FSMContext):
                     if game:
                         await cb.message.edit_text(f"{core.gold.display(game, res)}\n\n💰 {fmt(game['bet'])}\n🎯 {game['level']}/12 | 📈 x{res['mult']}\n💎 Выберите сторону:", reply_markup=core.gold.kb(user_id, game))
         
-        # Риск
+        # === РИСК ===
         elif data.startswith('risk_'):
             if data.startswith('risk_cash_'):
                 user_id = int(data.split('_')[2])
@@ -1855,7 +2908,7 @@ async def callback_handler(cb: CallbackQuery, state: FSMContext):
                 if not res['ok']: 
                     await cb.answer(res['msg'], show_alert=True)
                     return
-                await cb.message.edit_text(f"🏆 Вы забрали! +{fmt(res['won'])}\n📈 x{res['mult']:.2f}\n🎯 {res['level']}/6\n💰 Баланс: {fmt(res['balance'])}")
+                await cb.message.edit_text(f"🏆 Вы забрали! +{fmt(res['won'])}\n📈 Сумма множителей: x{res['total_mult']:.2f}\n🎯 {res['level']}/3\n💰 Баланс: {fmt(res['balance'])}")
             elif data.startswith('risk_cell_'):
                 parts = data.split('_')
                 if len(parts) >= 4:
@@ -1869,7 +2922,7 @@ async def callback_handler(cb: CallbackQuery, state: FSMContext):
                         await cb.answer(res['msg'], show_alert=True)
                         return
                     if res.get('max'):
-                        await cb.message.edit_text(f"🏆 МАКСИМУМ! +{fmt(res['won'])}\n📈 x{res['mult']:.2f}\n💰 Баланс: {fmt(res['balance'])}")
+                        await cb.message.edit_text(f"🏆 МАКСИМУМ! Вы открыли все клетки!\n+{fmt(res['won'])}\n📈 Сумма множителей: x{res['total_mult']:.2f}\n💰 Баланс: {fmt(res['balance'])}")
                     elif res.get('game_over'):
                         await cb.message.edit_text("💥 Ты нашел мину! Проигрыш!")
                     else:
@@ -1877,7 +2930,7 @@ async def callback_handler(cb: CallbackQuery, state: FSMContext):
                         if game:
                             await cb.message.edit_text(f"{core.risk.display(game)}\n\n✅ Выигрыш: +{fmt(res['won'])}", reply_markup=core.risk.kb(user_id, game))
         
-        # Банк
+        # === БАНК ===
         elif data.startswith('bank_') or data.startswith('close_deposit_') or data.startswith('pay_loan_'):
             if data == "bank_card":
                 b = core.bank.get(uid)
@@ -1909,87 +2962,139 @@ async def callback_handler(cb: CallbackQuery, state: FSMContext):
                 await state.set_state(BankStates.waiting_loan_payment)
                 await cb.message.edit_text("💸 Введите сумму для оплаты:")
         
+        # === МОИ НФТ ===
+        elif data.startswith('nft_page_'):
+            parts = data.split('_')
+            if len(parts) >= 4:
+                user_id, page = parts[2], int(parts[3])
+                if str(uid) != user_id:
+                    await cb.answer("❌ Это не ваш инвентарь!", show_alert=True)
+                    return
+                await show_nft_list(cb, user_id, page)
+        
+        elif data.startswith('nft_view_'):
+            parts = data.split('_')
+            if len(parts) >= 4:
+                user_id, unique_id = parts[2], '_'.join(parts[3:])
+                if str(uid) != user_id:
+                    await cb.answer("❌ Это не ваш NFT!", show_alert=True)
+                    return
+                await show_nft_detail(cb, user_id, unique_id)
+        
+        elif data.startswith('nft_back_'):
+            user_id = data.split('_')[2]
+            if str(uid) != user_id:
+                await cb.answer("❌ Это не ваш инвентарь!", show_alert=True)
+                return
+            await show_nft_list(cb, user_id, 0)
+        
+        elif data.startswith('nft_sell_'):
+            parts = data.split('_')
+            if len(parts) >= 4:
+                user_id, unique_id = parts[2], '_'.join(parts[3:])
+                if str(uid) != user_id:
+                    await cb.answer("❌ Это не ваш NFT!", show_alert=True)
+                    return
+                await state.update_data(sell_nft_id=unique_id)
+                await state.set_state(MarketStates.waiting_price)
+                await cb.message.edit_text("💰 Введите цену для продажи NFT:")
+        
+        elif data.startswith('nft_transfer_'):
+            parts = data.split('_')
+            if len(parts) >= 4:
+                user_id, unique_id = parts[2], '_'.join(parts[3:])
+                if str(uid) != user_id:
+                    await cb.answer("❌ Это не ваш NFT!", show_alert=True)
+                    return
+                await process_transfer_nft(cb, state, user_id, unique_id)
+        
+        # === ПЕРЕДАЧА NFT ===
+        elif data.startswith('transfer_page_'):
+            parts = data.split('_')
+            if len(parts) >= 4:
+                user_id, page = parts[2], int(parts[3])
+                if str(uid) != user_id:
+                    await cb.answer("❌ Это не ваш инвентарь!", show_alert=True)
+                    return
+                await show_nft_for_transfer(cb, state, user_id, page)
+        
+        elif data.startswith('transfer_select_'):
+            parts = data.split('_')
+            if len(parts) >= 4:
+                user_id, unique_id = parts[2], '_'.join(parts[3:])
+                if str(uid) != user_id:
+                    await cb.answer("❌ Это не ваш NFT!", show_alert=True)
+                    return
+                await process_transfer_nft(cb, state, user_id, unique_id)
+        
+        elif data.startswith('transfer_confirm_'):
+            parts = data.split('_')
+            if len(parts) >= 4:
+                to_uid, unique_id = parts[2], '_'.join(parts[3:])
+                await confirm_transfer_nft(cb, state, to_uid, unique_id)
+        
+        elif data == "transfer_cancel":
+            await state.clear()
+            await cb.message.edit_text("❌ Передача отменена")
+        
+        # === МАГАЗИН НФТ ===
+        elif data.startswith('shop_page_'):
+            page = int(data.split('_')[2])
+            await show_shop_list(uid, cb, page)
+        
+        elif data.startswith('shop_view_'):
+            item_id = data[10:]
+            await show_shop_item(cb, item_id)
+        
+        elif data.startswith('shop_buy_'):
+            item_id = data[9:]
+            res = core.shop.buy(item_id, uid, core.db)
+            await cb.answer(res['msg'], show_alert=True)
+            if res['ok']:
+                await show_shop_item(cb, item_id)
+        
+        elif data == "shop_back":
+            await show_shop_list(uid, cb, 0)
+        
+        # === РЫНОК ===
+        elif data.startswith('market_page_'):
+            page = int(data.split('_')[2])
+            await show_market_list(uid, cb, page)
+        
+        elif data.startswith('market_view_'):
+            listing_id = int(data.split('_')[2])
+            await show_market_listing(cb, listing_id)
+        
+        elif data.startswith('market_buy_'):
+            listing_id = int(data.split('_')[2])
+            res = core.market.buy_listing(listing_id, uid)
+            await cb.answer(res['msg'], show_alert=True)
+            if res['ok']:
+                await show_market_list(uid, cb, 0)
+            else:
+                await show_market_listing(cb, listing_id)
+        
+        elif data.startswith('market_cancel_'):
+            listing_id = int(data.split('_')[2])
+            res = core.market.cancel_listing(listing_id, uid)
+            await cb.answer(res['msg'], show_alert=True)
+            if res['ok']:
+                await show_market_list(uid, cb, 0)
+            else:
+                await show_market_listing(cb, listing_id)
+        
+        elif data == "market_back":
+            await show_market_list(uid, cb, 0)
+        
+        elif data == "market_refresh":
+            await show_market_list(uid, cb, 0)
+        
         await cb.answer()
     except Exception as e:
-        print(f"Error: {e}")
-        await cb.answer()
+        print(f"Error in callback_handler: {e}")
+        await cb.answer("❌ Произошла ошибка", show_alert=True)
 
-# === РУССКИЕ КОМАНДЫ ===
-async def handle_russian(msg: Message, state: FSMContext):
-    text = msg.text.lower().strip()
-    class FC: 
-        def __init__(self, a): self.args = a
-    
-    if text in ['баланс', 'б']: await cmd_balance(msg)
-    elif text in ['профиль', 'проф']: await cmd_profile(msg)
-    elif text in ['помощь', 'help', 'команды']: await cmd_help(msg)
-    elif text == 'топ': await cmd_top(msg)
-    elif text == 'топ статусы': await cmd_top_status(msg)
-    elif text == 'банк': await cmd_bank(msg)
-    elif text == 'карта': await cmd_card(msg)
-    elif text.startswith('положить '): p = text.split(); await cmd_deposit(msg, FC(p[1]) if len(p)==2 else None)
-    elif text.startswith('снять '): p = text.split(); await cmd_withdraw(msg, FC(p[1]) if len(p)==2 else None)
-    elif text.startswith('вклад '): p = text.split(); await cmd_create_deposit(msg, FC(f"{p[1]} {p[2]}") if len(p)==3 else None)
-    elif text == 'вклады': await cmd_deposits(msg)
-    elif text.startswith('кредит '): p = text.split(); await cmd_create_loan(msg, FC(f"{p[1]} {p[2]}") if len(p)==3 else None)
-    elif text == 'кредиты': await cmd_loans(msg)
-    elif text.startswith('монетка'): p = text.split(); await cmd_coin(msg, FC(' '.join(p[1:])) if len(p)>1 else FC(None))
-    elif text.startswith('слоты'): p = text.split(); await cmd_slots(msg, FC(p[1]) if len(p)>1 else FC(None))
-    elif text.startswith('кубик'): p = text.split(); await cmd_dice(msg, FC(' '.join(p[1:])) if len(p)>1 else FC(None))
-    elif text.startswith('краш'): p = text.split(); await cmd_crash(msg, FC(' '.join(p[1:])) if len(p)>1 else FC(None))
-    elif text.startswith('мины'): p = text.split(); await cmd_mines(msg, FC(' '.join(p[1:])) if len(p)>1 else FC(None))
-    elif text.startswith('башня'): p = text.split(); await cmd_tower(msg, FC(' '.join(p[1:])) if len(p)>1 else FC(None))
-    elif text.startswith('рулетка') or text.startswith('рул'): p = text.split(); await cmd_roulette(msg, FC(' '.join(p[1:])) if len(p)>1 else FC(None))
-    elif text.startswith('золото'): p = text.split(); await cmd_gold(msg, FC(' '.join(p[1:])) if len(p)>1 else FC(None))
-    elif text.startswith('риск'): p = text.split(); await cmd_risk(msg, FC(' '.join(p[1:])) if len(p)>1 else FC(None))
-    elif text.startswith('промо '): await cmd_promo(msg, CommandObject(args=text[6:].strip().upper()))
-    elif text == 'создать промо': await cmd_create_promo(msg, state)
-    elif text == 'мои промо': await cmd_my_promos(msg)
-    elif text.startswith('дать ') or text.startswith('дай '): await cmd_give(msg)
-    elif text.startswith('выдать '): 
-        if 'статус' in text:
-            parts = text.split()
-            if len(parts) >= 3:
-                status_name = ' '.join(parts[2:])
-                await cmd_admin_give_status(msg, CommandObject(args=status_name))
-            else:
-                await cmd_admin_give_status(msg, CommandObject(args=''))
-        else:
-            await cmd_admin_give(msg)
-    elif text.startswith('забрать '): await cmd_admin_take(msg)
-    elif text == 'игры': await cmd_games(msg)
-    elif text == '/cancel_game': await cmd_cancel_game(msg)
-    elif text == 'статус': await cmd_status(msg)
-    elif text == 'бонус': await cmd_bonus(msg)
-    elif text == 'статусы': await cmd_status_shop(msg)
-
-# === ЗАПУСК ===
-async def main():
-    bot = Bot(token=BOT_TOKEN)
-    dp = Dispatcher(storage=MemoryStorage())
-    
-    dp.message.register(cmd_start, CommandStart())
-    dp.message.register(cmd_help, Command("help"))
-    dp.message.register(cmd_games, Command("games"))
-    dp.message.register(cmd_cancel_game, Command("cancel_game"))
-    
-    for cmd in ['balance','profile','top','top_status','bank','card','deposits','loans','my_promos','status','bonus','status_shop']:
-        dp.message.register(globals()[f"cmd_{cmd}"], Command(cmd))
-    for cmd in ['deposit','withdraw','create_deposit','create_loan','coin','slots','dice','crash','mines','tower','roulette','gold','risk','promo','create_promo','give']:
-        dp.message.register(globals()[f"cmd_{cmd}"], Command(cmd))
-    for cmd in ['admin_give','admin_take','admin_give_status']:
-        dp.message.register(globals()[f"cmd_{cmd}"], Command(cmd))
-    
-    dp.message.register(process_promo, PromoStates.waiting_reward)
-    dp.message.register(process_promo, PromoStates.waiting_limit)
-    dp.message.register(handle_loan_payment, BankStates.waiting_loan_payment)
-    dp.message.register(handle_russian, F.text)
-    dp.callback_query.register(callback_handler)
-    
-    print("✅ Бот запущен!")
-    print("✅ Статусы и бонусы работают!")
-    await dp.start_polling(bot)
-
+# === ОБРАБОТЧИК ОПЛАТЫ КРЕДИТА ===
 async def handle_loan_payment(msg: Message, state: FSMContext):
     if msg.text.lower() == '/cancel': 
         await state.clear()
@@ -2014,7 +3119,280 @@ async def handle_loan_payment(msg: Message, state: FSMContext):
     else: 
         await msg.reply(res['msg'])
 
+# === ОБРАБОТЧИК ПРОДАЖИ НА РЫНКЕ ===
+async def handle_market_price(msg: Message, state: FSMContext):
+    if msg.text.lower() == '/cancel': 
+        await state.clear()
+        await msg.reply("❌ Отменено")
+        return
+    
+    data = await state.get_data()
+    nft_id = data.get('sell_nft_id')
+    if not nft_id:
+        await state.clear()
+        return
+    
+    uid = str(msg.from_user.id)
+    inventory = core.shop.inventory(uid)
+    nft = next((item for item in inventory if item['unique_id'] == nft_id), None)
+    
+    if not nft:
+        await msg.reply("❌ NFT не найден!")
+        await state.clear()
+        return
+    
+    price = core.parse_bet(msg.text)
+    if price <= 0:
+        await msg.reply("❌ Введите положительную цену!")
+        return
+    
+    res = core.market.add_listing(msg.from_user.id, nft, price)
+    await msg.reply(res['msg'])
+    
+    if res['ok']:
+        await show_nft_list(msg, uid, 0)
+    
+    await state.clear()
+
+# === ОБРАБОТЧИК ID ПОЛЬЗОВАТЕЛЯ ДЛЯ ПЕРЕДАЧИ ===
+async def handle_transfer_user_id(msg: Message, state: FSMContext):
+    """Обработчик ввода ID пользователя для передачи NFT"""
+    target = msg.text.strip()
+    
+    try:
+        user_id = int(target)
+        try:
+            chat = await msg.bot.get_chat(user_id)
+            await state.update_data(
+                target_id=user_id, 
+                target_name=chat.first_name,
+                target_uid=str(user_id)
+            )
+            
+            uid = str(msg.from_user.id)
+            inventory = core.shop.inventory(uid)
+            
+            if not inventory:
+                await msg.reply("📭 У вас нет NFT для передачи")
+                await state.clear()
+                return
+            
+            await state.set_state(TransferNFTStates.waiting_nft)
+            await show_nft_for_transfer(msg, state, uid, 0)
+            
+        except:
+            await msg.reply("❌ Пользователь с таким ID не найден! Убедитесь, что пользователь уже писал боту.")
+            return
+    except ValueError:
+        await msg.reply("❌ Неверный формат! Введите ID пользователя (только цифры)")
+        return
+
+# === РУССКИЕ КОМАНДЫ ===
+async def handle_russian(msg: Message, state: FSMContext):
+    text = msg.text.lower().strip()
+    
+    class FC: 
+        def __init__(self, a): 
+            self.args = a
+        def __bool__(self): 
+            return self.args is not None
+    
+    # Простые команды
+    if text in ['баланс', 'б']: 
+        await cmd_balance(msg)
+    elif text in ['профиль', 'проф', 'п']:
+        await cmd_profile(msg)
+    elif text in ['помощь', 'help', 'команды']: 
+        await cmd_help(msg)
+    elif text == 'топ': 
+        await cmd_top(msg)
+    elif text == 'топ статусы': 
+        await cmd_top_status(msg)
+    elif text == 'банк': 
+        await cmd_bank(msg)
+    elif text == 'карта': 
+        await cmd_card(msg)
+    elif text == 'вклады': 
+        await cmd_deposits(msg)
+    elif text == 'кредиты': 
+        await cmd_loans(msg)
+    elif text == 'создать промо': 
+        await cmd_create_promo(msg, state)
+    elif text == 'мои промо': 
+        await cmd_my_promos(msg)
+    elif text == 'игры': 
+        await cmd_games(msg)
+    elif text == '/cancel_game': 
+        await cmd_cancel_game(msg)
+    elif text == 'статус': 
+        await cmd_status(msg)
+    elif text == 'бонус': 
+        await cmd_bonus(msg)
+    elif text == 'статусы': 
+        await cmd_status_shop(msg)
+    elif text in ['мои нфт', 'инвентарь']:
+        await cmd_my_nft(msg)
+    elif text in ['нфт', 'магазин']:
+        await cmd_nft_shop(msg)
+    elif text == 'рынок':
+        await cmd_market(msg)
+    elif text.startswith('передать нфт '):
+        await cmd_transfer_nft_start(msg, state)
+    elif text == 'ид' and msg.reply_to_message:
+        await cmd_id(msg)
+    elif text.startswith('бан ') and msg.reply_to_message and is_admin(msg.from_user.id):
+        await cmd_ban(msg, state)
+    elif text.startswith('разбан') and is_admin(msg.from_user.id):
+        await cmd_unban(msg)
+    elif text.startswith('топ общий') and is_admin(msg.from_user.id):
+        await cmd_total_balance(msg)
+    
+    # Команды с аргументами
+    elif text.startswith('положить '): 
+        p = text.split()
+        await cmd_deposit(msg, FC(p[1] if len(p) > 1 else None))
+    elif text.startswith('снять '): 
+        p = text.split()
+        await cmd_withdraw(msg, FC(p[1] if len(p) > 1 else None))
+    elif text.startswith('вклад '): 
+        p = text.split()
+        if len(p) >= 3:
+            await cmd_create_deposit(msg, FC(f"{p[1]} {p[2]}"))
+        else:
+            await msg.reply("Исп: вклад [сумма] [дни]")
+    elif text.startswith('кредит '): 
+        p = text.split()
+        if len(p) >= 3:
+            await cmd_create_loan(msg, FC(f"{p[1]} {p[2]}"))
+        else:
+            await msg.reply("Исп: кредит [сумма] [дни]")
+    elif text.startswith('монетка'): 
+        p = text.split()
+        if len(p) > 1:
+            await cmd_coin(msg, FC(' '.join(p[1:])))
+        else:
+            await cmd_coin(msg, FC(None))
+    elif text.startswith('слоты'): 
+        p = text.split()
+        if len(p) > 1:
+            await cmd_slots(msg, FC(p[1]))
+        else:
+            await cmd_slots(msg, FC(None))
+    elif text.startswith('кубик'): 
+        p = text.split()
+        if len(p) > 1:
+            await cmd_dice(msg, FC(' '.join(p[1:])))
+        else:
+            await cmd_dice(msg, FC(None))
+    elif text.startswith('краш'): 
+        p = text.split()
+        if len(p) > 1:
+            await cmd_crash(msg, FC(' '.join(p[1:])))
+        else:
+            await cmd_crash(msg, FC(None))
+    elif text.startswith('мины'): 
+        p = text.split()
+        if len(p) > 1:
+            await cmd_mines(msg, FC(' '.join(p[1:])))
+        else:
+            await cmd_mines(msg, FC(None))
+    elif text.startswith('башня'): 
+        p = text.split()
+        if len(p) > 1:
+            await cmd_tower(msg, FC(' '.join(p[1:])))
+        else:
+            await cmd_tower(msg, FC(None))
+    elif text.startswith('рулетка') or text.startswith('рул'): 
+        p = text.split()
+        if len(p) > 1:
+            await cmd_roulette(msg, FC(' '.join(p[1:])))
+        else:
+            await cmd_roulette(msg, FC(None))
+    elif text.startswith('золото'): 
+        p = text.split()
+        if len(p) > 1:
+            await cmd_gold(msg, FC(p[1]))
+        else:
+            await cmd_gold(msg, FC(None))
+    elif text.startswith('риск'): 
+        p = text.split()
+        if len(p) > 1:
+            await cmd_risk(msg, FC(p[1]))
+        else:
+            await cmd_risk(msg, FC(None))
+    elif text.startswith('промо '): 
+        code = text[6:].strip().upper()
+        await cmd_promo(msg, CommandObject(args=code))
+    elif text.startswith('дать ') or text.startswith('дай '): 
+        await cmd_give(msg)
+    elif text.startswith('выдать '): 
+        if 'статус' in text:
+            parts = text.split()
+            if len(parts) >= 3:
+                status_name = ' '.join(parts[2:])
+                await cmd_admin_give_status(msg, CommandObject(args=status_name))
+            else:
+                await cmd_admin_give_status(msg, CommandObject(args=''))
+        else:
+            await cmd_admin_give(msg)
+    elif text.startswith('забрать '): 
+        await cmd_admin_take(msg)
+
+# === ЗАПУСК ===
+async def main():
+    bot = Bot(token=BOT_TOKEN)
+    dp = Dispatcher(storage=MemoryStorage())
+    
+    # Регистрируем middleware для проверки бана
+    dp.message.middleware.register(ban_middleware)
+    
+    dp.message.register(cmd_start, CommandStart())
+    dp.message.register(cmd_help, Command("help"))
+    dp.message.register(cmd_games, Command("games"))
+    dp.message.register(cmd_cancel_game, Command("cancel_game"))
+    
+    for cmd in ['balance', 'profile', 'top', 'top_status', 'bank', 'card', 'deposits', 'loans', 'my_promos', 'status', 'bonus', 'status_shop', 'my_nft', 'nft_shop', 'market']:
+        dp.message.register(globals()[f"cmd_{cmd}"], Command(cmd))
+    
+    for cmd in ['deposit', 'withdraw', 'create_deposit', 'create_loan', 'coin', 'slots', 'dice', 'crash', 'mines', 'tower', 'roulette', 'gold', 'risk', 'promo', 'create_promo', 'give']:
+        dp.message.register(globals()[f"cmd_{cmd}"], Command(cmd))
+    
+    for cmd in ['admin_give', 'admin_take', 'admin_give_status']:
+        dp.message.register(globals()[f"cmd_{cmd}"], Command(cmd))
+    
+    # Новые админ команды
+    dp.message.register(cmd_ban, Command("ban"))
+    dp.message.register(cmd_unban, Command("unban"))
+    dp.message.register(cmd_total_balance, Command("total_balance"))
+    
+    # Команда ID
+    dp.message.register(cmd_id, Command("id"))
+    
+    dp.message.register(handle_transfer_user_id, TransferNFTStates.waiting_user)
+    dp.message.register(process_promo, PromoStates.waiting_reward)
+    dp.message.register(process_promo, PromoStates.waiting_limit)
+    dp.message.register(handle_loan_payment, BankStates.waiting_loan_payment)
+    dp.message.register(handle_market_price, MarketStates.waiting_price)
+    
+    dp.message.register(handle_russian, F.text)
+    dp.callback_query.register(callback_handler)
+    
+    print("✅ Бот запущен!")
+    print("✅ Статусы и бонусы работают!")
+    print("✅ NFT система работает!")
+    print("✅ Рынок работает!")
+    print("✅ Передача NFT работает!")
+    print("✅ Профиль (п) работает везде!")
+    print("✅ NFT команды только в ЛС!")
+    print("✅ Система банов работает!")
+    print("✅ Команда ID работает!")
+    print("✅ Топ по общему балансу работает!")
+    await dp.start_polling(bot)
+
 if __name__ == "__main__":
-    try: asyncio.run(main())
-    except KeyboardInterrupt: print("\n❌ Бот остановлен")
-    except Exception as e: print(f"\n❌ Ошибка: {e}")
+    try: 
+        asyncio.run(main())
+    except KeyboardInterrupt: 
+        print("\n❌ Бот остановлен")
+    except Exception as e: 
+        print(f"\n❌ Ошибка: {e}")
