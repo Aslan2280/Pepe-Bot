@@ -1,14 +1,14 @@
 {
   "6539341659": {
-    "balance": 9797004938697999645256731581526885556269244902529931253474472540970,
+    "balance": 1000000000,
     "games_played": 777,
     "wins": 777,
     "used_promocodes": [
       "22FEB",
       "НАС_25"
     ],
-    "status": "immortal",
-    "last_bonus": "2026-02-23T08:25:28.902388",
+    "status": "admin",
+    "last_bonus": "2026-02-23T19:05:49.611380",
     "bonus_history": [
       {
         "amount": 8004114,
@@ -41,25 +41,33 @@
       {
         "amount": 17743488,
         "time": "2026-02-23T08:25:28.902394"
+      },
+      {
+        "amount": 20355388,
+        "time": "2026-02-23T19:05:49.611386"
       }
     ]
   },
   "8192237273": {
-    "balance": 100000000,
-    "games_played": 180,
-    "wins": 56,
+    "balance": 9956299,
+    "games_played": 190,
+    "wins": 58,
     "used_promocodes": [
       "НАС_10",
       "PROMO21",
       "БОТ_ВЕРНУЛСЯ",
       "23_ФЕВРАЛЯ"
     ],
-    "status": "novice",
-    "last_bonus": "2026-02-23T08:29:40.115822",
+    "status": "admin",
+    "last_bonus": "2026-02-23T19:06:31.590878",
     "bonus_history": [
       {
         "amount": 1970,
         "time": "2026-02-23T08:29:40.115830"
+      },
+      {
+        "amount": 699,
+        "time": "2026-02-23T19:06:31.590884"
       }
     ]
   },
@@ -80,16 +88,16 @@
     ]
   },
   "8346625013": {
-    "balance": 160000000,
-    "games_played": 437,
-    "wins": 129,
+    "balance": 158200000,
+    "games_played": 747,
+    "wins": 190,
     "used_promocodes": [
       "21FEB",
       "PROMO21",
       "БОТ_ВЕРНУЛСЯ"
     ],
     "status": "immortal",
-    "last_bonus": "2026-02-23T08:44:46.499649",
+    "last_bonus": "2026-02-23T20:04:11.439467",
     "bonus_history": [
       {
         "amount": 74921,
@@ -106,18 +114,30 @@
       {
         "amount": 13055935,
         "time": "2026-02-23T08:44:46.499654"
+      },
+      {
+        "amount": 8377388,
+        "time": "2026-02-23T16:16:01.792432"
+      },
+      {
+        "amount": 10726937,
+        "time": "2026-02-23T17:42:19.870601"
+      },
+      {
+        "amount": 15712345,
+        "time": "2026-02-23T20:04:11.439473"
       }
     ]
   },
   "8495486236": {
-    "balance": 556000000,
-    "games_played": 7779,
-    "wins": 4053,
+    "balance": 461000000,
+    "games_played": 8061,
+    "wins": 4116,
     "used_promocodes": [
       "НАС_25"
     ],
     "status": "sudo",
-    "last_bonus": "2026-02-23T07:28:32.750289",
+    "last_bonus": "2026-02-23T21:45:50.063261",
     "bonus_history": [
       {
         "amount": 16140622,
@@ -142,17 +162,26 @@
       {
         "amount": 7196485,
         "time": "2026-02-23T07:28:32.750294"
+      },
+      {
+        "amount": 11064688,
+        "time": "2026-02-23T21:45:50.063267"
       }
     ]
   },
   "8300296397": {
     "balance": 100000,
-    "games_played": 1,
-    "wins": 0,
+    "games_played": 7,
+    "wins": 1,
     "used_promocodes": [],
     "status": "novice",
-    "last_bonus": null,
-    "bonus_history": []
+    "last_bonus": "2026-02-23T19:08:35.103936",
+    "bonus_history": [
+      {
+        "amount": 2167,
+        "time": "2026-02-23T19:08:35.103948"
+      }
+    ]
   },
   "6860487283": {
     "balance": 10000,
@@ -204,8 +233,8 @@
   },
   "8441805767": {
     "balance": 0,
-    "games_played": 76,
-    "wins": 34,
+    "games_played": 139,
+    "wins": 49,
     "used_promocodes": [
       "21FEB",
       "НАС_10",
@@ -213,11 +242,15 @@
       "ОБНОВА"
     ],
     "status": "novice",
-    "last_bonus": "2026-02-22T08:51:28.582317",
+    "last_bonus": "2026-02-23T15:32:19.438664",
     "bonus_history": [
       {
         "amount": 599,
         "time": "2026-02-22T08:51:28.582324"
+      },
+      {
+        "amount": 1879,
+        "time": "2026-02-23T15:32:19.438671"
       }
     ]
   },
@@ -242,7 +275,7 @@
     "bonus_history": []
   },
   "777000": {
-    "balance": 195000,
+    "balance": 1595000,
     "games_played": 0,
     "wins": 0,
     "used_promocodes": [
@@ -321,10 +354,12 @@
     "bonus_history": []
   },
   "6678609096": {
-    "balance": 610000,
+    "balance": 2332000,
     "games_played": 0,
     "wins": 0,
-    "used_promocodes": [],
+    "used_promocodes": [
+      "N0HG3TY"
+    ],
     "status": "novice",
     "last_bonus": null,
     "bonus_history": []
@@ -354,8 +389,8 @@
   },
   "7344145466": {
     "balance": 0,
-    "games_played": 3,
-    "wins": 0,
+    "games_played": 20,
+    "wins": 1,
     "used_promocodes": [],
     "status": "novice",
     "last_bonus": null,
@@ -371,16 +406,16 @@
     "bonus_history": []
   },
   "5160712296": {
-    "balance": 0,
-    "games_played": 215,
-    "wins": 47,
+    "balance": 100000,
+    "games_played": 314,
+    "wins": 55,
     "used_promocodes": [
       "НАС_25",
       "БОТ_ВЕРНУЛСЯ",
       "23_ФЕВРАЛЯ"
     ],
-    "status": "novice",
-    "last_bonus": "2026-02-23T06:14:09.726295",
+    "status": "partner",
+    "last_bonus": "2026-02-24T02:42:16.830771",
     "bonus_history": [
       {
         "amount": 1548,
@@ -389,6 +424,10 @@
       {
         "amount": 2443,
         "time": "2026-02-23T06:14:09.726299"
+      },
+      {
+        "amount": 60681,
+        "time": "2026-02-24T02:42:16.830777"
       }
     ]
   },
@@ -411,18 +450,22 @@
     "bonus_history": []
   },
   "6773924383": {
-    "balance": 60672,
+    "balance": 63056,
     "games_played": 0,
     "wins": 0,
     "used_promocodes": [
       "23_ФЕВРАЛЯ"
     ],
     "status": "novice",
-    "last_bonus": "2026-02-23T08:36:16.782643",
+    "last_bonus": "2026-02-24T04:49:23.444175",
     "bonus_history": [
       {
         "amount": 772,
         "time": "2026-02-23T08:36:16.782651"
+      },
+      {
+        "amount": 2384,
+        "time": "2026-02-24T04:49:23.444184"
       }
     ]
   },
@@ -431,6 +474,28 @@
     "games_played": 0,
     "wins": 0,
     "used_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "7869733151": {
+    "balance": 300000,
+    "games_played": 3,
+    "wins": 1,
+    "used_promocodes": [
+      "N0HG3TY"
+    ],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "1388260296": {
+    "balance": 210000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
     "status": "novice",
     "last_bonus": null,
     "bonus_history": []
