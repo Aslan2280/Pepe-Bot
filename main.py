@@ -4386,3 +4386,4 @@ if __name__ == "__main__":
         print("\n❌ Бот остановлен")
     except Exception as e: 
         print(f"\n❌ Ошибка: {e}")
+
