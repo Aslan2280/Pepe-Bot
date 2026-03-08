@@ -82,15 +82,6 @@
       "unique_id": "6539341659_LolPop_11_2904"
     },
     {
-      "item_id": "LolPop",
-      "global_number": 34,
-      "name": "Lol Pop",
-      "emoji": "🍭",
-      "description": "NFT - Леденец",
-      "purchased_at": "2026-02-21T09:21:00.448305",
-      "unique_id": "6539341659_LolPop_12_9059"
-    },
-    {
       "item_id": "MedalOtvaga",
       "global_number": 7,
       "name": "Медаль За отвагу",
@@ -164,15 +155,6 @@
     },
     {
       "item_id": "fighter ",
-      "global_number": 5,
-      "name": "Истребитель",
-      "emoji": "✈️",
-      "description": "С 23 февраля!",
-      "purchased_at": "2026-02-22T09:00:05.043416",
-      "unique_id": "6539341659_fighter _5_9177"
-    },
-    {
-      "item_id": "fighter ",
       "global_number": 7,
       "name": "Истребитель",
       "emoji": "✈️",
@@ -206,6 +188,106 @@
       "description": "Кепочка!",
       "purchased_at": "2026-02-22T19:36:19.222808",
       "unique_id": "6539341659_Kepka_12_3809"
+    },
+    {
+      "item_id": "LolPop",
+      "global_number": 34,
+      "name": "Lol Pop",
+      "emoji": "🍭",
+      "description": "NFT - Леденец",
+      "purchased_at": "2026-02-24T16:46:01.820771",
+      "unique_id": "6539341659_LolPop_34_3644",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 13,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:46.924152",
+      "unique_id": "6539341659_PetSnake_13_6634",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 34,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:08.751520",
+      "unique_id": "6539341659_PetSnake_34_7559",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 2,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T17:59:09.516754",
+      "unique_id": "6539341659_SnoopCigar_2_7997",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 5,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-02-27T17:59:45.424575",
+      "unique_id": "6539341659_WestsideSign_5_8534",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 7,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:00:10.589330",
+      "unique_id": "6539341659_SnoopCigar_7_4715",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 6,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-02-27T18:00:24.516075",
+      "unique_id": "6539341659_WestsideSign_6_4725",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 7,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-02-27T18:00:26.426688",
+      "unique_id": "6539341659_WestsideSign_7_8584",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 8,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:01:54.749631",
+      "unique_id": "6539341659_SnoopCigar_8_6638",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "fighter ",
+      "global_number": 5,
+      "name": "Истребитель",
+      "emoji": "✈️",
+      "description": "С 23 февраля!",
+      "purchased_at": "2026-03-04T18:00:15.071616",
+      "unique_id": "6539341659_fighter _5_3837",
+      "is_upgraded": false
     }
   ],
   "8192237273": [
@@ -217,6 +299,16 @@
       "purchased_at": "2026-02-19T20:50:31.668835",
       "description": "НФТ который только у первого игрока",
       "unique_id": "6539341659_admin_0_3823"
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 1,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T15:57:56.624933",
+      "unique_id": "8192237273_MiniOscar_1_1755",
+      "is_upgraded": false
     },
     {
       "item_id": "LolPop",
@@ -235,15 +327,6 @@
       "description": "Защита головы",
       "purchased_at": "2026-02-21T15:02:44.868123",
       "unique_id": "8192237273_combat_helmet_2_7078"
-    },
-    {
-      "item_id": "combat_helmet",
-      "global_number": 2,
-      "name": "Военный шлем",
-      "emoji": "🪖",
-      "description": "Защита головы",
-      "purchased_at": "2026-02-21T15:02:48.774089",
-      "unique_id": "8192237273_combat_helmet_3_6007"
     },
     {
       "item_id": "combat_helmet",
@@ -334,6 +417,16 @@
       "description": "Защита головы",
       "purchased_at": "2026-02-21T15:03:24.196484",
       "unique_id": "6539341659_combat_helmet_21_5816"
+    },
+    {
+      "item_id": "PreciousPeach",
+      "global_number": 3,
+      "name": "Precious Peach",
+      "emoji": "🍑",
+      "description": "Просто Персик",
+      "purchased_at": "2026-02-24T16:23:01.639825",
+      "unique_id": "8192237273_PreciousPeach_3_4346",
+      "is_upgraded": false
     }
   ],
   "8346625013": [
@@ -653,15 +746,6 @@
       "unique_id": "8346625013_MedalOtvaga_37_9587"
     },
     {
-      "item_id": "AK47",
-      "global_number": 3,
-      "name": "AK47",
-      "emoji": "🔫",
-      "description": "Всеми известный автомат Калашникова",
-      "purchased_at": "2026-02-21T14:19:33.037370",
-      "unique_id": "8346625013_AK47_38_4006"
-    },
-    {
       "item_id": "MedalOtvaga",
       "global_number": 4,
       "name": "Медаль За отвагу",
@@ -975,6 +1059,716 @@
       "description": "Кепочка!",
       "purchased_at": "2026-02-22T19:34:19.220758",
       "unique_id": "6539341659_Kepka_4_9795"
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 2,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T16:00:27.123796",
+      "unique_id": "8346625013_MiniOscar_2_9467",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 3,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T16:00:28.953295",
+      "unique_id": "8346625013_MiniOscar_3_5326",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 4,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T16:00:29.821136",
+      "unique_id": "8346625013_MiniOscar_4_3535",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 5,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T16:00:29.985432",
+      "unique_id": "8346625013_MiniOscar_5_2191",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 6,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T16:00:30.752172",
+      "unique_id": "8346625013_MiniOscar_6_5654",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 7,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T16:00:31.522831",
+      "unique_id": "8346625013_MiniOscar_7_8280",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 8,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T16:00:31.699322",
+      "unique_id": "8346625013_MiniOscar_8_5620",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 9,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T16:00:31.879079",
+      "unique_id": "8346625013_MiniOscar_9_5146",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 10,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T16:00:32.546482",
+      "unique_id": "8346625013_MiniOscar_10_7376",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 11,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T16:00:36.860361",
+      "unique_id": "8346625013_MiniOscar_11_9314",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 12,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T16:00:38.077804",
+      "unique_id": "8346625013_MiniOscar_12_3232",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 13,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T16:00:38.248860",
+      "unique_id": "8346625013_MiniOscar_13_5800",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 14,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T16:00:39.443155",
+      "unique_id": "8346625013_MiniOscar_14_4176",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "MiniOscar",
+      "global_number": 15,
+      "name": "Mini Oscar",
+      "emoji": "🏺",
+      "description": "Миниатюрная статуютка Оскара!",
+      "purchased_at": "2026-02-24T16:00:40.663601",
+      "unique_id": "8346625013_MiniOscar_15_7098",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PreciousPeach",
+      "global_number": 4,
+      "name": "Precious Peach",
+      "emoji": "🍑",
+      "description": "Просто Персик",
+      "purchased_at": "2026-02-24T16:24:58.756081",
+      "unique_id": "8346625013_PreciousPeach_4_9478",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PreciousPeach",
+      "global_number": 5,
+      "name": "Precious Peach",
+      "emoji": "🍑",
+      "description": "Просто Персик",
+      "purchased_at": "2026-02-24T16:24:59.733859",
+      "unique_id": "8346625013_PreciousPeach_5_9613",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PreciousPeach",
+      "global_number": 6,
+      "name": "Precious Peach",
+      "emoji": "🍑",
+      "description": "Просто Персик",
+      "purchased_at": "2026-02-24T16:24:59.890514",
+      "unique_id": "8346625013_PreciousPeach_6_2755",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PreciousPeach",
+      "global_number": 7,
+      "name": "Precious Peach",
+      "emoji": "🍑",
+      "description": "Просто Персик",
+      "purchased_at": "2026-02-24T16:25:01.586204",
+      "unique_id": "8346625013_PreciousPeach_7_2984",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PreciousPeach",
+      "global_number": 8,
+      "name": "Precious Peach",
+      "emoji": "🍑",
+      "description": "Просто Персик",
+      "purchased_at": "2026-02-24T16:25:01.745336",
+      "unique_id": "8346625013_PreciousPeach_8_2712",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PreciousPeach",
+      "global_number": 9,
+      "name": "Precious Peach",
+      "emoji": "🍑",
+      "description": "Просто Персик",
+      "purchased_at": "2026-02-24T16:25:02.826160",
+      "unique_id": "8346625013_PreciousPeach_9_2278",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PreciousPeach",
+      "global_number": 10,
+      "name": "Precious Peach",
+      "emoji": "🍑",
+      "description": "Просто Персик",
+      "purchased_at": "2026-02-24T16:25:03.234205",
+      "unique_id": "8346625013_PreciousPeach_10_5345",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PreciousPeach",
+      "global_number": 11,
+      "name": "Precious Peach",
+      "emoji": "🍑",
+      "description": "Просто Персик",
+      "purchased_at": "2026-02-24T16:25:03.913656",
+      "unique_id": "8346625013_PreciousPeach_11_5101",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PreciousPeach",
+      "global_number": 2,
+      "name": "Precious Peach",
+      "emoji": "🍑",
+      "description": "Просто Персик",
+      "purchased_at": "2026-02-24T16:31:35.301461",
+      "is_upgraded": false,
+      "unique_id": "8346625013_PreciousPeach_2_6901"
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 1,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:35.942377",
+      "unique_id": "8346625013_PetSnake_1_2781",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 2,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:37.377638",
+      "unique_id": "8346625013_PetSnake_2_2762",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 3,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:37.565234",
+      "unique_id": "8346625013_PetSnake_3_4511",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 4,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:37.667265",
+      "unique_id": "8346625013_PetSnake_4_8487",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 5,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:37.956456",
+      "unique_id": "8346625013_PetSnake_5_6848",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 6,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:38.554193",
+      "unique_id": "8346625013_PetSnake_6_6714",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 7,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:42.378706",
+      "unique_id": "8346625013_PetSnake_7_1826",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 8,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:43.563090",
+      "unique_id": "8346625013_PetSnake_8_9098",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 10,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:43.755799",
+      "unique_id": "8346625013_PetSnake_10_4253",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 11,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:44.038925",
+      "unique_id": "8346625013_PetSnake_11_2258",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 12,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:44.678644",
+      "unique_id": "8346625013_PetSnake_12_1349",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 14,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:47.461743",
+      "unique_id": "8346625013_PetSnake_14_7925",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 15,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:47.599569",
+      "unique_id": "8346625013_PetSnake_15_2165",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 16,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:48.778142",
+      "unique_id": "8346625013_PetSnake_16_2314",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 17,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:49.113802",
+      "unique_id": "8346625013_PetSnake_17_8346",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 18,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:50.307125",
+      "unique_id": "8346625013_PetSnake_18_6302",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 19,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:54.129257",
+      "unique_id": "8346625013_PetSnake_19_2668",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 20,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:55.219629",
+      "unique_id": "8346625013_PetSnake_20_1756",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 21,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:55.343435",
+      "unique_id": "8346625013_PetSnake_21_1118",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 22,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:56.459574",
+      "unique_id": "8346625013_PetSnake_22_1869",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 23,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:57.538258",
+      "unique_id": "8346625013_PetSnake_23_1282",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 24,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:25:59.537993",
+      "unique_id": "8346625013_PetSnake_24_5948",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 25,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:00.710120",
+      "unique_id": "8346625013_PetSnake_25_2296",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 26,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:00.924724",
+      "unique_id": "8346625013_PetSnake_26_2759",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 27,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:01.766445",
+      "unique_id": "8346625013_PetSnake_27_2513",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 28,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:01.986290",
+      "unique_id": "8346625013_PetSnake_28_2567",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 29,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:04.543777",
+      "unique_id": "8346625013_PetSnake_29_8499",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 30,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:05.634341",
+      "unique_id": "8346625013_PetSnake_30_2493",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 31,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:06.025864",
+      "unique_id": "8346625013_PetSnake_31_6769",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 32,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:06.130079",
+      "unique_id": "8346625013_PetSnake_32_9612",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 33,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:07.226851",
+      "unique_id": "8346625013_PetSnake_33_5513",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 35,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:10.211227",
+      "unique_id": "8346625013_PetSnake_35_6846",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 36,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:11.221784",
+      "unique_id": "8346625013_PetSnake_36_8331",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 37,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:11.422420",
+      "unique_id": "8346625013_PetSnake_37_2131",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 38,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:12.627229",
+      "unique_id": "8346625013_PetSnake_38_3640",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 39,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:13.677124",
+      "unique_id": "8346625013_PetSnake_39_6837",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 40,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T18:26:15.576174",
+      "unique_id": "8346625013_PetSnake_40_7395",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "combat_helmet",
+      "global_number": 2,
+      "name": "Военный шлем",
+      "emoji": "🪖",
+      "description": "Защита головы",
+      "purchased_at": "2026-02-27T19:28:53.293019",
+      "unique_id": "8346625013_combat_helmet_2_5725",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 1,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-03-01T18:30:23.771451",
+      "is_upgraded": false,
+      "unique_id": "8346625013_SnoopCigar_1_3945"
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 3,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-03-01T18:30:28.188996",
+      "is_upgraded": false,
+      "unique_id": "8346625013_WestsideSign_3_8912"
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 1,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-03-01T18:33:04.898950",
+      "is_upgraded": false,
+      "unique_id": "8346625013_WestsideSign_1_8250"
+    },
+    {
+      "item_id": "AK47",
+      "global_number": 3,
+      "name": "AK47",
+      "emoji": "🔫",
+      "description": "Всеми известный автомат Калашникова",
+      "purchased_at": "2026-03-01T18:36:53.439867",
+      "unique_id": "8346625013_AK47_3_1145",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 8,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-03-01T18:38:18.361825",
+      "is_upgraded": false,
+      "unique_id": "8346625013_WestsideSign_8_7672"
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 10,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-03-01T18:45:56.394025",
+      "is_upgraded": false,
+      "unique_id": "8346625013_WestsideSign_10_2223"
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 11,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-03-01T18:46:02.751605",
+      "is_upgraded": false,
+      "unique_id": "8346625013_WestsideSign_11_8752"
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 6,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-03-01T18:46:05.702486",
+      "is_upgraded": false,
+      "unique_id": "8346625013_SnoopCigar_6_5790"
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 12,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-03-01T18:46:08.721563",
+      "is_upgraded": false,
+      "unique_id": "8346625013_WestsideSign_12_6786"
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 5,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-03-01T18:46:12.848691",
+      "is_upgraded": false,
+      "unique_id": "8346625013_SnoopCigar_5_8132"
     }
   ],
   "8495486236": [
@@ -1832,6 +2626,16 @@
       "description": "Солдатская доблесть",
       "purchased_at": "2026-02-21T14:19:26.747923",
       "unique_id": "8346625013_MedalOtvaga_36_9048"
+    },
+    {
+      "item_id": "PetSnake",
+      "global_number": 9,
+      "name": "Pet Snake",
+      "emoji": "🐍",
+      "description": "Змея в носке!",
+      "purchased_at": "2026-02-24T19:59:00.816043",
+      "is_upgraded": false,
+      "unique_id": "8495486236_PetSnake_9_6303"
     }
   ],
   "8441805767": [
@@ -1863,7 +2667,308 @@
       "unique_id": "6539341659_fighter _1_1084"
     }
   ],
-  "7712274782": [],
+  "7712274782": [
+    {
+      "item_id": "WestsideSign",
+      "global_number": 2,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-02-27T17:59:18.634268",
+      "unique_id": "7712274782_WestsideSign_2_6961",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 4,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-02-27T17:59:23.299667",
+      "unique_id": "7712274782_WestsideSign_4_3370",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 3,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T17:59:29.992969",
+      "unique_id": "7712274782_SnoopCigar_3_3357",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 4,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T17:59:30.261144",
+      "unique_id": "7712274782_SnoopCigar_4_1838",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 9,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-02-27T18:19:15.968385",
+      "unique_id": "7712274782_WestsideSign_9_4237",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 13,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-02-27T18:19:19.640070",
+      "unique_id": "7712274782_WestsideSign_13_8382",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 14,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-02-27T18:19:19.754186",
+      "unique_id": "7712274782_WestsideSign_14_4809",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 15,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-02-27T18:19:20.857685",
+      "unique_id": "7712274782_WestsideSign_15_7864",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 16,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-02-27T18:19:21.062063",
+      "unique_id": "7712274782_WestsideSign_16_8646",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 17,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-02-27T18:19:21.172709",
+      "unique_id": "7712274782_WestsideSign_17_6877",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 18,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-02-27T18:19:25.067435",
+      "unique_id": "7712274782_WestsideSign_18_6236",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 19,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-02-27T18:19:25.172097",
+      "unique_id": "7712274782_WestsideSign_19_1591",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "WestsideSign",
+      "global_number": 20,
+      "name": "Westside Sign",
+      "emoji": "🤟",
+      "description": "Snoop Dog рука",
+      "purchased_at": "2026-02-27T18:19:25.432063",
+      "unique_id": "7712274782_WestsideSign_20_9146",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 9,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:34.043457",
+      "unique_id": "7712274782_SnoopCigar_9_5268",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 10,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:34.480816",
+      "unique_id": "7712274782_SnoopCigar_10_9809",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 11,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:34.489132",
+      "unique_id": "7712274782_SnoopCigar_11_6704",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 12,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:36.057642",
+      "unique_id": "7712274782_SnoopCigar_12_9278",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 13,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:36.065446",
+      "unique_id": "7712274782_SnoopCigar_13_9724",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 14,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:36.073393",
+      "unique_id": "7712274782_SnoopCigar_14_2585",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 15,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:36.431137",
+      "unique_id": "7712274782_SnoopCigar_15_4412",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 16,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:36.439232",
+      "unique_id": "7712274782_SnoopCigar_16_3943",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 17,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:41.110289",
+      "unique_id": "7712274782_SnoopCigar_17_1440",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 18,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:41.779785",
+      "unique_id": "7712274782_SnoopCigar_18_9645",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 19,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:41.879981",
+      "unique_id": "7712274782_SnoopCigar_19_6851",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 20,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:41.988123",
+      "unique_id": "7712274782_SnoopCigar_20_5344",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 21,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:41.998242",
+      "unique_id": "7712274782_SnoopCigar_21_3178",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 22,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:46.349828",
+      "unique_id": "7712274782_SnoopCigar_22_6088",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 23,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:46.358261",
+      "unique_id": "7712274782_SnoopCigar_23_9337",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 24,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:47.155550",
+      "unique_id": "7712274782_SnoopCigar_24_6232",
+      "is_upgraded": false
+    },
+    {
+      "item_id": "SnoopCigar",
+      "global_number": 25,
+      "name": "Snoop Cigar",
+      "emoji": "🚬",
+      "description": "Snoop Сига",
+      "purchased_at": "2026-02-27T18:19:47.164758",
+      "unique_id": "7712274782_SnoopCigar_25_8479",
+      "is_upgraded": false
+    }
+  ],
   "7659176829": [
     {
       "item_id": "LolPop",
@@ -1875,17 +2980,7 @@
       "unique_id": "6539341659_LolPop_15_9184"
     }
   ],
-  "8300296397": [
-    {
-      "item_id": "LolPop",
-      "global_number": 36,
-      "name": "Lol Pop",
-      "emoji": "🍭",
-      "description": "NFT - Леденец",
-      "purchased_at": "2026-02-21T09:22:34.845299",
-      "unique_id": "6539341659_LolPop_14_6115"
-    }
-  ],
+  "8300296397": [],
   "8067050887": [
     {
       "item_id": "fighter ",
@@ -1942,24 +3037,6 @@
       "unique_id": "8067050887_fighter _10_3504"
     }
   ],
-  "7344145466": [
-    {
-      "item_id": "LolPop",
-      "global_number": 20,
-      "name": "Lol Pop",
-      "emoji": "🍭",
-      "description": "NFT - Леденец",
-      "purchased_at": "2026-02-21T09:14:48.968678",
-      "unique_id": "8346625013_LolPop_16_8354"
-    },
-    {
-      "item_id": "AK47",
-      "global_number": 21,
-      "name": "AK47",
-      "emoji": "🔫",
-      "description": "Всеми известный автомат Калашникова",
-      "purchased_at": "2026-02-21T14:20:32.891859",
-      "unique_id": "8346625013_AK47_58_6318"
-    }
-  ]
+  "7344145466": [],
+  "5160712296": []
 }
