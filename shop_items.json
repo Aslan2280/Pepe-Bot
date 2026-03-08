@@ -7,6 +7,46 @@
     "description": "НФТ который только у создателя",
     "emoji": "👑"
   },
+  "SnoopCigar": {
+    "name": "Snoop Cigar",
+    "price": 100000,
+    "quantity": 0,
+    "sold": 25,
+    "description": "Snoop Сига",
+    "emoji": "🚬"
+  },
+  "WestsideSign": {
+    "name": "Westside Sign",
+    "price": 150000,
+    "quantity": 0,
+    "sold": 20,
+    "description": "Snoop Dog рука",
+    "emoji": "🤟"
+  },
+  "PetSnake": {
+    "name": "Pet Snake",
+    "price": 75000,
+    "quantity": 0,
+    "sold": 40,
+    "description": "Змея в носке!",
+    "emoji": "🐍"
+  },
+  "PreciousPeach": {
+    "name": "Precious Peach",
+    "price": 250000,
+    "quantity": 0,
+    "sold": 10,
+    "description": "Просто Персик",
+    "emoji": "🍑"
+  },
+  "MiniOscar": {
+    "name": "Mini Oscar",
+    "price": 100000,
+    "quantity": 0,
+    "sold": 15,
+    "description": "Миниатюрная статуютка Оскара!",
+    "emoji": "🏺"
+  },
   "PlushPepe": {
     "name": "Plush Pepe",
     "price": 10000000,
