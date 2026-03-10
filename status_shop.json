@@ -5,7 +5,8 @@
     "price": 0,
     "min_bonus": 500,
     "max_bonus": 2500,
-    "description": "Начальный статус для всех новичков"
+    "description": "Начальный статус для всех новичков",
+    "sell": true
   },
   "player": {
     "name": "Игрок",
@@ -13,7 +14,8 @@
     "price": 50000,
     "min_bonus": 2500,
     "max_bonus": 10000,
-    "description": "Уже кое-что понимаешь в играх"
+    "description": "Уже кое-что понимаешь в играх",
+    "sell": true
   },
   "gambler": {
     "name": "Азартный",
@@ -21,7 +23,8 @@
     "price": 250000,
     "min_bonus": 10000,
     "max_bonus": 50000,
-    "description": "Риск — твоё второе имя"
+    "description": "Риск — твоё второе имя",
+    "sell": true
   },
   "vip": {
     "name": "VIP",
@@ -29,7 +32,8 @@
     "price": 1000000,
     "min_bonus": 50000,
     "max_bonus": 250000,
-    "description": "Особый статус для особых игроков"
+    "description": "Особый статус для особых игроков",
+    "sell": true
   },
   "legend": {
     "name": "Легенда",
@@ -37,7 +41,8 @@
     "price": 5000000,
     "min_bonus": 250000,
     "max_bonus": 1000000,
-    "description": "Легенда казино, сам Бог удачи"
+    "description": "Легенда казино, сам Бог удачи",
+    "sell": true
   },
   "oligarch": {
     "name": "Олигарх",
@@ -45,7 +50,26 @@
     "price": 25000000,
     "min_bonus": 1000000,
     "max_bonus": 5000000,
-    "description": "У тебя больше денег, чем у некоторых стран"
+    "description": "У тебя больше денег, чем у некоторых стран",
+    "sell": true
+  },
+  "admin": {
+    "name": "Админ",
+    "emoji": "👑",
+    "price": 0,
+    "min_bonus": 0,
+    "max_bonus": 1,
+    "description": "Админ этого бота!",
+    "sell": false
+  },
+  "creator": {
+    "name": "Создатель",
+    "emoji": "👑",
+    "price": 0,
+    "min_bonus": 0,
+    "max_bonus": 1,
+    "description": "Создатель того что ты сейчас видешь!",
+    "sell": false
   },
   "immortal": {
     "name": "Бессмертный",
@@ -53,30 +77,7 @@
     "price": 100000000,
     "min_bonus": 5000000,
     "max_bonus": 25000000,
-    "description": "Ты достиг просветления"
-  },
-  "partner": {
-    "name": "Партнёр",
-    "emoji": "🤝",
-    "price": 1000000000000000000000000000000,
-    "min_bonus": 50000,
-    "max_bonus": 100000,
-    "description": "Статус для людей которыые делают раздачи!"
-  },
-  "admin": {
-    "name": "Админ",
-    "emoji": "👑",
-    "price": 10000000000000000000000000000000000000000,
-    "min_bonus": 50000000,
-    "max_bonus": 100000000,
-    "description": "Статус для людей которыые делают раздачи!"
-  },
-  "sudo": {
-    "name": "sudo rm -rf",
-    "emoji": "🧩",
-    "price": 1000000000000000000000000000000,
-    "min_bonus": 5000000,
-    "max_bonus": 25000000,
-    "description": "Эксклюзи статус!"
+    "description": "Ты достиг просветления",
+    "sell": true
   }
 }
