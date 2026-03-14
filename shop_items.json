@@ -143,7 +143,7 @@
     "description": "Нет описания",
     "emoji": "🧸"
   },
-  "CandyBox": {
+  "CandyBox2": {
     "name": "Candy Box",
     "price": 75000,
     "quantity": 0,
@@ -159,12 +159,36 @@
     "description": "Красивый букетик!",
     "emoji": "💐"
   },
-  "SakuraFlower": {
+  "SakuraFlower2": {
     "name": "Sakura Flower",
     "price": 150000,
     "quantity": 0,
     "sold": 75,
     "description": "Нет описания",
     "emoji": "🌸"
+  },
+  "HeartLocked": {
+    "name": "Heart Locked",
+    "price": 350000,
+    "quantity": 0,
+    "sold": 50,
+    "description": "Нет описания",
+    "emoji": "💖"
+  },
+  "ArtisanBrick": {
+    "name": "Artisan Brick",
+    "price": 75000,
+    "quantity": 0,
+    "sold": 80,
+    "description": "Нет описания",
+    "emoji": "🧱"
+  },
+  "SnoopDogg": {
+    "name": "Snoop Dogg",
+    "price": 50000,
+    "quantity": 0,
+    "sold": 100,
+    "description": "Нет описания",
+    "emoji": "🐶"
   }
 }
