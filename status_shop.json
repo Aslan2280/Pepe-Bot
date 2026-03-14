@@ -71,6 +71,24 @@
     "description": "Создатель того что ты сейчас видешь!",
     "sell": false
   },
+  "moder": {
+    "name": "Модератор",
+    "emoji": "👑",
+    "price": 0,
+    "min_bonus": 0,
+    "max_bonus": 1,
+    "description": "Модератор!",
+    "sell": false
+  },
+  "sudo": {
+    "name": "sudo rm -rf",
+    "emoji": "🧩",
+    "price": 0,
+    "min_bonus": 1000000,
+    "max_bonus": 5000000,
+    "description": "Спец. статус! Не продаётся!",
+    "sell": false
+  },
   "immortal": {
     "name": "Бессмертный",
     "emoji": "⚡",
