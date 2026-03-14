@@ -1,5 +1,2430 @@
 {
-  "market_counter": 0,
+  "market_counter": 138,
   "listings": [
+    {
+      "id": 1,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "HeartLocked",
+        "global_number": 1,
+        "name": "Heart Locked",
+        "emoji": "💖",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T17:38:18.880468",
+        "is_upgraded": false
+      },
+      "price": 100000000,
+      "listed_at": "2026-03-10T17:44:32.859795",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-10T17:51:27.133621"
+    },
+    {
+      "id": 2,
+      "seller_id": 8495486236,
+      "nft": {
+        "item_id": "HeartLocked",
+        "global_number": 3,
+        "name": "Heart Locked",
+        "emoji": "💖",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T17:38:34.873359",
+        "is_upgraded": false
+      },
+      "price": 444444444,
+      "listed_at": "2026-03-10T17:47:18.876554",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-10T17:49:04.666498"
+    },
+    {
+      "id": 3,
+      "seller_id": 8495486236,
+      "nft": {
+        "item_id": "PlushPepe",
+        "global_number": 1,
+        "name": "Plush Pepe",
+        "emoji": "🐸",
+        "description": "Plush Pepe, самый дорогой НФТ!",
+        "purchased_at": "2026-02-20T20:14:28.849897"
+      },
+      "price": 444444444444,
+      "listed_at": "2026-03-10T17:47:25.739925",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-10T17:49:14.567332"
+    },
+    {
+      "id": 4,
+      "seller_id": 8495486236,
+      "nft": {
+        "item_id": "Kepka",
+        "global_number": 1,
+        "name": "Кепка",
+        "emoji": "🧢",
+        "description": "Кепочка!",
+        "purchased_at": "2026-02-22T19:34:17.669622"
+      },
+      "price": 444444444444,
+      "listed_at": "2026-03-10T17:47:42.213775",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-10T17:49:19.707535"
+    },
+    {
+      "id": 5,
+      "seller_id": 8495486236,
+      "nft": {
+        "item_id": "DeskCalendar",
+        "global_number": 1,
+        "name": "Desk Calendar",
+        "emoji": "🗓",
+        "description": "Календари, праздничный НФТ",
+        "purchased_at": "2026-02-22T11:17:23.539443"
+      },
+      "price": 444444444444,
+      "listed_at": "2026-03-10T17:47:45.648769",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-10T17:49:22.254265"
+    },
+    {
+      "id": 6,
+      "seller_id": 8495486236,
+      "nft": {
+        "item_id": "AK47",
+        "global_number": 1,
+        "name": "AK47",
+        "emoji": "🔫",
+        "description": "Всеми известный автомат Калашникова",
+        "purchased_at": "2026-02-21T14:19:20.685613"
+      },
+      "price": 4444444444444,
+      "listed_at": "2026-03-10T17:47:49.671954",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-10T17:49:09.385977"
+    },
+    {
+      "id": 7,
+      "seller_id": 8495486236,
+      "nft": {
+        "item_id": "MedalOtvaga",
+        "global_number": 2,
+        "name": "Медаль За отвагу",
+        "emoji": "🏅",
+        "description": "Солдатская доблесть",
+        "purchased_at": "2026-02-21T14:19:26.747923"
+      },
+      "price": 444444444444,
+      "listed_at": "2026-03-10T17:47:54.807798",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-10T17:49:24.566590"
+    },
+    {
+      "id": 8,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "LoveBear",
+        "global_number": 106,
+        "name": "Love Bear",
+        "emoji": "🧸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T17:50:45.780029",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-10T17:54:28.856679",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-10T17:55:59.169731"
+    },
+    {
+      "id": 9,
+      "seller_id": 8318711584,
+      "nft": {
+        "item_id": "HeartLocked",
+        "global_number": 16,
+        "name": "Heart Locked",
+        "emoji": "💖",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T17:39:51.906145",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-10T17:58:41.852345",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-10T17:58:53.437918"
+    },
+    {
+      "id": 10,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "LoveBear",
+        "global_number": 109,
+        "name": "Love Bear",
+        "emoji": "🧸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T17:50:47.721390",
+        "is_upgraded": false
+      },
+      "price": 4000000,
+      "listed_at": "2026-03-10T17:59:08.045292",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-10T18:00:18.729155"
+    },
+    {
+      "id": 11,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 41,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:12.897834",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-10T18:16:29.163983",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-10T18:22:53.185653"
+    },
+    {
+      "id": 12,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 6,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:07:46.271459",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-10T18:35:13.197771",
+      "status": "sold",
+      "buyer_id": 8512604736,
+      "sold_at": "2026-03-10T18:58:53.425647"
+    },
+    {
+      "id": 13,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 4,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:07:43.882906",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-10T18:35:23.830500",
+      "status": "sold",
+      "buyer_id": 8192237273,
+      "sold_at": "2026-03-10T19:13:15.958768"
+    },
+    {
+      "id": 14,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "LoveBear",
+        "global_number": 112,
+        "name": "Love Bear",
+        "emoji": "🧸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T17:50:49.128257",
+        "is_upgraded": false
+      },
+      "price": 500000,
+      "listed_at": "2026-03-10T18:45:23.495525",
+      "status": "sold",
+      "buyer_id": 6539341659,
+      "sold_at": "2026-03-10T18:45:47.837672"
+    },
+    {
+      "id": 15,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 5,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:07:45.116011",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-10T18:45:59.636004",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T19:13:20.675489"
+    },
+    {
+      "id": 16,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 7,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:07:47.514839",
+        "is_upgraded": false
+      },
+      "price": 400000,
+      "listed_at": "2026-03-10T18:47:08.482058",
+      "status": "sold",
+      "buyer_id": 6539341659,
+      "sold_at": "2026-03-10T18:47:34.450311"
+    },
+    {
+      "id": 17,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 8,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:07:49.441404",
+        "is_upgraded": false
+      },
+      "price": 400000,
+      "listed_at": "2026-03-10T18:47:40.464445",
+      "status": "sold",
+      "buyer_id": 6539341659,
+      "sold_at": "2026-03-10T18:49:05.577371"
+    },
+    {
+      "id": 18,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "CandyBox2",
+        "global_number": 38,
+        "name": "Candy Box",
+        "emoji": "🍬",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:00:14.598923",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-10T18:49:35.616218",
+      "status": "sold",
+      "buyer_id": 8531062510,
+      "sold_at": "2026-03-10T18:57:12.595312"
+    },
+    {
+      "id": 19,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 9,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:07:51.663621",
+        "is_upgraded": false
+      },
+      "price": 400000,
+      "listed_at": "2026-03-10T18:51:08.179394",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-10T18:52:22.229282"
+    },
+    {
+      "id": 20,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 9,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:52:22.219506",
+        "is_upgraded": false
+      },
+      "price": 500000,
+      "listed_at": "2026-03-10T18:52:42.462981",
+      "status": "sold",
+      "buyer_id": 8531062510,
+      "sold_at": "2026-03-10T18:56:54.344491"
+    },
+    {
+      "id": 21,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 14,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:23.000737",
+        "is_upgraded": false
+      },
+      "price": 100000,
+      "listed_at": "2026-03-10T18:54:30.442880",
+      "status": "sold",
+      "buyer_id": 6539341659,
+      "sold_at": "2026-03-10T18:54:46.837471"
+    },
+    {
+      "id": 22,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 15,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:24.468332",
+        "is_upgraded": false
+      },
+      "price": 300,
+      "listed_at": "2026-03-10T18:55:13.622478",
+      "status": "sold",
+      "buyer_id": 6539341659,
+      "sold_at": "2026-03-10T18:55:28.948569"
+    },
+    {
+      "id": 23,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 16,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:25.594453",
+        "is_upgraded": false
+      },
+      "price": 300000000,
+      "listed_at": "2026-03-10T18:56:47.171280",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-10T18:59:01.660190"
+    },
+    {
+      "id": 24,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 17,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:26.832392",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-10T18:58:51.069223",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T19:13:24.081399"
+    },
+    {
+      "id": 25,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 16,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:59:01.650187",
+        "is_upgraded": false
+      },
+      "price": 600000,
+      "listed_at": "2026-03-10T18:59:55.951702",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T19:13:17.721374"
+    },
+    {
+      "id": 26,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 18,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:28.094183",
+        "is_upgraded": false
+      },
+      "price": 400,
+      "listed_at": "2026-03-10T19:00:04.274605",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-10T19:01:34.742633"
+    },
+    {
+      "id": 27,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 20,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:30.438698",
+        "is_upgraded": false
+      },
+      "price": 500000,
+      "listed_at": "2026-03-10T19:02:17.850239",
+      "status": "sold",
+      "buyer_id": 7795142923,
+      "sold_at": "2026-03-10T19:08:28.080584"
+    },
+    {
+      "id": 28,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 18,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T19:01:34.731957",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-10T19:02:53.601519",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T19:13:27.202946"
+    },
+    {
+      "id": 29,
+      "seller_id": 6539341659,
+      "nft": {
+        "item_id": "SnoopCigar",
+        "global_number": 8,
+        "name": "Snoop Cigar",
+        "emoji": "🚬",
+        "description": "Snoop Сига",
+        "purchased_at": "2026-02-27T18:01:54.749631",
+        "is_upgraded": false
+      },
+      "price": 100,
+      "listed_at": "2026-03-10T19:03:34.387818",
+      "status": "sold",
+      "buyer_id": 8192237273,
+      "sold_at": "2026-03-10T19:04:51.078607"
+    },
+    {
+      "id": 30,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 11,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T19:03:15.444545",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-10T19:03:15.444555"
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-10T19:22:44.794261",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T19:51:58.977403"
+    },
+    {
+      "id": 31,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 19,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:29.296514",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-10T19:22:50.037336",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T19:52:02.440529"
+    },
+    {
+      "id": 32,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 21,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:31.916930",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-10T19:23:01.519091",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T19:52:05.395714"
+    },
+    {
+      "id": 33,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 22,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:33.326333",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-10T19:23:10.559337",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T19:52:08.123660"
+    },
+    {
+      "id": 34,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 23,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:34.843655",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-10T19:39:38.480203",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T19:52:10.513180"
+    },
+    {
+      "id": 35,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 24,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:36.232459",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-10T19:39:45.023580",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T19:52:15.233038"
+    },
+    {
+      "id": 36,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 25,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:37.820679",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-10T19:39:51.387948",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T19:52:12.903061"
+    },
+    {
+      "id": 37,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 26,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:39.347881",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-10T20:03:31.285192",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T20:07:03.354227"
+    },
+    {
+      "id": 38,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 27,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:40.708215",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-10T20:03:37.819264",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T20:07:07.178291"
+    },
+    {
+      "id": 39,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 28,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:42.309602",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-10T20:03:45.132368",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T20:07:21.089665"
+    },
+    {
+      "id": 40,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 29,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:43.714415",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-10T20:03:50.902763",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T20:07:18.752566"
+    },
+    {
+      "id": 41,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 30,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:45.249573",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-10T20:03:57.792344",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T20:07:15.997383"
+    },
+    {
+      "id": 42,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 31,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:46.884622",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-10T20:04:04.166226",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T20:07:13.169966"
+    },
+    {
+      "id": 43,
+      "seller_id": 7795142923,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 1,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:08:17.609437",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-10T18:08:17.609446"
+      },
+      "price": 500000,
+      "listed_at": "2026-03-10T20:04:46.469460",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-10T20:07:09.930450"
+    },
+    {
+      "id": 44,
+      "seller_id": 8531062510,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 2,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:31:29.325889",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-10T18:31:29.325898"
+      },
+      "price": 50000000,
+      "listed_at": "2026-03-10T20:25:01.400985",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-10T20:26:52.630831"
+    },
+    {
+      "id": 45,
+      "seller_id": 8531062510,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 9,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:56:54.334868",
+        "is_upgraded": false
+      },
+      "price": 10000000,
+      "listed_at": "2026-03-10T20:28:58.578621",
+      "status": "sold",
+      "buyer_id": 8192237273,
+      "sold_at": "2026-03-10T20:39:19.366221"
+    },
+    {
+      "id": 46,
+      "seller_id": 8531062510,
+      "nft": {
+        "item_id": "CandyBox2",
+        "global_number": 38,
+        "name": "Candy Box",
+        "emoji": "🍬",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:57:12.585890",
+        "is_upgraded": false
+      },
+      "price": 100000000,
+      "listed_at": "2026-03-10T21:18:11.776525",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-11T04:20:33.573139"
+    },
+    {
+      "id": 47,
+      "seller_id": 8531062510,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 2,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T20:26:52.621168",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-10T18:31:29.325898"
+      },
+      "price": 1000000000,
+      "listed_at": "2026-03-11T04:54:31.829614",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-11T15:22:10.489603"
+    },
+    {
+      "id": 48,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 32,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:48.578411",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T05:10:18.036310",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-11T06:19:54.119542"
+    },
+    {
+      "id": 49,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 33,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:50.517910",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T05:10:27.162803",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-11T06:19:51.417369"
+    },
+    {
+      "id": 50,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 34,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:52.008518",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T05:10:33.708940",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-11T06:19:48.756813"
+    },
+    {
+      "id": 51,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "CandyBox2",
+        "global_number": 37,
+        "name": "Candy Box",
+        "emoji": "🍬",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:00:12.864737",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T05:10:41.278339",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-11T06:19:36.531397"
+    },
+    {
+      "id": 52,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 35,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:53.596950",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T05:22:06.823514",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-11T06:19:39.397330"
+    },
+    {
+      "id": 53,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 36,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:54.949444",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T05:22:11.913605",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-11T06:19:42.335617"
+    },
+    {
+      "id": 54,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 37,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:57.014475",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T05:22:17.201926",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-11T06:19:45.015516"
+    },
+    {
+      "id": 55,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 38,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:58.354536",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T06:30:37.071012",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-11T06:43:07.768077"
+    },
+    {
+      "id": 56,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 39,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:09:59.617128",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T06:30:41.723150",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-11T06:43:11.584541"
+    },
+    {
+      "id": 57,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 40,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:10:00.881835",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T06:30:46.685363",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-11T06:42:52.426382"
+    },
+    {
+      "id": 58,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 42,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:14.480029",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T06:30:50.934946",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-11T06:42:48.709759"
+    },
+    {
+      "id": 59,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "CandyBox2",
+        "global_number": 43,
+        "name": "Candy Box",
+        "emoji": "🍬",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:00:15.907122",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T06:30:55.292039",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-11T06:42:58.676227"
+    },
+    {
+      "id": 60,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 43,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:15.805985",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T06:48:51.313213",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-11T11:40:54.443456"
+    },
+    {
+      "id": 61,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 44,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:17.145870",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T06:48:56.543240",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-11T11:41:17.220853"
+    },
+    {
+      "id": 62,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "CandyBox2",
+        "global_number": 45,
+        "name": "Candy Box",
+        "emoji": "🍬",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:00:17.136942",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T06:49:03.993874",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-11T11:41:12.905828"
+    },
+    {
+      "id": 63,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 45,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:18.376682",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-11T06:49:10.613343",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-11T11:41:08.787716"
+    },
+    {
+      "id": 64,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "CandyBox2",
+        "global_number": 46,
+        "name": "Candy Box",
+        "emoji": "🍬",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:00:18.442985",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T06:49:15.926726",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-11T11:41:00.487031"
+    },
+    {
+      "id": 65,
+      "seller_id": 7795142923,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 20,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T19:08:28.071379",
+        "is_upgraded": false
+      },
+      "price": 100000000,
+      "listed_at": "2026-03-11T10:13:41.289126",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-12T06:22:55.156564"
+    },
+    {
+      "id": 66,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 46,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:19.581115",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T11:45:55.802230",
+      "status": "sold",
+      "buyer_id": 8318711584,
+      "sold_at": "2026-03-12T09:46:08.010698"
+    },
+    {
+      "id": 67,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "CandyBox2",
+        "global_number": 47,
+        "name": "Candy Box",
+        "emoji": "🍬",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:00:19.690477",
+        "is_upgraded": false
+      },
+      "price": 2000000,
+      "listed_at": "2026-03-11T11:46:00.736400",
+      "status": "sold",
+      "buyer_id": 8318711584,
+      "sold_at": "2026-03-12T09:58:05.403978"
+    },
+    {
+      "id": 68,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 47,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:20.763697",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-11T11:46:07.558868",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-13T04:17:47.898424"
+    },
+    {
+      "id": 69,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "CandyBox2",
+        "global_number": 48,
+        "name": "Candy Box",
+        "emoji": "🍬",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:00:20.875058",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-11T11:46:13.179133",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-11T17:06:05.458262"
+    },
+    {
+      "id": 70,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 48,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:22.668336",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-11T11:46:18.448327",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-13T04:18:00.192921"
+    },
+    {
+      "id": 71,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 49,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:24.011593",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-11T11:46:24.504520",
+      "status": "sold",
+      "buyer_id": 7613542399,
+      "sold_at": "2026-03-12T08:41:20.399498"
+    },
+    {
+      "id": 72,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 50,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:25.407896",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-11T11:46:29.024854",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-13T04:18:03.771110"
+    },
+    {
+      "id": 73,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 51,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:26.658141",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-11T11:46:34.172613",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-13T04:17:53.304049"
+    },
+    {
+      "id": 74,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 52,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:27.947372",
+        "is_upgraded": false
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-11T11:46:40.826257",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-13T04:17:56.694957"
+    },
+    {
+      "id": 75,
+      "seller_id": 8531062510,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 2,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-11T15:22:10.479562",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-10T18:31:29.325898"
+      },
+      "price": 100000000,
+      "listed_at": "2026-03-11T15:22:45.728042",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-11T18:36:44.987261"
+    },
+    {
+      "id": 76,
+      "seller_id": 5846551196,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 39,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-11T13:11:38.594751",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-11T13:11:38.594761"
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-11T15:32:56.478235",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-11T18:36:02.805741"
+    },
+    {
+      "id": 77,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 53,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:29.063524",
+        "is_upgraded": false
+      },
+      "price": 500000,
+      "listed_at": "2026-03-11T18:34:38.363126",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-11T18:35:52.527843"
+    },
+    {
+      "id": 78,
+      "seller_id": 7795142923,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 20,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T06:22:55.146784",
+        "is_upgraded": false
+      },
+      "price": 500000000,
+      "listed_at": "2026-03-12T06:24:47.472971",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-13T08:36:43.085503"
+    },
+    {
+      "id": 79,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "CandyBox2",
+        "global_number": 54,
+        "name": "Candy Box",
+        "emoji": "🍬",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:00:22.380669",
+        "is_upgraded": false
+      },
+      "price": 500000,
+      "listed_at": "2026-03-12T08:12:06.753240",
+      "status": "sold",
+      "buyer_id": 8568988939,
+      "sold_at": "2026-03-12T08:16:31.115623"
+    },
+    {
+      "id": 80,
+      "seller_id": 8495486236,
+      "nft": {
+        "item_id": "DeskCalendar",
+        "global_number": 10,
+        "name": "Desk Calendar",
+        "emoji": "🗓",
+        "description": "Календари, праздничный НФТ",
+        "purchased_at": "2026-02-22T11:17:32.648565"
+      },
+      "price": 55555555,
+      "listed_at": "2026-03-12T08:38:27.876580",
+      "status": "active"
+    },
+    {
+      "id": 81,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "WestsideSign",
+        "global_number": 5,
+        "name": "Westside Sign",
+        "emoji": "🤟",
+        "description": "Snoop Dog рука",
+        "purchased_at": "2026-03-12T08:47:08.654792",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-12T08:47:08.654808"
+      },
+      "price": 80000000,
+      "listed_at": "2026-03-12T08:52:17.359938",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-12T09:02:42.303358"
+    },
+    {
+      "id": 82,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "WestsideSign",
+        "global_number": 5,
+        "name": "Westside Sign",
+        "emoji": "🤟",
+        "description": "Snoop Dog рука",
+        "purchased_at": "2026-03-12T09:02:42.292320",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-12T08:47:08.654808"
+      },
+      "price": 35000000,
+      "listed_at": "2026-03-12T09:03:00.083403",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-12T12:38:20.325806"
+    },
+    {
+      "id": 83,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SnoopCigar",
+        "global_number": 2,
+        "name": "Snoop Cigar",
+        "emoji": "🚬",
+        "description": "Snoop Сига",
+        "purchased_at": "2026-03-12T09:07:19.397504",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-12T09:07:19.397512"
+      },
+      "price": 20000000,
+      "listed_at": "2026-03-12T09:10:18.829940",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-12T09:12:52.068031"
+    },
+    {
+      "id": 84,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SnoopCigar",
+        "global_number": 2,
+        "name": "Snoop Cigar",
+        "emoji": "🚬",
+        "description": "Snoop Сига",
+        "purchased_at": "2026-03-12T09:12:52.058641",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-12T09:07:19.397512"
+      },
+      "price": 10000000,
+      "listed_at": "2026-03-12T09:13:08.881057",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-12T11:53:29.287935"
+    },
+    {
+      "id": 85,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "CandyBox2",
+        "global_number": 55,
+        "name": "Candy Box",
+        "emoji": "🍬",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:00:23.576460",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-12T10:46:25.612807",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-13T04:18:13.514039"
+    },
+    {
+      "id": 86,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 55,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:31.508781",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-12T10:46:31.717160",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-13T04:18:17.215120"
+    },
+    {
+      "id": 87,
+      "seller_id": 6781649128,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 54,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T10:45:36.930870",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-12T10:45:36.930882"
+      },
+      "price": 50000000,
+      "listed_at": "2026-03-12T10:53:03.745065",
+      "status": "active"
+    },
+    {
+      "id": 88,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 56,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T18:11:32.860556",
+        "is_upgraded": false
+      },
+      "price": 500000,
+      "listed_at": "2026-03-12T11:39:57.806906",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-13T10:52:32.270235"
+    },
+    {
+      "id": 89,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "WestsideSign",
+        "global_number": 5,
+        "name": "Westside Sign",
+        "emoji": "🤟",
+        "description": "Snoop Dog рука",
+        "purchased_at": "2026-03-12T12:38:20.315057",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-12T08:47:08.654808"
+      },
+      "price": 15000000,
+      "listed_at": "2026-03-12T12:38:32.334888",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-13T04:18:40.302955"
+    },
+    {
+      "id": 90,
+      "seller_id": 7795142923,
+      "nft": {
+        "item_id": "CandyBox2",
+        "global_number": 56,
+        "name": "Candy Box",
+        "emoji": "🍬",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T12:41:35.012930",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-12T12:41:35.012942"
+      },
+      "price": 100000000,
+      "listed_at": "2026-03-12T12:42:20.869538",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-13T08:37:14.159827"
+    },
+    {
+      "id": 91,
+      "seller_id": 8198464681,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 41,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T14:18:52.517089",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-12T14:18:52.517097"
+      },
+      "price": 5500000,
+      "listed_at": "2026-03-12T14:28:00.008658",
+      "status": "active"
+    },
+    {
+      "id": 92,
+      "seller_id": 8198464681,
+      "nft": {
+        "item_id": "HeartLocked",
+        "global_number": 4,
+        "name": "Heart Locked",
+        "emoji": "💖",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T17:38:39.501636",
+        "is_upgraded": false
+      },
+      "price": 1500000,
+      "listed_at": "2026-03-12T14:28:07.517110",
+      "status": "sold",
+      "buyer_id": 8192237273,
+      "sold_at": "2026-03-12T14:35:35.669059"
+    },
+    {
+      "id": 93,
+      "seller_id": 8198464681,
+      "nft": {
+        "item_id": "order_of_victory",
+        "global_number": 2,
+        "name": "Орден Победы",
+        "emoji": "🏆",
+        "description": "Награда",
+        "purchased_at": "2026-03-12T14:38:57.649810",
+        "transferred_at": "2026-03-12T14:38:57.649818"
+      },
+      "price": 55000000,
+      "listed_at": "2026-03-12T14:40:35.668715",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-12T14:42:46.997340"
+    },
+    {
+      "id": 94,
+      "seller_id": 8198464681,
+      "nft": {
+        "item_id": "order_of_victory",
+        "global_number": 2,
+        "name": "Орден Победы",
+        "emoji": "🏆",
+        "description": "Награда",
+        "purchased_at": "2026-03-12T14:42:46.983318",
+        "transferred_at": "2026-03-12T14:38:57.649818",
+        "is_upgraded": false
+      },
+      "price": 25500000,
+      "listed_at": "2026-03-12T14:43:58.958761",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-12T17:12:39.892878"
+    },
+    {
+      "id": 95,
+      "seller_id": 8198464681,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 57,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T14:52:36.109475",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-12T14:52:36.109488"
+      },
+      "price": 10000000,
+      "listed_at": "2026-03-12T16:36:32.309012",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-12T17:28:17.304777"
+    },
+    {
+      "id": 96,
+      "seller_id": 7613542399,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 49,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T08:41:20.390354",
+        "is_upgraded": false
+      },
+      "price": 2800000,
+      "listed_at": "2026-03-12T17:13:45.342640",
+      "status": "sold",
+      "buyer_id": 8318711584,
+      "sold_at": "2026-03-12T17:15:02.034747"
+    },
+    {
+      "id": 97,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "ArtisanBrick",
+        "global_number": 1,
+        "name": "Artisan Brick",
+        "emoji": "🧱",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:21:36.699438",
+        "is_upgraded": false
+      },
+      "price": 30000000,
+      "listed_at": "2026-03-12T17:23:58.026921",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-12T17:27:04.107180"
+    },
+    {
+      "id": 98,
+      "seller_id": 8300296397,
+      "nft": {
+        "item_id": "ArtisanBrick",
+        "global_number": 28,
+        "name": "Artisan Brick",
+        "emoji": "🧱",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:22:20.924767",
+        "is_upgraded": false
+      },
+      "price": 300000,
+      "listed_at": "2026-03-12T17:32:40.786672",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-12T17:47:00.986519"
+    },
+    {
+      "id": 99,
+      "seller_id": 8300296397,
+      "nft": {
+        "item_id": "ArtisanBrick",
+        "global_number": 29,
+        "name": "Artisan Brick",
+        "emoji": "🧱",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:22:22.828804",
+        "is_upgraded": false
+      },
+      "price": 300000,
+      "listed_at": "2026-03-12T17:32:46.725214",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-13T08:14:20.713074"
+    },
+    {
+      "id": 100,
+      "seller_id": 8300296397,
+      "nft": {
+        "item_id": "ArtisanBrick",
+        "global_number": 31,
+        "name": "Artisan Brick",
+        "emoji": "🧱",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:22:24.532319",
+        "is_upgraded": false
+      },
+      "price": 300000,
+      "listed_at": "2026-03-12T17:32:52.777461",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-12T17:47:09.192565"
+    },
+    {
+      "id": 101,
+      "seller_id": 8300296397,
+      "nft": {
+        "item_id": "ArtisanBrick",
+        "global_number": 57,
+        "name": "Artisan Brick",
+        "emoji": "🧱",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:22:54.629149",
+        "is_upgraded": false
+      },
+      "price": 300000,
+      "listed_at": "2026-03-12T17:32:59.580137",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-12T17:47:18.257929"
+    },
+    {
+      "id": 102,
+      "seller_id": 8300296397,
+      "nft": {
+        "item_id": "ArtisanBrick",
+        "global_number": 60,
+        "name": "Artisan Brick",
+        "emoji": "🧱",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:22:57.554937",
+        "is_upgraded": false
+      },
+      "price": 300000,
+      "listed_at": "2026-03-12T17:33:03.863087",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-12T17:46:54.103602"
+    },
+    {
+      "id": 103,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SnoopDogg",
+        "global_number": 1,
+        "name": "Snoop Dogg",
+        "emoji": "🐶",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:39:03.573650",
+        "is_upgraded": false
+      },
+      "price": 60000000,
+      "listed_at": "2026-03-12T17:40:18.266291",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-12T17:43:09.884751"
+    },
+    {
+      "id": 104,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SnoopDogg",
+        "global_number": 1,
+        "name": "Snoop Dogg",
+        "emoji": "🐶",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:43:09.870909",
+        "is_upgraded": false
+      },
+      "price": 45000000,
+      "listed_at": "2026-03-12T17:43:20.693490",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-12T17:51:15.087945"
+    },
+    {
+      "id": 105,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SnoopDogg",
+        "global_number": 1,
+        "name": "Snoop Dogg",
+        "emoji": "🐶",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:51:15.075146",
+        "is_upgraded": false
+      },
+      "price": 30000000,
+      "listed_at": "2026-03-12T17:51:31.332094",
+      "status": "sold",
+      "buyer_id": 8192237273,
+      "sold_at": "2026-03-12T18:43:17.336317"
+    },
+    {
+      "id": 106,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "ArtisanBrick",
+        "global_number": 3,
+        "name": "Artisan Brick",
+        "emoji": "🧱",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:21:40.042150",
+        "is_upgraded": false
+      },
+      "price": 500000,
+      "listed_at": "2026-03-12T18:41:07.717850",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-13T08:14:33.252042"
+    },
+    {
+      "id": 107,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SnoopDogg",
+        "global_number": 2,
+        "name": "Snoop Dogg",
+        "emoji": "🐶",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:39:11.482626",
+        "is_upgraded": false
+      },
+      "price": 500000,
+      "listed_at": "2026-03-13T04:30:20.325092",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-13T08:14:27.449365"
+    },
+    {
+      "id": 108,
+      "seller_id": 7795142923,
+      "nft": {
+        "item_id": "CandyBox2",
+        "global_number": 56,
+        "name": "Candy Box",
+        "emoji": "🍬",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-13T08:37:14.147593",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-12T12:41:35.012942"
+      },
+      "price": 1000000000,
+      "listed_at": "2026-03-13T08:38:13.419499",
+      "status": "cancelled",
+      "cancelled_at": "2026-03-13T19:57:46.914262"
+    },
+    {
+      "id": 109,
+      "seller_id": 7795142923,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 20,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-13T08:36:43.071582",
+        "is_upgraded": false
+      },
+      "price": 100000000,
+      "listed_at": "2026-03-13T08:38:22.309810",
+      "status": "active"
+    },
+    {
+      "id": 110,
+      "seller_id": 6062703567,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 42,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T14:43:15.653412",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-12T14:43:15.653421"
+      },
+      "price": 3000000,
+      "listed_at": "2026-03-13T09:25:00.355197",
+      "status": "active"
+    },
+    {
+      "id": 111,
+      "seller_id": 8300296397,
+      "nft": {
+        "item_id": "ArtisanBrick",
+        "global_number": 23,
+        "name": "Artisan Brick",
+        "emoji": "🧱",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-13T05:54:13.658415",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-13T05:54:13.658428"
+      },
+      "price": 676700,
+      "listed_at": "2026-03-13T15:41:17.770850",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-13T19:20:13.355233"
+    },
+    {
+      "id": 112,
+      "seller_id": 8192237273,
+      "nft": {
+        "item_id": "CandyBox2",
+        "global_number": 4,
+        "name": "Candy Box",
+        "emoji": "🍬",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T17:57:07.566688",
+        "is_upgraded": false
+      },
+      "price": 100,
+      "listed_at": "2026-03-13T19:48:02.150500",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-13T19:49:29.724808"
+    },
+    {
+      "id": 113,
+      "seller_id": 8192237273,
+      "nft": {
+        "item_id": "PreciousPeach",
+        "global_number": 3,
+        "name": "Precious Peach",
+        "emoji": "🍑",
+        "description": "Просто Персик",
+        "purchased_at": "2026-02-24T16:23:01.639825",
+        "is_upgraded": false
+      },
+      "price": 111,
+      "listed_at": "2026-03-13T19:48:14.917134",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-13T19:49:36.116341"
+    },
+    {
+      "id": 114,
+      "seller_id": 8192237273,
+      "nft": {
+        "item_id": "combat_helmet",
+        "global_number": 5,
+        "name": "Военный шлем",
+        "emoji": "🪖",
+        "description": "Защита головы",
+        "purchased_at": "2026-02-21T15:03:24.196484"
+      },
+      "price": 111,
+      "listed_at": "2026-03-13T19:48:23.309841",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-13T19:49:40.858056"
+    },
+    {
+      "id": 115,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "ArtisanBrick",
+        "global_number": 4,
+        "name": "Artisan Brick",
+        "emoji": "🧱",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:21:41.240533",
+        "is_upgraded": false
+      },
+      "price": 100000000,
+      "listed_at": "2026-03-13T19:48:41.057923",
+      "status": "active"
+    },
+    {
+      "id": 116,
+      "seller_id": 7795142923,
+      "nft": {
+        "item_id": "order_of_victory",
+        "global_number": 8,
+        "name": "Орден Победы",
+        "emoji": "🏆",
+        "description": "Награда",
+        "purchased_at": "2026-03-13T19:47:24.467737",
+        "transferred_at": "2026-03-13T19:47:24.467747"
+      },
+      "price": 50000000,
+      "listed_at": "2026-03-13T19:49:18.946770",
+      "status": "active"
+    },
+    {
+      "id": 117,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "ArtisanBrick",
+        "global_number": 7,
+        "name": "Artisan Brick",
+        "emoji": "🧱",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:21:45.194234",
+        "is_upgraded": false
+      },
+      "price": 100000,
+      "listed_at": "2026-03-13T19:50:02.323289",
+      "status": "active"
+    },
+    {
+      "id": 118,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "ArtisanBrick",
+        "global_number": 5,
+        "name": "Artisan Brick",
+        "emoji": "🧱",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:21:42.683728",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-13T19:50:13.472443",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-13T19:51:35.547078"
+    },
+    {
+      "id": 119,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "WestsideSign",
+        "global_number": 5,
+        "name": "Westside Sign",
+        "emoji": "🤟",
+        "description": "Snoop Dog рука",
+        "purchased_at": "2026-03-13T04:18:40.285160",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-12T08:47:08.654808"
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-13T19:50:18.136003",
+      "status": "active"
+    },
+    {
+      "id": 120,
+      "seller_id": 8346625013,
+      "nft": {
+        "item_id": "combat_helmet",
+        "global_number": 3,
+        "name": "Военный шлем",
+        "emoji": "🪖",
+        "description": "Защита головы",
+        "purchased_at": "2026-03-13T19:44:24.096907",
+        "transferred_at": "2026-03-13T19:44:24.096920"
+      },
+      "price": 100,
+      "listed_at": "2026-03-13T19:50:27.876510",
+      "status": "sold",
+      "buyer_id": 7795142923,
+      "sold_at": "2026-03-13T19:53:53.360567"
+    },
+    {
+      "id": 121,
+      "seller_id": 8346625013,
+      "nft": {
+        "item_id": "MedalOtvaga",
+        "global_number": 4,
+        "name": "Медаль За отвагу",
+        "emoji": "🏅",
+        "description": "Солдатская доблесть",
+        "purchased_at": "2026-02-21T14:19:35.683352"
+      },
+      "price": 100,
+      "listed_at": "2026-03-13T19:50:38.809432",
+      "status": "sold",
+      "buyer_id": 5642832083,
+      "sold_at": "2026-03-13T19:53:58.388925"
+    },
+    {
+      "id": 122,
+      "seller_id": 8346625013,
+      "nft": {
+        "item_id": "PreciousPeach",
+        "global_number": 4,
+        "name": "Precious Peach",
+        "emoji": "🍑",
+        "description": "Просто Персик",
+        "purchased_at": "2026-02-24T16:24:58.756081",
+        "is_upgraded": false
+      },
+      "price": 100,
+      "listed_at": "2026-03-13T19:50:50.695225",
+      "status": "sold",
+      "buyer_id": 5642832083,
+      "sold_at": "2026-03-13T19:54:14.934197"
+    },
+    {
+      "id": 123,
+      "seller_id": 8346625013,
+      "nft": {
+        "item_id": "LolPop",
+        "global_number": 4,
+        "name": "Lol Pop",
+        "emoji": "🍭",
+        "description": "NFT - Леденец",
+        "purchased_at": "2026-02-21T09:13:47.425362"
+      },
+      "price": 100,
+      "listed_at": "2026-03-13T19:50:59.801802",
+      "status": "sold",
+      "buyer_id": 7795142923,
+      "sold_at": "2026-03-13T19:53:09.495562"
+    },
+    {
+      "id": 124,
+      "seller_id": 8346625013,
+      "nft": {
+        "item_id": "LolPop",
+        "global_number": 3,
+        "name": "Lol Pop",
+        "emoji": "🍭",
+        "description": "NFT - Леденец",
+        "purchased_at": "2026-02-21T09:13:43.491997"
+      },
+      "price": 100,
+      "listed_at": "2026-03-13T19:51:11.315655",
+      "status": "sold",
+      "buyer_id": 7795142923,
+      "sold_at": "2026-03-13T19:54:06.208401"
+    },
+    {
+      "id": 125,
+      "seller_id": 8192237273,
+      "nft": {
+        "item_id": "HeartLocked",
+        "global_number": 4,
+        "name": "Heart Locked",
+        "emoji": "💖",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T14:35:35.659552",
+        "is_upgraded": false
+      },
+      "price": 1000,
+      "listed_at": "2026-03-13T19:52:00.866756",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-13T19:52:37.973466"
+    },
+    {
+      "id": 126,
+      "seller_id": 8192237273,
+      "nft": {
+        "item_id": "combat_helmet",
+        "global_number": 4,
+        "name": "Военный шлем",
+        "emoji": "🪖",
+        "description": "Защита головы",
+        "purchased_at": "2026-02-21T15:02:54.110470"
+      },
+      "price": 100,
+      "listed_at": "2026-03-13T19:52:22.172681",
+      "status": "sold",
+      "buyer_id": 8346625013,
+      "sold_at": "2026-03-13T19:52:47.097586"
+    },
+    {
+      "id": 127,
+      "seller_id": 8192237273,
+      "nft": {
+        "item_id": "SnoopCigar",
+        "global_number": 8,
+        "name": "Snoop Cigar",
+        "emoji": "🚬",
+        "description": "Snoop Сига",
+        "purchased_at": "2026-03-10T19:04:51.068765",
+        "is_upgraded": false
+      },
+      "price": 100000,
+      "listed_at": "2026-03-13T19:53:40.327685",
+      "status": "sold",
+      "buyer_id": 7795142923,
+      "sold_at": "2026-03-13T19:55:45.310117"
+    },
+    {
+      "id": 128,
+      "seller_id": 8192237273,
+      "nft": {
+        "item_id": "HeartLocked",
+        "global_number": 2,
+        "name": "Heart Locked",
+        "emoji": "💖",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T14:35:38.346622",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-12T14:35:38.346638"
+      },
+      "price": 5000000,
+      "listed_at": "2026-03-13T19:53:52.207215",
+      "status": "active"
+    },
+    {
+      "id": 129,
+      "seller_id": 8192237273,
+      "nft": {
+        "item_id": "SakuraFlower2",
+        "global_number": 4,
+        "name": "Sakura Flower",
+        "emoji": "🌸",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T19:13:15.948300",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-13T19:54:02.529078",
+      "status": "active"
+    },
+    {
+      "id": 130,
+      "seller_id": 8192237273,
+      "nft": {
+        "item_id": "CandyBox2",
+        "global_number": 9,
+        "name": "Candy Box",
+        "emoji": "🍬",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-10T17:57:10.026429",
+        "is_upgraded": false
+      },
+      "price": 100,
+      "listed_at": "2026-03-13T19:54:15.942278",
+      "status": "sold",
+      "buyer_id": 7795142923,
+      "sold_at": "2026-03-13T19:54:25.792954"
+    },
+    {
+      "id": 131,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "MedalOtvaga",
+        "global_number": 4,
+        "name": "Медаль За отвагу",
+        "emoji": "🏅",
+        "description": "Солдатская доблесть",
+        "purchased_at": "2026-03-13T19:53:58.376980",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-13T19:54:36.823274",
+      "status": "active"
+    },
+    {
+      "id": 132,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "ArtisanBrick",
+        "global_number": 2,
+        "name": "Artisan Brick",
+        "emoji": "🧱",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:21:38.641779",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-13T19:54:41.649463",
+      "status": "active"
+    },
+    {
+      "id": 133,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SnoopDogg",
+        "global_number": 3,
+        "name": "Snoop Dogg",
+        "emoji": "🐶",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:39:12.836938",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-13T19:54:45.650509",
+      "status": "active"
+    },
+    {
+      "id": 134,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "PreciousPeach",
+        "global_number": 4,
+        "name": "Precious Peach",
+        "emoji": "🍑",
+        "description": "Просто Персик",
+        "purchased_at": "2026-03-13T19:54:14.922934",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-13T19:54:50.727231",
+      "status": "active"
+    },
+    {
+      "id": 135,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "SnoopDogg",
+        "global_number": 5,
+        "name": "Snoop Dogg",
+        "emoji": "🐶",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-13T05:50:25.162907",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-13T05:50:25.162920"
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-13T19:54:54.929019",
+      "status": "active"
+    },
+    {
+      "id": 136,
+      "seller_id": 5642832083,
+      "nft": {
+        "item_id": "ArtisanBrick",
+        "global_number": 6,
+        "name": "Artisan Brick",
+        "emoji": "🧱",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:21:43.954951",
+        "is_upgraded": false
+      },
+      "price": 1000000,
+      "listed_at": "2026-03-13T19:54:58.847543",
+      "status": "active"
+    },
+    {
+      "id": 137,
+      "seller_id": 8300296397,
+      "nft": {
+        "item_id": "ArtisanBrick",
+        "global_number": 57,
+        "name": "Artisan Brick",
+        "emoji": "🧱",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:47:18.245502",
+        "is_upgraded": false
+      },
+      "price": 967000,
+      "listed_at": "2026-03-14T03:48:32.605134",
+      "status": "sold",
+      "buyer_id": 7747500523,
+      "sold_at": "2026-03-14T08:33:39.540946"
+    },
+    {
+      "id": 138,
+      "seller_id": 8300296397,
+      "nft": {
+        "item_id": "SnoopDogg",
+        "global_number": 10,
+        "name": "Snoop Dogg",
+        "emoji": "🐶",
+        "description": "Нет описания",
+        "purchased_at": "2026-03-12T17:43:32.878720",
+        "is_upgraded": false,
+        "transferred_at": "2026-03-12T17:43:32.878728"
+      },
+      "price": 67000000,
+      "listed_at": "2026-03-14T09:54:29.061604",
+      "status": "active"
+    }
   ]
 }
