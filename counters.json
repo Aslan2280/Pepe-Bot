@@ -15,9 +15,14 @@
     "PetSnake": 40,
     "SnoopCigar": 25,
     "WestsideSign": 20,
-    "LoveBear": 100,
-    "CandyBox": 80,
-    "RoseBouquet": 120,
-    "SakuraFlower": 75
+    "LoveBear": 200,
+    "CandyBox": 0,
+    "RoseBouquet": 240,
+    "SakuraFlower": 75,
+    "HeartLocked": 50,
+    "CandyBox2": 80,
+    "SakuraFlower2": 75,
+    "ArtisanBrick": 80,
+    "SnoopDogg": 100
   }
 }
