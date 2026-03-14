@@ -1,11 +1,11 @@
 {
   "6539341659": {
-    "balance": 1600000,
-    "games_played": 43,
-    "wins": 11,
+    "balance": 68725000,
+    "games_played": 82,
+    "wins": 19,
     "used_promocodes": [],
     "status": "creator",
-    "last_bonus": "2026-03-10T12:53:33.717641",
+    "last_bonus": "2026-03-13T17:12:00.245990",
     "bonus_history": [
       {
         "amount": 1,
@@ -14,6 +14,18 @@
       {
         "amount": 0,
         "time": "2026-03-10T12:53:33.717647"
+      },
+      {
+        "amount": 0,
+        "time": "2026-03-10T17:11:04.537184"
+      },
+      {
+        "amount": 0,
+        "time": "2026-03-12T09:54:32.397061"
+      },
+      {
+        "amount": 0,
+        "time": "2026-03-13T17:12:00.245996"
       }
     ],
     "created_promocodes": [
@@ -26,12 +38,27 @@
       "8RBUYYI0",
       "U9OOL3ZH",
       "KU7TI0PK",
-      "MLMY4JKT"
+      "MLMY4JKT",
+      "78AUXKY8",
+      "C41Q97S7",
+      "CIZ1U34X",
+      "SVXAWM76",
+      "I81W311X",
+      "3K4ZYFWI",
+      "9MGHG7PP",
+      "DB9KDOAE",
+      "X0G7C67Z",
+      "J2075TUJ",
+      "XRZK6DTD",
+      "SDATKYS8",
+      "0JAP0QQI",
+      "B6TTFHBX",
+      "6CP9XLWH"
     ]
   },
   "8192237273": {
-    "balance": 250000,
-    "games_played": 12,
+    "balance": 101522,
+    "games_played": 15,
     "wins": 0,
     "used_promocodes": [],
     "status": "sudo",
@@ -43,32 +70,42 @@
       }
     ],
     "created_promocodes": [
-      "L64FZE2U"
+      "L64FZE2U",
+      "HMVNKZOB"
     ]
   },
   "7712274782": {
-    "balance": 0,
-    "games_played": 19,
-    "wins": 9,
+    "balance": 7372330,
+    "games_played": 29,
+    "wins": 15,
     "used_promocodes": [
       "GMMX5TOC",
-      "4N8XRTFC"
+      "4N8XRTFC",
+      "HMVNKZOB",
+      "PVHFC05M",
+      "UN4XGR1I",
+      "KZPQL9DV"
     ],
     "status": "novice",
-    "last_bonus": null,
-    "bonus_history": []
+    "last_bonus": "2026-03-10T17:41:05.014322",
+    "bonus_history": [
+      {
+        "amount": 1347,
+        "time": "2026-03-10T17:41:05.014331"
+      }
+    ]
   },
   "8346625013": {
-    "balance": 0,
-    "games_played": 267,
-    "wins": 103,
+    "balance": 75467367,
+    "games_played": 483,
+    "wins": 152,
     "used_promocodes": [
       "RQPL8YGZ",
       "4N8XRTFC",
       "VPXDVEVN"
     ],
     "status": "oligarch",
-    "last_bonus": "2026-03-09T14:04:03.214506",
+    "last_bonus": "2026-03-13T19:00:33.942639",
     "bonus_history": [
       {
         "amount": 2246,
@@ -77,25 +114,41 @@
       {
         "amount": 3765378,
         "time": "2026-03-09T14:04:03.214513"
+      },
+      {
+        "amount": 4044989,
+        "time": "2026-03-13T19:00:33.942647"
       }
     ],
     "created_promocodes": [
       "ANALVPDC",
       "S1E80790",
-      "Y3VOYO8M"
+      "Y3VOYO8M",
+      "PVHFC05M",
+      "KZPQL9DV",
+      "KZJTBWVC",
+      "9SJU81QG",
+      "TYKRGM0L"
     ]
   },
   "8495486236": {
     "balance": 0,
-    "games_played": 1216,
-    "wins": 648,
+    "games_played": 3333,
+    "wins": 2311,
     "used_promocodes": [
       "77FJ3DOL",
       "3ACJKYSB",
-      "GMMX5TOC"
+      "GMMX5TOC",
+      "26ECD2IQ",
+      "MLMY4JKT",
+      "H9SLYSVO",
+      "SVXAWM76",
+      "I81W311X",
+      "3K4ZYFWI",
+      "XRZK6DTD"
     ],
     "status": "sudo",
-    "last_bonus": "2026-03-10T16:15:30.378877",
+    "last_bonus": "2026-03-14T08:12:49.350081",
     "bonus_history": [
       {
         "amount": 1099,
@@ -120,6 +173,74 @@
       {
         "amount": 574726,
         "time": "2026-03-10T16:15:30.378883"
+      },
+      {
+        "amount": 1391,
+        "time": "2026-03-10T17:17:00.513443"
+      },
+      {
+        "amount": 4036911,
+        "time": "2026-03-10T20:43:12.610688"
+      },
+      {
+        "amount": 2140806,
+        "time": "2026-03-10T21:50:06.189549"
+      },
+      {
+        "amount": 3891902,
+        "time": "2026-03-10T23:03:08.067216"
+      },
+      {
+        "amount": 3560838,
+        "time": "2026-03-11T10:20:30.934724"
+      },
+      {
+        "amount": 4008931,
+        "time": "2026-03-11T16:03:50.270113"
+      },
+      {
+        "amount": 3147191,
+        "time": "2026-03-11T17:07:57.361300"
+      },
+      {
+        "amount": 4028769,
+        "time": "2026-03-11T18:25:59.630930"
+      },
+      {
+        "amount": 4770941,
+        "time": "2026-03-12T08:34:16.756538"
+      },
+      {
+        "amount": 4908353,
+        "time": "2026-03-12T11:47:42.712726"
+      },
+      {
+        "amount": 3296700,
+        "time": "2026-03-12T14:47:53.671967"
+      },
+      {
+        "amount": 1927175,
+        "time": "2026-03-12T16:59:57.348960"
+      },
+      {
+        "amount": 2311282,
+        "time": "2026-03-12T20:22:34.651793"
+      },
+      {
+        "amount": 1053370,
+        "time": "2026-03-13T09:26:20.231721"
+      },
+      {
+        "amount": 4044187,
+        "time": "2026-03-13T18:15:47.919834"
+      },
+      {
+        "amount": 4105534,
+        "time": "2026-03-13T20:34:08.614919"
+      },
+      {
+        "amount": 2357889,
+        "time": "2026-03-14T08:12:49.350087"
       }
     ],
     "created_promocodes": [
@@ -129,20 +250,47 @@
   },
   "8300296397": {
     "balance": 0,
-    "games_played": 28,
-    "wins": 11,
+    "games_played": 331,
+    "wins": 123,
     "used_promocodes": [
       "4N8XRTFC",
       "0ICPHFBF",
       "TE1YALNQ",
-      "GWLP6LNX"
+      "GWLP6LNX",
+      "UN4XGR1I",
+      "J2075TUJ",
+      "0JAP0QQI"
     ],
     "status": "novice",
-    "last_bonus": "2026-03-09T16:36:19.948600",
+    "last_bonus": "2026-03-14T06:15:18.168390",
     "bonus_history": [
       {
         "amount": 1796,
         "time": "2026-03-09T16:36:19.948611"
+      },
+      {
+        "amount": 1861,
+        "time": "2026-03-12T15:41:33.061658"
+      },
+      {
+        "amount": 898,
+        "time": "2026-03-13T02:50:41.947820"
+      },
+      {
+        "amount": 1909,
+        "time": "2026-03-13T05:53:48.289017"
+      },
+      {
+        "amount": 820,
+        "time": "2026-03-13T17:46:49.249631"
+      },
+      {
+        "amount": 1928,
+        "time": "2026-03-14T03:47:16.963886"
+      },
+      {
+        "amount": 2202,
+        "time": "2026-03-14T06:15:18.168397"
       }
     ]
   },
@@ -259,16 +407,18 @@
     "bonus_history": []
   },
   "7491413964": {
-    "balance": 10000,
-    "games_played": 0,
+    "balance": 0,
+    "games_played": 1,
     "wins": 0,
-    "used_promocodes": [],
+    "used_promocodes": [
+      "KZJTBWVC"
+    ],
     "status": "novice",
     "last_bonus": null,
     "bonus_history": []
   },
   "777000": {
-    "balance": 1100000,
+    "balance": 2000,
     "games_played": 0,
     "wins": 0,
     "used_promocodes": [
@@ -280,7 +430,23 @@
       "U9OOL3ZH",
       "KU7TI0PK",
       "Y3VOYO8M",
-      "MLMY4JKT"
+      "MLMY4JKT",
+      "HMVNKZOB",
+      "C41Q97S7",
+      "78AUXKY8",
+      "CIZ1U34X",
+      "SVXAWM76",
+      "I81W311X",
+      "3K4ZYFWI",
+      "9MGHG7PP",
+      "DB9KDOAE",
+      "X0G7C67Z",
+      "J2075TUJ",
+      "XRZK6DTD",
+      "SDATKYS8",
+      "0JAP0QQI",
+      "B6TTFHBX",
+      "6CP9XLWH"
     ],
     "status": "novice",
     "last_bonus": null,
@@ -314,7 +480,7 @@
     "bonus_history": []
   },
   "8474641060": {
-    "balance": 13000000,
+    "balance": 0,
     "games_played": 0,
     "wins": 0,
     "used_promocodes": [],
@@ -350,13 +516,18 @@
     "bonus_history": []
   },
   "7344145466": {
-    "balance": 10000,
+    "balance": 10713,
     "games_played": 0,
     "wins": 0,
     "used_promocodes": [],
     "status": "novice",
-    "last_bonus": null,
-    "bonus_history": []
+    "last_bonus": "2026-03-11T05:34:02.294630",
+    "bonus_history": [
+      {
+        "amount": 713,
+        "time": "2026-03-11T05:34:02.294642"
+      }
+    ]
   },
   "8058495746": {
     "balance": 10000,
@@ -369,19 +540,24 @@
   },
   "5160712296": {
     "balance": 0,
-    "games_played": 893,
-    "wins": 300,
+    "games_played": 900,
+    "wins": 301,
     "used_promocodes": [
       "77FJ3DOL",
       "RQPL8YGZ",
-      "0ICPHFBF"
+      "0ICPHFBF",
+      "TSVLG18X"
     ],
     "status": "novice",
-    "last_bonus": "2026-03-08T16:30:54.213144",
+    "last_bonus": "2026-03-13T10:56:20.621375",
     "bonus_history": [
       {
         "amount": 1486,
         "time": "2026-03-08T16:30:54.213156"
+      },
+      {
+        "amount": 1485,
+        "time": "2026-03-13T10:56:20.621381"
       }
     ]
   },
@@ -413,12 +589,12 @@
     "bonus_history": []
   },
   "5240462859": {
-    "balance": 67000,
-    "games_played": 16,
-    "wins": 2,
+    "balance": 90000,
+    "games_played": 53,
+    "wins": 7,
     "used_promocodes": [],
     "status": "novice",
-    "last_bonus": "2026-03-09T18:08:04.980288",
+    "last_bonus": "2026-03-12T08:39:12.273659",
     "bonus_history": [
       {
         "amount": 2210,
@@ -427,6 +603,18 @@
       {
         "amount": 2300,
         "time": "2026-03-09T18:08:04.980295"
+      },
+      {
+        "amount": 1462,
+        "time": "2026-03-10T21:44:28.594075"
+      },
+      {
+        "amount": 1323,
+        "time": "2026-03-11T16:44:40.564575"
+      },
+      {
+        "amount": 2119,
+        "time": "2026-03-12T08:39:12.273670"
       }
     ]
   },
@@ -495,7 +683,7 @@
   },
   "5586988938": {
     "balance": 0,
-    "games_played": 2,
+    "games_played": 3,
     "wins": 0,
     "used_promocodes": [],
     "status": "novice",
@@ -512,8 +700,8 @@
     "bonus_history": []
   },
   "8124765197": {
-    "balance": 0,
-    "games_played": 14,
+    "balance": 1000,
+    "games_played": 18,
     "wins": 0,
     "used_promocodes": [],
     "status": "admin",
@@ -583,22 +771,27 @@
   },
   "8318711584": {
     "balance": 0,
-    "games_played": 590,
-    "wins": 196,
+    "games_played": 690,
+    "wins": 227,
     "used_promocodes": [
       "GMMX5TOC",
       "4N8XRTFC",
       "8RBUYYI0",
       "U9OOL3ZH",
       "26ECD2IQ",
-      "GWLP6LNX"
+      "GWLP6LNX",
+      "HMVNKZOB",
+      "WXU0MQGQ",
+      "P27A51C0",
+      "9SJU81QG"
     ],
     "created_promocodes": [
       "Y4SWORKX",
-      "5FDD8S4M"
+      "5FDD8S4M",
+      "2MJ57Y2T"
     ],
     "status": "immortal",
-    "last_bonus": "2026-03-10T16:40:44.251594",
+    "last_bonus": "2026-03-14T07:16:09.957816",
     "bonus_history": [
       {
         "amount": 889,
@@ -683,18 +876,115 @@
       {
         "amount": 7569647,
         "time": "2026-03-10T16:40:44.251600"
+      },
+      {
+        "amount": 12810786,
+        "time": "2026-03-10T17:40:57.825201"
+      },
+      {
+        "amount": 21585778,
+        "time": "2026-03-10T21:32:14.870688"
+      },
+      {
+        "amount": 8190604,
+        "time": "2026-03-10T23:41:56.897432"
+      },
+      {
+        "amount": 17353440,
+        "time": "2026-03-11T05:41:29.654383"
+      },
+      {
+        "amount": 9932669,
+        "time": "2026-03-11T08:52:10.679920"
+      },
+      {
+        "amount": 15088488,
+        "time": "2026-03-11T10:15:12.848872"
+      },
+      {
+        "amount": 5633869,
+        "time": "2026-03-11T15:46:31.977886"
+      },
+      {
+        "amount": 6337169,
+        "time": "2026-03-11T20:50:22.800619"
+      },
+      {
+        "amount": 24343877,
+        "time": "2026-03-12T05:32:55.457461"
+      },
+      {
+        "amount": 15157569,
+        "time": "2026-03-12T07:06:37.406231"
+      },
+      {
+        "amount": 18189281,
+        "time": "2026-03-12T08:06:42.881111"
+      },
+      {
+        "amount": 5050561,
+        "time": "2026-03-12T09:12:42.888036"
+      },
+      {
+        "amount": 11502073,
+        "time": "2026-03-12T11:25:18.742118"
+      },
+      {
+        "amount": 9697035,
+        "time": "2026-03-12T12:36:12.639381"
+      },
+      {
+        "amount": 22132281,
+        "time": "2026-03-12T17:13:23.975582"
+      },
+      {
+        "amount": 7941380,
+        "time": "2026-03-12T19:28:11.974993"
+      },
+      {
+        "amount": 23469696,
+        "time": "2026-03-13T05:50:44.945087"
+      },
+      {
+        "amount": 6581992,
+        "time": "2026-03-13T11:31:01.830028"
+      },
+      {
+        "amount": 22365655,
+        "time": "2026-03-13T15:18:07.807978"
+      },
+      {
+        "amount": 7691755,
+        "time": "2026-03-13T18:06:08.277290"
+      },
+      {
+        "amount": 23605652,
+        "time": "2026-03-13T19:41:59.631245"
+      },
+      {
+        "amount": 5042445,
+        "time": "2026-03-14T06:11:41.131392"
+      },
+      {
+        "amount": 23270504,
+        "time": "2026-03-14T07:16:09.957825"
       }
     ]
   },
   "8064322727": {
     "balance": 0,
-    "games_played": 0,
-    "wins": 0,
+    "games_played": 39,
+    "wins": 32,
     "used_promocodes": [],
     "created_promocodes": [],
     "status": "novice",
-    "last_bonus": null,
-    "bonus_history": []
+    "last_bonus": "2026-03-14T08:03:07.873971",
+    "bonus_history": [
+      {
+        "amount": 1026,
+        "time": "2026-03-14T08:03:07.873983"
+      }
+    ]
   },
   "8264247818": {
     "balance": 0,
@@ -717,15 +1007,25 @@
     "bonus_history": []
   },
   "7613542399": {
-    "balance": 20000000,
-    "games_played": 413,
-    "wins": 176,
+    "balance": 0,
+    "games_played": 549,
+    "wins": 233,
     "used_promocodes": [
-      "0ICPHFBF"
+      "0ICPHFBF",
+      "WXU0MQGQ",
+      "MLMY4JKT",
+      "BY80BTFX",
+      "2MJ57Y2T",
+      "CIZ1U34X",
+      "SVXAWM76",
+      "I81W311X",
+      "9SJU81QG"
     ],
-    "created_promocodes": [],
+    "created_promocodes": [
+      "P27A51C0"
+    ],
     "status": "immortal",
-    "last_bonus": "2026-03-09T20:20:07.879603",
+    "last_bonus": "2026-03-14T09:33:48.951395",
     "bonus_history": [
       {
         "amount": 723,
@@ -754,6 +1054,78 @@
       {
         "amount": 7407642,
         "time": "2026-03-09T20:20:07.879609"
+      },
+      {
+        "amount": 16412437,
+        "time": "2026-03-12T07:21:41.266791"
+      },
+      {
+        "amount": 20438855,
+        "time": "2026-03-12T08:25:31.702025"
+      },
+      {
+        "amount": 18667245,
+        "time": "2026-03-12T10:01:32.236734"
+      },
+      {
+        "amount": 12832215,
+        "time": "2026-03-12T12:20:14.572052"
+      },
+      {
+        "amount": 7704669,
+        "time": "2026-03-12T13:28:54.635837"
+      },
+      {
+        "amount": 14363300,
+        "time": "2026-03-12T14:53:23.137678"
+      },
+      {
+        "amount": 10063240,
+        "time": "2026-03-12T16:56:45.679446"
+      },
+      {
+        "amount": 6720066,
+        "time": "2026-03-12T18:30:13.123071"
+      },
+      {
+        "amount": 16474321,
+        "time": "2026-03-12T20:21:49.117899"
+      },
+      {
+        "amount": 14091773,
+        "time": "2026-03-12T21:36:45.062382"
+      },
+      {
+        "amount": 14834627,
+        "time": "2026-03-13T11:09:45.876178"
+      },
+      {
+        "amount": 22292835,
+        "time": "2026-03-13T13:20:57.202312"
+      },
+      {
+        "amount": 13656462,
+        "time": "2026-03-13T15:17:20.004618"
+      },
+      {
+        "amount": 15838476,
+        "time": "2026-03-13T17:36:30.635795"
+      },
+      {
+        "amount": 10988856,
+        "time": "2026-03-13T19:01:21.627537"
+      },
+      {
+        "amount": 22034315,
+        "time": "2026-03-13T20:52:27.649759"
+      },
+      {
+        "amount": 6767929,
+        "time": "2026-03-14T07:19:41.564087"
+      },
+      {
+        "amount": 23878490,
+        "time": "2026-03-14T09:33:48.951405"
       }
     ]
   },
@@ -790,7 +1162,7 @@
     "bonus_history": []
   },
   "6025818386": {
-    "balance": 0,
+    "balance": 100000,
     "games_played": 4,
     "wins": 0,
     "used_promocodes": [],
@@ -815,9 +1187,9 @@
     ]
   },
   "7747500523": {
-    "balance": 0,
-    "games_played": 281,
-    "wins": 70,
+    "balance": 2901999188181,
+    "games_played": 394,
+    "wins": 97,
     "used_promocodes": [
       "MVGNRA63",
       "4N8XRTFC",
@@ -826,7 +1198,8 @@
       "S1E80790",
       "BN26JML2",
       "8RBUYYI0",
-      "MLMY4JKT"
+      "MLMY4JKT",
+      "PVHFC05M"
     ],
     "created_promocodes": [
       "QYY8TLMJ",
@@ -839,10 +1212,16 @@
       "GWLP6LNX",
       "26ECD2IQ",
       "H8IOOX7N",
-      "LOPL3HY9"
+      "LOPL3HY9",
+      "UN4XGR1I",
+      "2H88XKNQ",
+      "TLFPE1NB",
+      "H9SLYSVO",
+      "7Y2GXIHH",
+      "OC6L0LVV"
     ],
     "status": "admin",
-    "last_bonus": "2026-03-09T16:00:15.725809",
+    "last_bonus": "2026-03-12T12:32:46.051090",
     "bonus_history": [
       {
         "amount": 2246,
@@ -851,12 +1230,20 @@
       {
         "amount": 1081,
         "time": "2026-03-09T16:00:15.725817"
+      },
+      {
+        "amount": 0,
+        "time": "2026-03-11T16:05:39.662215"
+      },
+      {
+        "amount": 0,
+        "time": "2026-03-12T12:32:46.051105"
       }
     ]
   },
   "8384916311": {
-    "balance": 200000,
-    "games_played": 216,
+    "balance": 0,
+    "games_played": 218,
     "wins": 43,
     "used_promocodes": [
       "S1E80790",
@@ -878,8 +1265,8 @@
   },
   "7795142923": {
     "balance": 0,
-    "games_played": 223,
-    "wins": 59,
+    "games_played": 407,
+    "wins": 135,
     "used_promocodes": [
       "VPXDVEVN",
       "S1E80790",
@@ -890,11 +1277,24 @@
       "H8IOOX7N",
       "26ECD2IQ",
       "MLMY4JKT",
-      "LOPL3HY9"
+      "LOPL3HY9",
+      "HMVNKZOB",
+      "KZPQL9DV",
+      "UN4XGR1I",
+      "KZJTBWVC",
+      "H9SLYSVO",
+      "7Y2GXIHH",
+      "NV63G6E3",
+      "WXU0MQGQ",
+      "SDATKYS8",
+      "SRAQWEBH",
+      "0JAP0QQI",
+      "B6TTFHBX",
+      "TYKRGM0L"
     ],
     "created_promocodes": [],
-    "status": "novice",
-    "last_bonus": "2026-03-10T12:57:01.253608",
+    "status": "legend",
+    "last_bonus": "2026-03-14T09:29:00.225166",
     "bonus_history": [
       {
         "amount": 1408,
@@ -915,13 +1315,61 @@
       {
         "amount": 1634,
         "time": "2026-03-10T12:57:01.253613"
+      },
+      {
+        "amount": 2061,
+        "time": "2026-03-10T17:59:58.864348"
+      },
+      {
+        "amount": 957,
+        "time": "2026-03-10T19:21:17.003888"
+      },
+      {
+        "amount": 1441,
+        "time": "2026-03-11T12:19:42.302438"
+      },
+      {
+        "amount": 2075,
+        "time": "2026-03-12T05:00:44.324197"
+      },
+      {
+        "amount": 640,
+        "time": "2026-03-12T12:35:27.374413"
+      },
+      {
+        "amount": 1224,
+        "time": "2026-03-12T15:25:06.140150"
+      },
+      {
+        "amount": 1918,
+        "time": "2026-03-12T19:13:07.620370"
+      },
+      {
+        "amount": 789,
+        "time": "2026-03-13T04:09:21.465881"
+      },
+      {
+        "amount": 2184,
+        "time": "2026-03-13T05:54:12.715926"
+      },
+      {
+        "amount": 9227,
+        "time": "2026-03-13T20:38:25.879435"
+      },
+      {
+        "amount": 645310,
+        "time": "2026-03-14T07:00:47.999099"
+      },
+      {
+        "amount": 642016,
+        "time": "2026-03-14T09:29:00.225184"
       }
     ]
   },
   "5642832083": {
-    "balance": 59980000,
-    "games_played": 1106,
-    "wins": 538,
+    "balance": 0,
+    "games_played": 2358,
+    "wins": 1179,
     "used_promocodes": [
       "VPXDVEVN",
       "BN26JML2",
@@ -933,11 +1381,30 @@
       "GWLP6LNX",
       "26ECD2IQ",
       "H8IOOX7N",
-      "LOPL3HY9"
+      "LOPL3HY9",
+      "C41Q97S7",
+      "2H88XKNQ",
+      "KZJTBWVC",
+      "P27A51C0",
+      "2MJ57Y2T",
+      "CIZ1U34X",
+      "SVXAWM76",
+      "I81W311X",
+      "9SJU81QG",
+      "9F3WP2D1",
+      "7Y2GXIHH",
+      "9MGHG7PP",
+      "DB9KDOAE",
+      "X0G7C67Z",
+      "SRAQWEBH",
+      "0JAP0QQI",
+      "B6TTFHBX",
+      "6CP9XLWH",
+      "OC6L0LVV"
     ],
     "created_promocodes": [],
-    "status": "novice",
-    "last_bonus": "2026-03-10T12:56:27.740731",
+    "status": "immortal",
+    "last_bonus": "2026-03-14T09:23:22.517332",
     "bonus_history": [
       {
         "amount": 1079,
@@ -966,33 +1433,183 @@
       {
         "amount": 1271,
         "time": "2026-03-10T12:56:27.740738"
+      },
+      {
+        "amount": 504,
+        "time": "2026-03-10T17:40:15.790197"
+      },
+      {
+        "amount": 1506,
+        "time": "2026-03-12T11:38:22.297016"
+      },
+      {
+        "amount": 1609194,
+        "time": "2026-03-12T13:26:56.926574"
+      },
+      {
+        "amount": 3955022,
+        "time": "2026-03-12T14:53:30.134366"
+      },
+      {
+        "amount": 3527517,
+        "time": "2026-03-12T16:16:45.051984"
+      },
+      {
+        "amount": 4336980,
+        "time": "2026-03-12T17:17:25.323585"
+      },
+      {
+        "amount": 4126510,
+        "time": "2026-03-12T18:35:06.010061"
+      },
+      {
+        "amount": 4268529,
+        "time": "2026-03-12T19:36:20.378093"
+      },
+      {
+        "amount": 3966928,
+        "time": "2026-03-13T04:17:10.803617"
+      },
+      {
+        "amount": 1254611,
+        "time": "2026-03-13T05:18:29.364529"
+      },
+      {
+        "amount": 3576642,
+        "time": "2026-03-13T06:19:11.468778"
+      },
+      {
+        "amount": 3696380,
+        "time": "2026-03-13T07:21:20.028718"
+      },
+      {
+        "amount": 4049307,
+        "time": "2026-03-13T08:22:21.325527"
+      },
+      {
+        "amount": 24743451,
+        "time": "2026-03-13T09:22:48.916795"
+      },
+      {
+        "amount": 19215556,
+        "time": "2026-03-13T10:33:08.935553"
+      },
+      {
+        "amount": 16009524,
+        "time": "2026-03-13T11:36:41.232228"
+      },
+      {
+        "amount": 5649767,
+        "time": "2026-03-13T12:38:58.787903"
+      },
+      {
+        "amount": 9128638,
+        "time": "2026-03-13T13:39:03.145238"
+      },
+      {
+        "amount": 24714540,
+        "time": "2026-03-13T14:57:54.492111"
+      },
+      {
+        "amount": 21669744,
+        "time": "2026-03-13T16:04:28.824975"
+      },
+      {
+        "amount": 8957424,
+        "time": "2026-03-13T17:04:41.232065"
+      },
+      {
+        "amount": 17613024,
+        "time": "2026-03-13T18:05:47.246813"
+      },
+      {
+        "amount": 22590508,
+        "time": "2026-03-13T19:07:42.271526"
+      },
+      {
+        "amount": 6193035,
+        "time": "2026-03-13T20:10:06.857808"
+      },
+      {
+        "amount": 15785124,
+        "time": "2026-03-14T05:15:35.167757"
+      },
+      {
+        "amount": 6741164,
+        "time": "2026-03-14T06:16:04.088599"
+      },
+      {
+        "amount": 7117285,
+        "time": "2026-03-14T07:26:29.405280"
+      },
+      {
+        "amount": 6272588,
+        "time": "2026-03-14T09:23:22.517340"
       }
     ]
   },
   "8568988939": {
-    "balance": 0,
-    "games_played": 9,
-    "wins": 2,
+    "balance": 85000,
+    "games_played": 49,
+    "wins": 17,
     "used_promocodes": [
       "BN26JML2",
-      "VPXDVEVN"
+      "VPXDVEVN",
+      "KZPQL9DV",
+      "C41Q97S7",
+      "WXU0MQGQ",
+      "MLMY4JKT",
+      "BY80BTFX",
+      "2MJ57Y2T",
+      "UN4XGR1I",
+      "H9SLYSVO",
+      "X0G7C67Z",
+      "I81W311X",
+      "B6TTFHBX",
+      "TYKRGM0L",
+      "0JAP0QQI"
     ],
     "created_promocodes": [],
     "status": "novice",
-    "last_bonus": null,
-    "bonus_history": []
+    "last_bonus": "2026-03-14T07:03:30.507983",
+    "bonus_history": [
+      {
+        "amount": 1192,
+        "time": "2026-03-10T17:50:40.633352"
+      },
+      {
+        "amount": 1916,
+        "time": "2026-03-10T19:22:56.904082"
+      },
+      {
+        "amount": 924,
+        "time": "2026-03-12T08:25:58.280024"
+      },
+      {
+        "amount": 1920,
+        "time": "2026-03-12T17:45:09.672854"
+      },
+      {
+        "amount": 1899,
+        "time": "2026-03-13T21:03:42.792387"
+      },
+      {
+        "amount": 2133,
+        "time": "2026-03-14T07:03:30.507992"
+      }
+    ]
   },
   "6017749827": {
     "balance": 0,
-    "games_played": 277,
-    "wins": 68,
+    "games_played": 283,
+    "wins": 69,
     "used_promocodes": [
       "VPXDVEVN",
       "9DH6N3E6"
     ],
     "created_promocodes": [],
-    "status": "partner",
-    "last_bonus": "2026-03-09T16:00:21.158822",
+    "status": "moder",
+    "last_bonus": "2026-03-11T16:00:17.316643",
     "bonus_history": [
       {
         "amount": 92133,
@@ -1005,6 +1622,14 @@
       {
         "amount": 74405,
         "time": "2026-03-09T16:00:21.158828"
+      },
+      {
+        "amount": 1789,
+        "time": "2026-03-11T06:20:48.419163"
+      },
+      {
+        "amount": 1265,
+        "time": "2026-03-11T16:00:17.316650"
       }
     ]
   },
@@ -1028,9 +1653,9 @@
     ]
   },
   "7882096372": {
-    "balance": 0,
-    "games_played": 108,
-    "wins": 31,
+    "balance": 100000,
+    "games_played": 123,
+    "wins": 35,
     "used_promocodes": [
       "MLMY4JKT"
     ],
@@ -1055,25 +1680,42 @@
     "bonus_history": []
   },
   "8198464681": {
-    "balance": 389900,
-    "games_played": 283,
-    "wins": 131,
+    "balance": 1000000,
+    "games_played": 2137,
+    "wins": 1411,
     "used_promocodes": [
       "VCFKF32N",
       "Z8RIGEXE",
       "9DH6N3E6",
       "FJ8MIVDK",
       "L8K672K9",
-      "GWLP6LNX"
+      "GWLP6LNX",
+      "UN4XGR1I",
+      "BY80BTFX",
+      "MLMY4JKT",
+      "78AUXKY8",
+      "2H88XKNQ",
+      "TLFPE1NB",
+      "H9SLYSVO",
+      "7Y2GXIHH",
+      "X0G7C67Z",
+      "I81W311X",
+      "XRZK6DTD",
+      "OC6L0LVV"
     ],
     "created_promocodes": [
       "Z2MY8B4S",
       "3E8Y9Q0J",
       "25EOLWLC",
-      "BAYR8KI8"
+      "BAYR8KI8",
+      "ITKH7GXI",
+      "TSVLG18X",
+      "Y21AYJ1L",
+      "NV63G6E3",
+      "SRAQWEBH"
     ],
     "status": "novice",
-    "last_bonus": "2026-03-10T13:58:07.205746",
+    "last_bonus": "2026-03-14T09:28:46.978239",
     "bonus_history": [
       {
         "amount": 2462,
@@ -1090,17 +1732,34 @@
       {
         "amount": 1940,
         "time": "2026-03-10T13:58:07.205752"
+      },
+      {
+        "amount": 783,
+        "time": "2026-03-10T17:09:36.326741"
+      },
+      {
+        "amount": 1266,
+        "time": "2026-03-11T16:09:15.829739"
+      },
+      {
+        "amount": 2031,
+        "time": "2026-03-13T16:01:04.033541"
+      },
+      {
+        "amount": 2197,
+        "time": "2026-03-14T09:28:46.978246"
       }
     ]
   },
   "8490665558": {
     "balance": 0,
-    "games_played": 68,
+    "games_played": 69,
     "wins": 16,
     "used_promocodes": [
       "KXNNME5Y",
       "VCFKF32N",
-      "FJ8MIVDK"
+      "FJ8MIVDK",
+      "UN4XGR1I"
     ],
     "created_promocodes": [],
     "status": "novice",
@@ -1118,10 +1777,13 @@
   },
   "8058056630": {
     "balance": 0,
-    "games_played": 7,
+    "games_played": 10,
     "wins": 4,
     "used_promocodes": [
-      "VCFKF32N"
+      "VCFKF32N",
+      "UN4XGR1I",
+      "2H88XKNQ",
+      "TLFPE1NB"
     ],
     "created_promocodes": [],
     "status": "novice",
@@ -1145,24 +1807,33 @@
   },
   "8394079377": {
     "balance": 0,
-    "games_played": 2,
-    "wins": 0,
+    "games_played": 30,
+    "wins": 8,
     "used_promocodes": [
-      "GWLP6LNX"
+      "GWLP6LNX",
+      "TLFPE1NB"
     ],
     "created_promocodes": [],
     "status": "novice",
-    "last_bonus": "2026-03-09T14:56:44.748129",
+    "last_bonus": "2026-03-11T16:05:15.404613",
     "bonus_history": [
       {
         "amount": 2431,
         "time": "2026-03-09T14:56:44.748139"
+      },
+      {
+        "amount": 2106,
+        "time": "2026-03-11T04:56:40.112035"
+      },
+      {
+        "amount": 1301,
+        "time": "2026-03-11T16:05:15.404622"
       }
     ]
   },
   "6223577272": {
     "balance": 0,
-    "games_played": 30,
+    "games_played": 31,
     "wins": 14,
     "used_promocodes": [
       "Z8RIGEXE",
@@ -1172,11 +1843,19 @@
     ],
     "created_promocodes": [],
     "status": "legend",
-    "last_bonus": "2026-03-09T15:24:31.841495",
+    "last_bonus": "2026-03-11T03:43:13.304170",
     "bonus_history": [
       {
         "amount": 873,
         "time": "2026-03-09T15:24:31.841520"
+      },
+      {
+        "amount": 328200,
+        "time": "2026-03-10T17:41:15.092497"
+      },
+      {
+        "amount": 931538,
+        "time": "2026-03-11T03:43:13.304176"
       }
     ]
   },
@@ -1191,11 +1870,12 @@
     "bonus_history": []
   },
   "8493326566": {
-    "balance": 20000,
+    "balance": 267000,
     "games_played": 0,
     "wins": 0,
     "used_promocodes": [
-      "9DH6N3E6"
+      "9DH6N3E6",
+      "H9SLYSVO"
     ],
     "created_promocodes": [],
     "status": "novice",
@@ -1220,10 +1900,13 @@
     ]
   },
   "6753775587": {
-    "balance": 10000,
-    "games_played": 0,
-    "wins": 0,
-    "used_promocodes": [],
+    "balance": 0,
+    "games_played": 19,
+    "wins": 2,
+    "used_promocodes": [
+      "2H88XKNQ",
+      "TLFPE1NB"
+    ],
     "created_promocodes": [],
     "status": "novice",
     "last_bonus": null,
@@ -1241,49 +1924,95 @@
   },
   "6781649128": {
     "balance": 0,
-    "games_played": 165,
-    "wins": 52,
+    "games_played": 251,
+    "wins": 79,
     "used_promocodes": [
       "MLMY4JKT",
       "VPXDVEVN",
       "BN26JML2",
       "4N8XRTFC",
       "0ICPHFBF",
-      "MVGNRA63"
+      "MVGNRA63",
+      "9SJU81QG",
+      "SRAQWEBH",
+      "0JAP0QQI",
+      "X0G7C67Z",
+      "TYKRGM0L"
     ],
-    "created_promocodes": [],
-    "status": "novice",
-    "last_bonus": null,
-    "bonus_history": []
+    "created_promocodes": [
+      "9F3WP2D1"
+    ],
+    "status": "legend",
+    "last_bonus": "2026-03-14T09:34:17.020756",
+    "bonus_history": [
+      {
+        "amount": 1176,
+        "time": "2026-03-13T07:19:24.423716"
+      },
+      {
+        "amount": 577,
+        "time": "2026-03-13T08:22:48.790711"
+      },
+      {
+        "amount": 1128,
+        "time": "2026-03-13T19:10:55.507406"
+      },
+      {
+        "amount": 794261,
+        "time": "2026-03-13T20:23:28.961651"
+      },
+      {
+        "amount": 405269,
+        "time": "2026-03-14T09:34:17.020765"
+      }
+    ]
   },
   "7899894545": {
-    "balance": 0,
-    "games_played": 7,
+    "balance": 102138,
+    "games_played": 9,
     "wins": 1,
     "used_promocodes": [
       "KU7TI0PK"
     ],
-    "created_promocodes": [],
+    "created_promocodes": [
+      "NFTDNIYH"
+    ],
     "status": "novice",
-    "last_bonus": "2026-03-09T19:44:43.044176",
+    "last_bonus": "2026-03-13T05:54:27.936041",
     "bonus_history": [
       {
         "amount": 728,
         "time": "2026-03-09T19:44:43.044190"
+      },
+      {
+        "amount": 944,
+        "time": "2026-03-12T07:14:09.188570"
+      },
+      {
+        "amount": 1853,
+        "time": "2026-03-12T15:37:37.170574"
+      },
+      {
+        "amount": 2138,
+        "time": "2026-03-13T05:54:27.936048"
       }
     ]
   },
   "7879617454": {
     "balance": 0,
-    "games_played": 28,
-    "wins": 6,
+    "games_played": 73,
+    "wins": 18,
     "used_promocodes": [
       "GWLP6LNX",
-      "26ECD2IQ"
+      "26ECD2IQ",
+      "ITKH7GXI",
+      "UN4XGR1I",
+      "2H88XKNQ",
+      "H9SLYSVO"
     ],
     "created_promocodes": [],
     "status": "novice",
-    "last_bonus": "2026-03-10T06:40:14.413691",
+    "last_bonus": "2026-03-12T01:13:54.787958",
     "bonus_history": [
       {
         "amount": 948,
@@ -1296,6 +2025,18 @@
       {
         "amount": 1187,
         "time": "2026-03-10T06:40:14.413701"
+      },
+      {
+        "amount": 2074,
+        "time": "2026-03-11T06:35:35.967792"
+      },
+      {
+        "amount": 1744,
+        "time": "2026-03-11T17:28:07.674833"
+      },
+      {
+        "amount": 1545,
+        "time": "2026-03-12T01:13:54.787971"
       }
     ]
   },
@@ -1312,10 +2053,12 @@
     "bonus_history": []
   },
   "8296170377": {
-    "balance": 1000000,
-    "games_played": 4,
-    "wins": 1,
-    "used_promocodes": [],
+    "balance": 100000,
+    "games_played": 45,
+    "wins": 18,
+    "used_promocodes": [
+      "TLFPE1NB"
+    ],
     "created_promocodes": [],
     "status": "novice",
     "last_bonus": null,
@@ -1346,7 +2089,7 @@
   },
   "8312190518": {
     "balance": 0,
-    "games_played": 26,
+    "games_played": 29,
     "wins": 6,
     "used_promocodes": [
       "H8IOOX7N"
@@ -1373,7 +2116,7 @@
   },
   "5174613907": {
     "balance": 0,
-    "games_played": 4,
+    "games_played": 5,
     "wins": 3,
     "used_promocodes": [],
     "created_promocodes": [],
@@ -1402,10 +2145,13 @@
     "bonus_history": []
   },
   "6578759924": {
-    "balance": 0,
-    "games_played": 1,
-    "wins": 0,
-    "used_promocodes": [],
+    "balance": 100000,
+    "games_played": 70,
+    "wins": 6,
+    "used_promocodes": [
+      "H9SLYSVO",
+      "OC6L0LVV"
+    ],
     "created_promocodes": [],
     "status": "novice",
     "last_bonus": "2026-03-10T16:16:28.481535",
@@ -1415,5 +2161,429 @@
         "time": "2026-03-10T16:16:28.481545"
       }
     ]
+  },
+  "8572010571": {
+    "balance": 10000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "8512604736": {
+    "balance": 60086,
+    "games_played": 51,
+    "wins": 44,
+    "used_promocodes": [
+      "HMVNKZOB",
+      "C41Q97S7",
+      "78AUXKY8"
+    ],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": "2026-03-12T04:13:55.613885",
+    "bonus_history": [
+      {
+        "amount": 2421,
+        "time": "2026-03-10T17:19:13.890368"
+      },
+      {
+        "amount": 553,
+        "time": "2026-03-10T19:05:14.295381"
+      },
+      {
+        "amount": 1338,
+        "time": "2026-03-11T04:50:53.001590"
+      },
+      {
+        "amount": 942,
+        "time": "2026-03-11T15:47:29.550874"
+      },
+      {
+        "amount": 986,
+        "time": "2026-03-12T04:13:55.613892"
+      }
+    ]
+  },
+  "5911745104": {
+    "balance": 10000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "8531062510": {
+    "balance": 85000,
+    "games_played": 251,
+    "wins": 95,
+    "used_promocodes": [
+      "KZPQL9DV",
+      "C41Q97S7",
+      "NFTDNIYH",
+      "9MGHG7PP",
+      "X0G7C67Z",
+      "H9SLYSVO",
+      "B6TTFHBX",
+      "TYKRGM0L",
+      "0JAP0QQI"
+    ],
+    "created_promocodes": [
+      "WXU0MQGQ"
+    ],
+    "status": "legend",
+    "last_bonus": "2026-03-14T08:57:39.874788",
+    "bonus_history": [
+      {
+        "amount": 1665,
+        "time": "2026-03-10T18:06:00.615252"
+      },
+      {
+        "amount": 1745,
+        "time": "2026-03-10T19:23:49.533497"
+      },
+      {
+        "amount": 645,
+        "time": "2026-03-10T21:32:10.515342"
+      },
+      {
+        "amount": 810,
+        "time": "2026-03-11T04:59:30.417886"
+      },
+      {
+        "amount": 2012,
+        "time": "2026-03-11T11:47:13.950606"
+      },
+      {
+        "amount": 907,
+        "time": "2026-03-11T15:21:29.422785"
+      },
+      {
+        "amount": 2251,
+        "time": "2026-03-12T07:14:40.313534"
+      },
+      {
+        "amount": 583005,
+        "time": "2026-03-13T21:00:05.370131"
+      },
+      {
+        "amount": 590621,
+        "time": "2026-03-14T06:57:53.645929"
+      },
+      {
+        "amount": 440204,
+        "time": "2026-03-14T08:57:39.874795"
+      }
+    ]
+  },
+  "8205106540": {
+    "balance": 0,
+    "games_played": 30,
+    "wins": 4,
+    "used_promocodes": [
+      "UN4XGR1I"
+    ],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "8593202355": {
+    "balance": 0,
+    "games_played": 1,
+    "wins": 0,
+    "used_promocodes": [
+      "UN4XGR1I"
+    ],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "5846551196": {
+    "balance": 1010000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "8558416556": {
+    "balance": 0,
+    "games_played": 45,
+    "wins": 24,
+    "used_promocodes": [
+      "9MGHG7PP",
+      "DB9KDOAE"
+    ],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": "2026-03-14T07:07:25.601277",
+    "bonus_history": [
+      {
+        "amount": 1444,
+        "time": "2026-03-13T16:24:10.189756"
+      },
+      {
+        "amount": 2276,
+        "time": "2026-03-14T07:07:25.601284"
+      }
+    ]
+  },
+  "6416452928": {
+    "balance": 0,
+    "games_played": 1,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "1660322806": {
+    "balance": 9750,
+    "games_played": 10,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "7271323597": {
+    "balance": 50000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "7524103776": {
+    "balance": 50000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "7698206403": {
+    "balance": 50000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "8386314142": {
+    "balance": 0,
+    "games_played": 9,
+    "wins": 2,
+    "used_promocodes": [
+      "9SJU81QG",
+      "9F3WP2D1"
+    ],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "5609899938": {
+    "balance": 0,
+    "games_played": 5,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": "2026-03-14T07:47:40.038305",
+    "bonus_history": [
+      {
+        "amount": 943,
+        "time": "2026-03-14T07:47:40.038324"
+      }
+    ]
+  },
+  "8084849448": {
+    "balance": 50000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "7235408517": {
+    "balance": 50000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "8554366842": {
+    "balance": 90396,
+    "games_played": 1,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": "2026-03-12T10:01:15.407830",
+    "bonus_history": [
+      {
+        "amount": 1396,
+        "time": "2026-03-12T10:01:15.407870"
+      }
+    ]
+  },
+  "8476678765": {
+    "balance": 225000,
+    "games_played": 48,
+    "wins": 9,
+    "used_promocodes": [
+      "X0G7C67Z",
+      "4N8XRTFC",
+      "0ICPHFBF"
+    ],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": "2026-03-13T03:55:38.838042",
+    "bonus_history": [
+      {
+        "amount": 1755,
+        "time": "2026-03-12T17:32:34.080174"
+      },
+      {
+        "amount": 1224,
+        "time": "2026-03-12T19:06:18.897583"
+      },
+      {
+        "amount": 1198,
+        "time": "2026-03-13T03:55:38.838053"
+      }
+    ]
+  },
+  "8153747433": {
+    "balance": 50000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "8344179421": {
+    "balance": 210000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "6062703567": {
+    "balance": 0,
+    "games_played": 8,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": "2026-03-13T09:27:08.868356",
+    "bonus_history": [
+      {
+        "amount": 2269,
+        "time": "2026-03-13T09:27:08.868377"
+      }
+    ]
+  },
+  "7320950481": {
+    "balance": 50000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "8369833559": {
+    "balance": 0,
+    "games_played": 2,
+    "wins": 2,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "707693258": {
+    "balance": 0,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "7221945881": {
+    "balance": 110000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "825426314": {
+    "balance": 110000,
+    "games_played": 0,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
+  },
+  "8558398196": {
+    "balance": 0,
+    "games_played": 1,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": "2026-03-14T06:54:30.298408",
+    "bonus_history": [
+      {
+        "amount": 1561,
+        "time": "2026-03-14T06:54:30.298422"
+      }
+    ]
+  },
+  "8617402889": {
+    "balance": 0,
+    "games_played": 1,
+    "wins": 0,
+    "used_promocodes": [],
+    "created_promocodes": [],
+    "status": "novice",
+    "last_bonus": null,
+    "bonus_history": []
   }
 }
